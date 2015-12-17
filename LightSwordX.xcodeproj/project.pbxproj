@@ -1,0 +1,392 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963DF1C2299C4009F2158 /* AppDelegate.swift */; };
+		A23963E21C2299C4009F2158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963E11C2299C4009F2158 /* ViewController.swift */; };
+		A23963E41C2299C4009F2158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23963E31C2299C4009F2158 /* Assets.xcassets */; };
+		A23963E71C2299C4009F2158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A23963E51C2299C4009F2158 /* Main.storyboard */; };
+		A23963F21C2299C4009F2158 /* LightSwordXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963F11C2299C4009F2158 /* LightSwordXTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A23963EE1C2299C4009F2158 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A23963D41C2299C4009F2158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A23963DB1C2299C4009F2158;
+			remoteInfo = LightSwordX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A23963DC1C2299C4009F2158 /* LightSwordX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A23963DF1C2299C4009F2158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A23963E11C2299C4009F2158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A23963E31C2299C4009F2158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A23963E61C2299C4009F2158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A23963E81C2299C4009F2158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A23963ED1C2299C4009F2158 /* LightSwordXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightSwordXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A23963F11C2299C4009F2158 /* LightSwordXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightSwordXTests.swift; sourceTree = "<group>"; };
+		A23963F31C2299C4009F2158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A23963D91C2299C4009F2158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A23963EA1C2299C4009F2158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A23963D31C2299C4009F2158 = {
+			isa = PBXGroup;
+			children = (
+				A23963DE1C2299C4009F2158 /* LightSwordX */,
+				A23963F01C2299C4009F2158 /* LightSwordXTests */,
+				A23963DD1C2299C4009F2158 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A23963DD1C2299C4009F2158 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A23963DC1C2299C4009F2158 /* LightSwordX.app */,
+				A23963ED1C2299C4009F2158 /* LightSwordXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A23963DE1C2299C4009F2158 /* LightSwordX */ = {
+			isa = PBXGroup;
+			children = (
+				A23963DF1C2299C4009F2158 /* AppDelegate.swift */,
+				A23963E11C2299C4009F2158 /* ViewController.swift */,
+				A23963E31C2299C4009F2158 /* Assets.xcassets */,
+				A23963E51C2299C4009F2158 /* Main.storyboard */,
+				A23963E81C2299C4009F2158 /* Info.plist */,
+			);
+			path = LightSwordX;
+			sourceTree = "<group>";
+		};
+		A23963F01C2299C4009F2158 /* LightSwordXTests */ = {
+			isa = PBXGroup;
+			children = (
+				A23963F11C2299C4009F2158 /* LightSwordXTests.swift */,
+				A23963F31C2299C4009F2158 /* Info.plist */,
+			);
+			path = LightSwordXTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A23963DB1C2299C4009F2158 /* LightSwordX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A23963F61C2299C4009F2158 /* Build configuration list for PBXNativeTarget "LightSwordX" */;
+			buildPhases = (
+				A23963D81C2299C4009F2158 /* Sources */,
+				A23963D91C2299C4009F2158 /* Frameworks */,
+				A23963DA1C2299C4009F2158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightSwordX;
+			productName = LightSwordX;
+			productReference = A23963DC1C2299C4009F2158 /* LightSwordX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A23963EC1C2299C4009F2158 /* LightSwordXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A23963F91C2299C4009F2158 /* Build configuration list for PBXNativeTarget "LightSwordXTests" */;
+			buildPhases = (
+				A23963E91C2299C4009F2158 /* Sources */,
+				A23963EA1C2299C4009F2158 /* Frameworks */,
+				A23963EB1C2299C4009F2158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A23963EF1C2299C4009F2158 /* PBXTargetDependency */,
+			);
+			name = LightSwordXTests;
+			productName = LightSwordXTests;
+			productReference = A23963ED1C2299C4009F2158 /* LightSwordXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A23963D41C2299C4009F2158 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Neko;
+				TargetAttributes = {
+					A23963DB1C2299C4009F2158 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					A23963EC1C2299C4009F2158 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = A23963DB1C2299C4009F2158;
+					};
+				};
+			};
+			buildConfigurationList = A23963D71C2299C4009F2158 /* Build configuration list for PBXProject "LightSwordX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A23963D31C2299C4009F2158;
+			productRefGroup = A23963DD1C2299C4009F2158 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A23963DB1C2299C4009F2158 /* LightSwordX */,
+				A23963EC1C2299C4009F2158 /* LightSwordXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A23963DA1C2299C4009F2158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A23963E41C2299C4009F2158 /* Assets.xcassets in Resources */,
+				A23963E71C2299C4009F2158 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A23963EB1C2299C4009F2158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A23963D81C2299C4009F2158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A23963E21C2299C4009F2158 /* ViewController.swift in Sources */,
+				A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A23963E91C2299C4009F2158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A23963F21C2299C4009F2158 /* LightSwordXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A23963EF1C2299C4009F2158 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A23963DB1C2299C4009F2158 /* LightSwordX */;
+			targetProxy = A23963EE1C2299C4009F2158 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A23963E51C2299C4009F2158 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A23963E61C2299C4009F2158 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A23963F41C2299C4009F2158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A23963F51C2299C4009F2158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A23963F71C2299C4009F2158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LightSwordX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A23963F81C2299C4009F2158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LightSwordX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A23963FA1C2299C4009F2158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LightSwordXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightSwordX.app/Contents/MacOS/LightSwordX";
+			};
+			name = Debug;
+		};
+		A23963FB1C2299C4009F2158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LightSwordXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordXTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightSwordX.app/Contents/MacOS/LightSwordX";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A23963D71C2299C4009F2158 /* Build configuration list for PBXProject "LightSwordX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A23963F41C2299C4009F2158 /* Debug */,
+				A23963F51C2299C4009F2158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A23963F61C2299C4009F2158 /* Build configuration list for PBXNativeTarget "LightSwordX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A23963F71C2299C4009F2158 /* Debug */,
+				A23963F81C2299C4009F2158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A23963F91C2299C4009F2158 /* Build configuration list for PBXNativeTarget "LightSwordXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A23963FA1C2299C4009F2158 /* Debug */,
+				A23963FB1C2299C4009F2158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A23963D41C2299C4009F2158 /* Project object */;
+}

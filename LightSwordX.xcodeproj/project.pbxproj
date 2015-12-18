@@ -19,6 +19,9 @@
 		A23964301C22A2D4009F2158 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = A239642B1C22A2D4009F2158 /* yudpsocket.c */; };
 		A23964311C22A2D4009F2158 /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239642C1C22A2D4009F2158 /* yudpsocket.swift */; };
 		A23964331C22AE82009F2158 /* Socks5Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23964321C22AE82009F2158 /* Socks5Constants.swift */; };
+		A23964351C22B37A009F2158 /* SINQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; };
+		A23964361C22B37A009F2158 /* SINQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23964381C22BB9D009F2158 /* Socks5Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,20 @@
 			remoteInfo = LightSwordX;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A23964371C22B37B009F2158 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A23964361C22B37A009F2158 /* SINQ.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A23963DC1C2299C4009F2158 /* LightSwordX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +67,8 @@
 		A239642B1C22A2D4009F2158 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = yudpsocket.c; path = Socket/yudpsocket.c; sourceTree = "<group>"; };
 		A239642C1C22A2D4009F2158 /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = yudpsocket.swift; path = Socket/yudpsocket.swift; sourceTree = "<group>"; };
 		A23964321C22AE82009F2158 /* Socks5Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Constants.swift; path = Socks5/Socks5Constants.swift; sourceTree = "<group>"; };
+		A23964341C22B37A009F2158 /* SINQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SINQ.framework; path = Carthage/Build/Mac/SINQ.framework; sourceTree = "<group>"; };
+		A23964381C22BB9D009F2158 /* Socks5Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Helper.swift; path = Socks5/Socks5Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23964351C22B37A009F2158 /* SINQ.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +93,7 @@
 		A23963D31C2299C4009F2158 = {
 			isa = PBXGroup;
 			children = (
+				A23964341C22B37A009F2158 /* SINQ.framework */,
 				A23963DE1C2299C4009F2158 /* LightSwordX */,
 				A23963F01C2299C4009F2158 /* LightSwordXTests */,
 				A23963DD1C2299C4009F2158 /* Products */,
@@ -130,6 +151,7 @@
 			children = (
 				A23964251C229FC5009F2158 /* Socks5Server.swift */,
 				A23964321C22AE82009F2158 /* Socks5Constants.swift */,
+				A23964381C22BB9D009F2158 /* Socks5Helper.swift */,
 			);
 			name = Socks5;
 			sourceTree = "<group>";
@@ -144,6 +166,7 @@
 				A23963D81C2299C4009F2158 /* Sources */,
 				A23963D91C2299C4009F2158 /* Frameworks */,
 				A23963DA1C2299C4009F2158 /* Resources */,
+				A23964371C22B37B009F2158 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A239642F1C22A2D4009F2158 /* ytcpsocket.swift in Sources */,
+				A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */,
 				A23964331C22AE82009F2158 /* Socks5Constants.swift in Sources */,
 				A23963E21C2299C4009F2158 /* ViewController.swift in Sources */,
 				A23964261C229FC5009F2158 /* Socks5Server.swift in Sources */,
@@ -368,6 +392,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LightSwordX/LightSwordX.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = LightSwordX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -385,6 +413,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LightSwordX/LightSwordX.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = LightSwordX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;

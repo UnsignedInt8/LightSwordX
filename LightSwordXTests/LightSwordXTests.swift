@@ -33,4 +33,11 @@ class LightSwordXTests: XCTestCase {
         }
     }
     
+    func testIpv4() {
+        let rawData = [0x87, 0x58, 0x24, 0xef];
+        let addr = rawData.reduce("", combine: { (c: String, n: Int) in c.characters.count > 1 ? c + String(format: ".%d", n) : String(format: "%d.%d", c, n)})
+        
+        assert(addr == "135.88.36.239");
+    }
+    
 }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A224C93F1C2521F0008B64D3 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */; };
+		A224C9401C2521F0008B64D3 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A224C9431C252369008B64D3 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224C9421C252369008B64D3 /* Crypto.swift */; };
+		A224C9451C2528B0008B64D3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224C9441C2528B0008B64D3 /* String.swift */; };
 		A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963DF1C2299C4009F2158 /* AppDelegate.swift */; };
 		A23963E21C2299C4009F2158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963E11C2299C4009F2158 /* ViewController.swift */; };
 		A23963E41C2299C4009F2158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23963E31C2299C4009F2158 /* Assets.xcassets */; };
@@ -42,6 +46,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A23964361C22B37A009F2158 /* SINQ.framework in Embed Frameworks */,
+				A224C9401C2521F0008B64D3 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +54,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
+		A224C9421C252369008B64D3 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = Lib/Crypto.swift; sourceTree = "<group>"; };
+		A224C9441C2528B0008B64D3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Lib/String.swift; sourceTree = "<group>"; };
 		A23963DC1C2299C4009F2158 /* LightSwordX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23963DF1C2299C4009F2158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A23963E11C2299C4009F2158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A23964351C22B37A009F2158 /* SINQ.framework in Frameworks */,
+				A224C93F1C2521F0008B64D3 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,9 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A224C9411C252339008B64D3 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A224C9421C252369008B64D3 /* Crypto.swift */,
+				A224C9441C2528B0008B64D3 /* String.swift */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
 		A23963D31C2299C4009F2158 = {
 			isa = PBXGroup;
 			children = (
+				A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */,
 				A23964341C22B37A009F2158 /* SINQ.framework */,
 				A23963DE1C2299C4009F2158 /* LightSwordX */,
 				A23963F01C2299C4009F2158 /* LightSwordXTests */,
@@ -112,6 +131,7 @@
 		A23963DE1C2299C4009F2158 /* LightSwordX */ = {
 			isa = PBXGroup;
 			children = (
+				A224C9411C252339008B64D3 /* Lib */,
 				A23964241C229F7F009F2158 /* Socks5 */,
 				A23963FD1C229F6D009F2158 /* Socket */,
 				A23963FC1C2299E6009F2158 /* LightSwordX.entitlements */,
@@ -268,8 +288,10 @@
 				A23963E21C2299C4009F2158 /* ViewController.swift in Sources */,
 				A23964261C229FC5009F2158 /* Socks5Server.swift in Sources */,
 				A239642D1C22A2D4009F2158 /* ysocket.swift in Sources */,
+				A224C9451C2528B0008B64D3 /* String.swift in Sources */,
 				A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */,
 				A239642E1C22A2D4009F2158 /* ytcpsocket.c in Sources */,
+				A224C9431C252369008B64D3 /* Crypto.swift in Sources */,
 				A23964311C22A2D4009F2158 /* yudpsocket.swift in Sources */,
 				A23964301C22A2D4009F2158 /* yudpsocket.c in Sources */,
 			);

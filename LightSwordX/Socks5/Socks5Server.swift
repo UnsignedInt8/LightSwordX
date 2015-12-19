@@ -6,8 +6,9 @@
 //  Copyright © 2015 Neko. All rights reserved.
 //
 
-import Foundation
 import SINQ
+import Foundation
+import CryptoSwift
 
 class Socks5Server {
     var serverAddr: String!

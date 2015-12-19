@@ -115,6 +115,7 @@
 				A23964241C229F7F009F2158 /* Socks5 */,
 				A23963FD1C229F6D009F2158 /* Socket */,
 				A23963FC1C2299E6009F2158 /* LightSwordX.entitlements */,
+				A23964271C22A2D4009F2158 /* LightSwordX-Bridging-Header.h */,
 				A23963DF1C2299C4009F2158 /* AppDelegate.swift */,
 				A23963E11C2299C4009F2158 /* ViewController.swift */,
 				A23963E31C2299C4009F2158 /* Assets.xcassets */,
@@ -141,7 +142,6 @@
 				A239642A1C22A2D4009F2158 /* ytcpsocket.swift */,
 				A239642B1C22A2D4009F2158 /* yudpsocket.c */,
 				A239642C1C22A2D4009F2158 /* yudpsocket.swift */,
-				A23964271C22A2D4009F2158 /* LightSwordX-Bridging-Header.h */,
 			);
 			name = Socket;
 			sourceTree = "<group>";
@@ -471,6 +471,7 @@
 				A23963F81C2299C4009F2158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A23963F91C2299C4009F2158 /* Build configuration list for PBXNativeTarget "LightSwordXTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +480,7 @@
 				A23963FB1C2299C4009F2158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -31,7 +31,7 @@ class Socks5Server {
             print(msg)
             return false
         }
-        
+
         while running {
             if let client = server.accept() {
                 dispatch_async(queue, { () -> Void in
@@ -139,7 +139,7 @@ class Socks5Server {
     }
     
     private func connectToServer(destAddr: String, destPort: Int, client: TCPClient) {
-        let proxySocket = TCPClient(addr: destAddr, port: destPort)
+        let proxySocket = TCPClient(addr: serverAddr, port: serverPort)
         let (success, msg) = proxySocket.connect(timeout: timeout)
         if !success {
             client.close()

@@ -163,10 +163,10 @@ class Socks5Server {
         
         let (cipher, iv) = Crypto.createCipher(cipherAlgorithm, password: password)
         let pl = UInt8(arc4random() % 256)
-        let et = try! cipher.encrypt([VPN_TYPE.OSXCL5.rawValue, pl], padding: nil)
         let pa = AES.randomIV(Int(pl))
+        let et = try! cipher.encrypt(sinq([VPN_TYPE.OSXCL5.rawValue, pl]).concat(pa).concat(requestBuf).toArray(), padding: nil)
         
-        proxySocket.send(data: sinq(iv).concat(et).concat(pa).concat(requestBuf).toArray())
+        proxySocket.send(data: sinq(iv).concat(et).toArray())
         
         let data: [UInt8]! = proxySocket.read(200, timeout: timeout)
         if data == nil {

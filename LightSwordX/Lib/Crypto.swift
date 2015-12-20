@@ -18,7 +18,7 @@ class Crypto {
         "aes-128-cfb": (info: [16, 16], blockMode: CipherBlockMode.CFB)
     ]
     
-    static func createCipher(algorithm: String, password: String, iv: [UInt8]?) -> (cipher: AES, iv: [UInt8]) {
+    static func createCipher(algorithm: String, password: String, iv: [UInt8]? = nil) -> (cipher: AES, iv: [UInt8]) {
         var tuple: (info: [Int], blockMode: CipherBlockMode)! = SupportedCiphers[algorithm.lowercaseString]
         if tuple == nil {
             tuple = (info: [32, 16], blockMode: CipherBlockMode.CFB)

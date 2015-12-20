@@ -19,16 +19,28 @@ class Socks5Server {
     var password: String!
     var timeout: Int!
     var bypassLocal: Bool!
+    private(set) var sentBytes: UInt64 = 0
+    private(set) var receBytes: UInt64 = 0
     
     private var server: TCPServer!
     private var running = true
     private var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     private let localAreas = ["10.", "192.168.", "localhost", "127.0.0.1", "172.16.", "::1", "169.254.0.0"]
+    private let localServers = ["127.0.0.1", "localhost", "::1"]
     
-    func start() -> Bool {
+    func start() {
+        dispatch_async(queue) {
+            self.startAsync()
+        }
+    }
+    
+    func startAsync() -> Bool {
+        running = true
+        
         server = TCPServer(addr: listenAddr, port: listenPort)
         let (success, msg) = server.listen()
         if !success {
+            running = false
             print(msg)
             return false
         }
@@ -56,7 +68,7 @@ class Socks5Server {
                     }
                     
                     let request = Socks5Helper.refineDestination(data!)
-                    let connectLocal = self.bypassLocal.boolValue && sinq(self.localAreas).any({ s in request.addr.containsString(s)})
+                    let connectLocal = sinq(self.localServers).any({ s in self.serverAddr.containsString(s)}) || self.bypassLocal.boolValue && sinq(self.localAreas).any({ s in request.addr.containsString(s)})
                     
                     switch(request.cmd) {
                     case .BIND:
@@ -65,7 +77,7 @@ class Socks5Server {
                         if (connectLocal) {
                             self.connectToTarget(request.addr, destPort: request.port, requestBuf: data!, client: client)
                         } else {
-                            self.connectToServer(request.addr, destPort: request.port, client: client)
+                            self.connectToServer(request.addr, destPort: request.port, requestBuf: data!, client: client)
                         }
                         
                         break
@@ -79,11 +91,12 @@ class Socks5Server {
     }
     
     func stop() {
+        running = false
+        
         if server == nil {
             return
         }
         
-        running = false
         server.close()
         server = nil
     }
@@ -139,7 +152,7 @@ class Socks5Server {
         })
     }
     
-    private func connectToServer(destAddr: String, destPort: Int, client: TCPClient) {
+    private func connectToServer(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient) {
         let proxySocket = TCPClient(addr: serverAddr, port: serverPort)
         let (success, msg) = proxySocket.connect(timeout: timeout)
         if !success {
@@ -148,6 +161,55 @@ class Socks5Server {
             return
         }
         
+        let (cipher, iv) = Crypto.createCipher(cipherAlgorithm, password: password)
+        let pl = UInt8(arc4random() % 256)
+        let et = try! cipher.encrypt([VPN_TYPE.OSXCL5.rawValue, pl], padding: nil)
+        let pa = AES.randomIV(Int(pl))
         
+        proxySocket.send(data: sinq(iv).concat(et).concat(pa).concat(requestBuf).toArray())
+        
+        let data: [UInt8]! = proxySocket.read(200, timeout: timeout)
+        if data == nil {
+            client.close()
+            proxySocket.close()
+            return
+        }
+        
+        let riv = sinq(data).take(iv.count).toArray()
+        let (cipher: decipher, _) = Crypto.createCipher(cipherAlgorithm, password: password, iv: riv)
+        let rlBuf = sinq(data).skip(iv.count).toArray()
+        var reBuf = try! decipher.decrypt(rlBuf, padding: nil)
+        let paddingSize = reBuf[0]
+        
+        reBuf = sinq(reBuf).skip(1 + Int(paddingSize)).toArray()
+        client.send(data: reBuf)
+        
+        print("connected:", destAddr)
+        
+        dispatch_async(queue, { () -> Void in
+            while true {
+                if let data = client.read(1500, timeout: self.timeout) {
+                    proxySocket.send(data: data)
+                    self.sentBytes += UInt64(data.count)
+                } else {
+                    proxySocket.close()
+                    client.close()
+                    break
+                }
+            }
+        })
+        
+        dispatch_async(queue, { () -> Void in
+            while true {
+                if let data = proxySocket.read(1500, timeout: self.timeout) {
+                    client.send(data: data)
+                    self.receBytes += UInt64(data.count)
+                } else {
+                    proxySocket.close()
+                    client.close()
+                    break
+                }
+            }
+        })
     }
 }

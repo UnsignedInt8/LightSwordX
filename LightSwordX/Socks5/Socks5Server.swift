@@ -132,7 +132,6 @@ class Socks5Server {
                 } else {
                     client.close()
                     transitSocket.close()
-                    print("closed from client")
                     break
                 }
             }
@@ -145,7 +144,6 @@ class Socks5Server {
                 } else {
                     client.close()
                     transitSocket.close()
-                    print("closed from proxy")
                     break
                 }
             }
@@ -168,7 +166,7 @@ class Socks5Server {
         
         proxySocket.send(data: sinq(iv).concat(et).toArray())
         
-        let data: [UInt8]! = proxySocket.read(200, timeout: timeout)
+        let data: [UInt8]! = proxySocket.read(512, timeout: timeout)
         if data == nil {
             client.close()
             proxySocket.close()

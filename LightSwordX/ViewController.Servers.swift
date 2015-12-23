@@ -100,8 +100,18 @@ extension ViewController: NSComboBoxDelegate {
         default:
             return
         }
-
-        SettingsHelper.saveValue(JSON(servers).toString(), forKey: "")
+        
+        isDirty = true
+    }
+    
+    override func controlTextDidEndEditing(obj: NSNotification) {
+        if !isDirty {
+            return
+        }
+        
+        let dict = servers.map{ s in return ["address": s.address, "port": s.port, "cipherAlgorithm": s.cipherAlgorithm, "password": s.password, "isDefault": s.isDefault] }
+        SettingsHelper.saveValue(JSON(dict).toString(), forKey: serversKey)
+        isDirty = false
     }
     
     func comboBoxSelectionDidChange(notification: NSNotification) {

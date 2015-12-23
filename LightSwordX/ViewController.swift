@@ -13,11 +13,10 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        serverDetailsView.hidden = true
+        serverDetailsView.hidden = servers.count == 0 ? true : false
     }
     
     override func awakeFromNib() {
-        
         let jsonStr = SettingsHelper.loadValue(defaultValue: "", forKey: self.serversKey)
         
         if (jsonStr.length == 0) {
@@ -28,10 +27,12 @@ class ViewController: NSViewController {
         let jObjs = JSON(string: jsonStr)
         self.servers = jObjs.map{ obj, jObj in
             let server = UserServer()
+            
             server.address = jObj["address"].asString!
             server.port = jObj["port"].asInt!
             server.cipherAlgorithm = jObj["cipherAlgorithm"].asString!
             server.password = jObj["password"].asString!
+            server.isDefault = jObj["isDefault"].asBool!
             
             return server
         }
@@ -44,6 +45,7 @@ class ViewController: NSViewController {
     let serversKey = "Servers";
     var servers: [UserServer]!
     var selectedServer: UserServer!
+    var isDirty = false
     
     @IBOutlet weak var serversTableView: NSTableView!
     @IBOutlet weak var serverDetailsView: NSView!
@@ -54,15 +56,15 @@ class ViewController: NSViewController {
     @IBOutlet weak var setAsDefaultCheckBox: NSButton!
     @IBOutlet weak var connectionStatus: NSTextField!
     
-    func startServer(info: UserServer) {
+    func startServer(userServer: UserServer) {
         let server = Socks5Server()
         server.listenAddr = "127.0.0.1"
         server.listenPort = 2002
-        server.serverAddr = "silver.local"//"localhost"
-        server.serverPort = 8900
+        server.serverAddr = userServer.address
+        server.serverPort = userServer.port
         server.bypassLocal = true
-        server.cipherAlgorithm = "aes-256-cfb"
-        server.password = "lightsword.neko"
+        server.cipherAlgorithm = userServer.cipherAlgorithm
+        server.password = userServer.password
         server.timeout = 60 * 1000
         server.start()
     }

@@ -748,7 +748,7 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0g-Yo-ukb">
-                                <rect key="frame" x="18" y="12" width="175" height="17"/>
+                                <rect key="frame" x="18" y="10" width="175" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="171" id="HQM-Ys-Qss"/>
                                     <constraint firstAttribute="height" constant="17" id="hxm-ik-e3i"/>
@@ -764,7 +764,7 @@
                             <constraint firstItem="cq7-CL-KgT" firstAttribute="leading" secondItem="Gpu-QG-BPR" secondAttribute="leading" constant="20" id="IhX-Y3-m8S"/>
                             <constraint firstAttribute="trailing" secondItem="cq7-CL-KgT" secondAttribute="trailing" constant="20" id="QBc-ut-Rv4"/>
                             <constraint firstItem="W0g-Yo-ukb" firstAttribute="leading" secondItem="Gpu-QG-BPR" secondAttribute="leading" constant="20" id="WHG-82-9dM"/>
-                            <constraint firstAttribute="bottom" secondItem="W0g-Yo-ukb" secondAttribute="bottom" constant="12" id="XOV-sg-cgJ"/>
+                            <constraint firstAttribute="bottom" secondItem="W0g-Yo-ukb" secondAttribute="bottom" constant="10" id="XOV-sg-cgJ"/>
                             <constraint firstAttribute="trailing" secondItem="e6t-hs-Xqb" secondAttribute="trailing" constant="20" id="Zxu-hi-ifU"/>
                             <constraint firstAttribute="bottom" secondItem="e6t-hs-Xqb" secondAttribute="bottom" constant="10" id="j91-YV-AMw"/>
                             <constraint firstItem="e6t-hs-Xqb" firstAttribute="top" secondItem="cq7-CL-KgT" secondAttribute="bottom" constant="10" id="jmU-2o-pSZ"/>
@@ -773,6 +773,7 @@
                     </view>
                     <connections>
                         <outlet property="cipherAlgorithmComboBox" destination="UxA-ft-xlb" id="bhv-dJ-1gu"/>
+                        <outlet property="connectionStatus" destination="W0g-Yo-ukb" id="DcL-ED-9EY"/>
                         <outlet property="passwordTextField" destination="tw4-3U-vVZ" id="2VG-Mv-zzp"/>
                         <outlet property="serverAddressTextField" destination="tLz-gS-MnF" id="sCK-vn-UGb"/>
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>

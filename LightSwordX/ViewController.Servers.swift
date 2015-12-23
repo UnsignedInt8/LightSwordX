@@ -10,7 +10,6 @@ import Cocoa
 
 extension ViewController: NSTableViewDataSource {
     
-    
     @objc func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return servers.count
     }
@@ -48,9 +47,9 @@ extension ViewController: NSTableViewDataSource {
     }
 }
 
-extension ViewController: NSTableViewDelegate, NSComboBoxDelegate {
+extension ViewController: NSTableViewDelegate {
     func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        print(row)
+
         let info = servers[row]
         
         serverAddressTextField.stringValue = info.address
@@ -62,26 +61,41 @@ extension ViewController: NSTableViewDelegate, NSComboBoxDelegate {
         selectedServer = info
         return true
     }
+}
+
+extension ViewController: NSComboBoxDelegate {
     
     override func controlTextDidChange(obj: NSNotification) {
         let textField = obj.object as! NSTextField
-        let newValue = textField.stringValue
+        var newValue = textField.stringValue
         
         switch textField.identifier! {
-            case "serverAddress":
-                selectedServer.address = newValue
-                serversTableView.reloadData()
-                break
-            case "serverPort":
-                let port = Int(newValue) ?? 8900
-                selectedServer.port = port
-                serverPortTextField.stringValue = String(port)
-                break
-            case "password":
-                selectedServer.password = newValue
-                break
-            default:
-                break
+            
+        case "serverAddress":
+            if (newValue.length == 0) {
+                newValue = "127.0.0.1"
+            }
+            
+            selectedServer.address = newValue
+            serversTableView.reloadData()
+            break
+            
+        case "serverPort":
+            let port = Int(newValue) ?? 8900
+            selectedServer.port = port
+            serverPortTextField.stringValue = String(port)
+            break
+            
+        case "password":
+            if (newValue.length == 0) {
+                newValue = "lightsword.neko"
+            }
+            
+            selectedServer.password = newValue
+            break
+            
+        default:
+            break
         }
     }
     
@@ -91,7 +105,7 @@ extension ViewController: NSTableViewDelegate, NSComboBoxDelegate {
         if (comboBox.identifier != "cipherAlgorithm") {
             return
         }
-
+        
         let methods = ["aes-256-cfb", "aes-192-cfb", "aes-128-cfb"]
         let selectedIndex = comboBox.indexOfSelectedItem
         selectedServer.cipherAlgorithm = methods[selectedIndex]

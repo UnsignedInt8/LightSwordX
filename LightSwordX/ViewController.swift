@@ -7,18 +7,13 @@
 //
 
 import Cocoa
+import SINQ
 
 class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         serverDetailsView.hidden = true
-    }
-
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
     }
     
     override func awakeFromNib() {
@@ -30,8 +25,8 @@ class ViewController: NSViewController {
             return
         }
         
-        let servers = JSON(string: jsonStr)
-        self.servers = servers.map{ obj, jObj in
+        let jObjs = JSON(string: jsonStr)
+        self.servers = jObjs.map{ obj, jObj in
             let server = UserServer()
             server.address = jObj["address"].asString!
             server.port = jObj["port"].asInt!
@@ -39,6 +34,10 @@ class ViewController: NSViewController {
             server.password = jObj["password"].asString!
             
             return server
+        }
+        
+        if let defaultServer = sinq(servers).firstOrNil({ s in s.isDefault }) {
+            startServer(defaultServer)
         }
     }
     
@@ -53,6 +52,19 @@ class ViewController: NSViewController {
     @IBOutlet weak var cipherAlgorithmComboBox: NSComboBox!
     @IBOutlet weak var passwordTextField: NSSecureTextField!
     @IBOutlet weak var setAsDefaultCheckBox: NSButton!
+    @IBOutlet weak var connectionStatus: NSTextField!
     
+    func startServer(info: UserServer) {
+        let server = Socks5Server()
+        server.listenAddr = "127.0.0.1"
+        server.listenPort = 2002
+        server.serverAddr = "silver.local"//"localhost"
+        server.serverPort = 8900
+        server.bypassLocal = true
+        server.cipherAlgorithm = "aes-256-cfb"
+        server.password = "lightsword.neko"
+        server.timeout = 60 * 1000
+        server.start()
+    }
 }
 

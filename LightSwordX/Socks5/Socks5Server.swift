@@ -166,7 +166,7 @@ class Socks5Server {
         
         proxySocket.send(data: sinq(iv).concat(et).toArray())
         
-        let data: [UInt8]! = proxySocket.read(512, timeout: timeout)
+        let data: [UInt8]! = proxySocket.read(1024, timeout: timeout)
         if data == nil {
             client.close()
             proxySocket.close()
@@ -187,7 +187,7 @@ class Socks5Server {
         dispatch_async(queue, { () -> Void in
             while true {
                 if let data = client.read(1500, timeout: self.timeout) {
-                    proxySocket.send(data: data.map{n in n ^ pl})
+                    proxySocket.send(data: data.map{ n in n ^ pl })
                     self.sentBytes += UInt64(data.count)
                 } else {
                     proxySocket.close()

@@ -27,6 +27,10 @@
 		A23964351C22B37A009F2158 /* SINQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; };
 		A23964361C22B37A009F2158 /* SINQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23964381C22BB9D009F2158 /* Socks5Helper.swift */; };
+		A248203D1C2A3D0F00EE41A3 /* UserServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203C1C2A3D0F00EE41A3 /* UserServer.swift */; };
+		A248203F1C2A45CF00EE41A3 /* UserServersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* UserServersDataSource.swift */; };
+		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
+		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		A23964321C22AE82009F2158 /* Socks5Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Constants.swift; path = Socks5/Socks5Constants.swift; sourceTree = "<group>"; };
 		A23964341C22B37A009F2158 /* SINQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SINQ.framework; path = Carthage/Build/Mac/SINQ.framework; sourceTree = "<group>"; };
 		A23964381C22BB9D009F2158 /* Socks5Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Helper.swift; path = Socks5/Socks5Helper.swift; sourceTree = "<group>"; };
+		A248203C1C2A3D0F00EE41A3 /* UserServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServer.swift; path = Models/UserServer.swift; sourceTree = "<group>"; };
+		A248203E1C2A45CF00EE41A3 /* UserServersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServersDataSource.swift; sourceTree = "<group>"; };
+		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
+		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +112,11 @@
 		A224C9411C252339008B64D3 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A24820401C2A4BCB00EE41A3 /* Json.swift */,
 				A224C9421C252369008B64D3 /* Crypto.swift */,
 				A224C9441C2528B0008B64D3 /* String.swift */,
 				A22E7ED71C26366A000785E3 /* Constants.swift */,
+				A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -134,6 +144,7 @@
 		A23963DE1C2299C4009F2158 /* LightSwordX */ = {
 			isa = PBXGroup;
 			children = (
+				A248203B1C2A3CF400EE41A3 /* Models */,
 				A224C9411C252339008B64D3 /* Lib */,
 				A23964241C229F7F009F2158 /* Socks5 */,
 				A23963FD1C229F6D009F2158 /* Socket */,
@@ -144,6 +155,7 @@
 				A23963E31C2299C4009F2158 /* Assets.xcassets */,
 				A23963E51C2299C4009F2158 /* Main.storyboard */,
 				A23963E81C2299C4009F2158 /* Info.plist */,
+				A248203E1C2A45CF00EE41A3 /* UserServersDataSource.swift */,
 			);
 			path = LightSwordX;
 			sourceTree = "<group>";
@@ -177,6 +189,14 @@
 				A23964381C22BB9D009F2158 /* Socks5Helper.swift */,
 			);
 			name = Socks5;
+			sourceTree = "<group>";
+		};
+		A248203B1C2A3CF400EE41A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A248203C1C2A3D0F00EE41A3 /* UserServer.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A248203F1C2A45CF00EE41A3 /* UserServersDataSource.swift in Sources */,
+				A248203D1C2A3D0F00EE41A3 /* UserServer.swift in Sources */,
 				A239642F1C22A2D4009F2158 /* ytcpsocket.swift in Sources */,
 				A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */,
 				A23964331C22AE82009F2158 /* Socks5Constants.swift in Sources */,
@@ -295,9 +317,11 @@
 				A22E7ED81C26366A000785E3 /* Constants.swift in Sources */,
 				A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */,
 				A239642E1C22A2D4009F2158 /* ytcpsocket.c in Sources */,
+				A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */,
 				A224C9431C252369008B64D3 /* Crypto.swift in Sources */,
 				A23964311C22A2D4009F2158 /* yudpsocket.swift in Sources */,
 				A23964301C22A2D4009F2158 /* yudpsocket.c in Sources */,
+				A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

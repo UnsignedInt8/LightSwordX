@@ -21,6 +21,6 @@ class ViewController: NSViewController {
         }
     }
 
-
+    var userServers = [UserServer]()
 }
 

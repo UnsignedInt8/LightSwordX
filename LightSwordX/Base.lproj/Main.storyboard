@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B3C-Ed-y2d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -381,7 +382,7 @@
         <!--LightSwordX-->
         <scene sceneID="nsA-oh-1ZP">
             <objects>
-                <viewController title="LightSwordX" id="B3C-Ed-y2d" sceneMemberID="viewController">
+                <viewController title="LightSwordX" id="B3C-Ed-y2d" customClass="ViewController" customModule="LightSwordX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Gpu-QG-BPR" customClass="NSVisualEffectView">
                         <rect key="frame" x="0.0" y="0.0" width="570" height="308"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -449,7 +450,7 @@
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </clipView>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="150" id="7LQ-Tj-XP6"/>
+                                                        <constraint firstAttribute="width" secondItem="BDA-ZQ-fYz" secondAttribute="height" multiplier="15:17" id="OBy-of-mxW"/>
                                                     </constraints>
                                                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="0Lz-db-zWe">
                                                         <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
@@ -589,6 +590,7 @@
                                                         <constraint firstItem="tw4-3U-vVZ" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="Hcp-I3-83A"/>
                                                         <constraint firstAttribute="trailing" secondItem="tw4-3U-vVZ" secondAttribute="trailing" constant="68" id="JQv-Mr-Uk0"/>
                                                         <constraint firstItem="mIT-kx-D6r" firstAttribute="leading" secondItem="Jc0-77-5DV" secondAttribute="trailing" constant="8" id="LKM-va-VRS"/>
+                                                        <constraint firstAttribute="width" secondItem="1xq-7E-ppc" secondAttribute="height" multiplier="166:95" id="MLJ-vF-iQN"/>
                                                         <constraint firstItem="Jc0-77-5DV" firstAttribute="leading" secondItem="tLz-gS-MnF" secondAttribute="trailing" constant="8" id="POC-Pw-fYJ"/>
                                                         <constraint firstItem="i14-i0-AsW" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="QAG-Ha-N6s"/>
                                                         <constraint firstItem="HXS-f0-CGf" firstAttribute="top" secondItem="tw4-3U-vVZ" secondAttribute="bottom" constant="19" id="T1P-jV-Q5o"/>
@@ -622,7 +624,7 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="GFWList" identifier="2" id="EcX-pW-W6U">
+                                    <tabViewItem label="Websites" identifier="2" id="EcX-pW-W6U">
                                         <view key="view" id="E1d-1S-PnP">
                                             <rect key="frame" x="10" y="33" width="524" height="225"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,10 +639,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="182"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="223" height="182"/>
+                                                                <size key="minSize" width="238" height="182"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="223" height="182"/>
+                                                                <size key="minSize" width="238" height="182"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                             </textView>
                                                         </subviews>
@@ -651,7 +653,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="OkA-Vd-bSl">
-                                                        <rect key="frame" x="224" y="1" width="15" height="182"/>
+                                                        <rect key="frame" x="223" y="1" width="16" height="182"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -681,10 +683,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="182"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="223" height="182"/>
+                                                                <size key="minSize" width="238" height="182"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="223" height="182"/>
+                                                                <size key="minSize" width="238" height="182"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                             </textView>
                                                         </subviews>
@@ -695,7 +697,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Ue0-zu-Rku">
-                                                        <rect key="frame" x="224" y="1" width="15" height="182"/>
+                                                        <rect key="frame" x="223" y="1" width="16" height="182"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -731,8 +733,12 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W0g-Yo-ukb">
-                                <rect key="frame" x="18" y="12" width="109" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0g-Yo-ukb">
+                                <rect key="frame" x="18" y="12" width="175" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="171" id="HQM-Ys-Qss"/>
+                                    <constraint firstAttribute="height" constant="17" id="hxm-ik-e3i"/>
+                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="◉ Stopped" id="Dlh-tC-hWx">
                                     <font key="font" size="13" name=".HiraKakuInterface-W3"/>
                                     <color key="textColor" red="0.36765788612565442" green="0.36765788612565442" blue="0.36765788612565442" alpha="0.85366799645390068" colorSpace="calibratedRGB"/>
@@ -743,6 +749,8 @@
                         <constraints>
                             <constraint firstItem="cq7-CL-KgT" firstAttribute="leading" secondItem="Gpu-QG-BPR" secondAttribute="leading" constant="20" id="IhX-Y3-m8S"/>
                             <constraint firstAttribute="trailing" secondItem="cq7-CL-KgT" secondAttribute="trailing" constant="20" id="QBc-ut-Rv4"/>
+                            <constraint firstItem="W0g-Yo-ukb" firstAttribute="leading" secondItem="Gpu-QG-BPR" secondAttribute="leading" constant="20" id="WHG-82-9dM"/>
+                            <constraint firstAttribute="bottom" secondItem="W0g-Yo-ukb" secondAttribute="bottom" constant="12" id="XOV-sg-cgJ"/>
                             <constraint firstAttribute="trailing" secondItem="e6t-hs-Xqb" secondAttribute="trailing" constant="20" id="Zxu-hi-ifU"/>
                             <constraint firstAttribute="bottom" secondItem="e6t-hs-Xqb" secondAttribute="bottom" constant="10" id="j91-YV-AMw"/>
                             <constraint firstItem="e6t-hs-Xqb" firstAttribute="top" secondItem="cq7-CL-KgT" secondAttribute="bottom" constant="10" id="jmU-2o-pSZ"/>

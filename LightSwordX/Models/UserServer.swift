@@ -9,9 +9,9 @@
 import Foundation
 
 public class UserServer {
-    var address: String!
-    var port: Int!
+    var address = "127.0.0.1"
+    var port = 8900
     var cipherAlgorithm = "aes-256-cfb"
     var password = "lightsword.neko"
-    
+    var isDefault = false
 }

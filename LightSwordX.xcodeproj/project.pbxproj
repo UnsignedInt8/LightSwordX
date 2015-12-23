@@ -28,7 +28,7 @@
 		A23964361C22B37A009F2158 /* SINQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23964381C22BB9D009F2158 /* Socks5Helper.swift */; };
 		A248203D1C2A3D0F00EE41A3 /* UserServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203C1C2A3D0F00EE41A3 /* UserServer.swift */; };
-		A248203F1C2A45CF00EE41A3 /* UserServersDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* UserServersDataSource.swift */; };
+		A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */; };
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
 		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
 /* End PBXBuildFile section */
@@ -84,7 +84,7 @@
 		A23964341C22B37A009F2158 /* SINQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SINQ.framework; path = Carthage/Build/Mac/SINQ.framework; sourceTree = "<group>"; };
 		A23964381C22BB9D009F2158 /* Socks5Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Helper.swift; path = Socks5/Socks5Helper.swift; sourceTree = "<group>"; };
 		A248203C1C2A3D0F00EE41A3 /* UserServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServer.swift; path = Models/UserServer.swift; sourceTree = "<group>"; };
-		A248203E1C2A45CF00EE41A3 /* UserServersDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServersDataSource.swift; sourceTree = "<group>"; };
+		A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Servers.swift; sourceTree = "<group>"; };
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
 		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,10 +152,10 @@
 				A23964271C22A2D4009F2158 /* LightSwordX-Bridging-Header.h */,
 				A23963DF1C2299C4009F2158 /* AppDelegate.swift */,
 				A23963E11C2299C4009F2158 /* ViewController.swift */,
+				A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */,
 				A23963E31C2299C4009F2158 /* Assets.xcassets */,
 				A23963E51C2299C4009F2158 /* Main.storyboard */,
 				A23963E81C2299C4009F2158 /* Info.plist */,
-				A248203E1C2A45CF00EE41A3 /* UserServersDataSource.swift */,
 			);
 			path = LightSwordX;
 			sourceTree = "<group>";
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A248203F1C2A45CF00EE41A3 /* UserServersDataSource.swift in Sources */,
+				A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */,
 				A248203D1C2A3D0F00EE41A3 /* UserServer.swift in Sources */,
 				A239642F1C22A2D4009F2158 /* ytcpsocket.swift in Sources */,
 				A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */,

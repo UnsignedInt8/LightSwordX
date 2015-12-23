@@ -20,14 +20,19 @@ extension ViewController: NSTableViewDataSource {
     
     @IBAction func addServer(sender: NSButton) {
         let server = UserServer()
-        server.isDefault = servers.count == 0 ? true : false
+        server.keepConnection = servers.count == 0 ? true : false
         
         servers.append(server)
         serversTableView.reloadData()
         serverDetailsView.hidden = false
+        keepConnectionCheckBox.state = server.keepConnection ? NSOnState : NSOffState
 
         let indexSet = NSIndexSet(index: servers.count - 1)
         serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
+        
+        if (server.keepConnection) {
+            startServer(server)
+        }
     }
     
     @IBAction func removeServer(sender: NSButton) {
@@ -45,8 +50,10 @@ extension ViewController: NSTableViewDataSource {
     }
     
     @IBAction func setAsDefaultServer(sender: NSButton) {
-        servers.forEach{ s in s.isDefault = false }
-        selectedServer.isDefault = !selectedServer.isDefault
+        selectedServer.keepConnection = !selectedServer.keepConnection
+        if selectedServer.keepConnection {
+            
+        }
     }
 }
 
@@ -59,7 +66,7 @@ extension ViewController: NSTableViewDelegate {
         serverPortTextField.stringValue = String(info.port)
         cipherAlgorithmComboBox.stringValue = info.cipherAlgorithm
         passwordTextField.stringValue = info.password
-        setAsDefaultCheckBox.state = info.isDefault ? NSOnState : NSOffState
+        keepConnectionCheckBox.state = info.keepConnection ? NSOnState : NSOffState
         
         selectedServer = info
         return true
@@ -105,13 +112,7 @@ extension ViewController: NSComboBoxDelegate {
     }
     
     override func controlTextDidEndEditing(obj: NSNotification) {
-        if !isDirty {
-            return
-        }
-        
-        let dict = servers.map{ s in return ["address": s.address, "port": s.port, "cipherAlgorithm": s.cipherAlgorithm, "password": s.password, "isDefault": s.isDefault] }
-        SettingsHelper.saveValue(JSON(dict).toString(), forKey: serversKey)
-        isDirty = false
+        saveServers()
     }
     
     func comboBoxSelectionDidChange(notification: NSNotification) {

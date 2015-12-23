@@ -28,23 +28,25 @@ class Socks5Server {
     private let localAreas = ["10.", "192.168.", "localhost", "127.0.0.1", "172.16.", "::1", "169.254.0.0"]
     private let localServers = ["127.0.0.1", "localhost", "::1"]
     
-    func start() {
+    func startAsync(callback: (success: Bool) -> Void) {
         dispatch_async(queue) {
-            self.startAsync()
+            self.startSync(callback)
         }
     }
     
-    func startAsync() -> Bool {
+    func startSync(callback: (success: Bool) -> Void) {
         running = true
         
         server = TCPServer(addr: listenAddr, port: listenPort)
         let (success, msg) = server.listen()
         if !success {
             running = false
+            callback(success: false)
             print(msg)
-            return false
+            return
         }
 
+        callback(success: true)
         while running {
             if let client = server.accept() {
                 dispatch_async(queue, { () -> Void in
@@ -87,7 +89,7 @@ class Socks5Server {
                 })
             }
         }
-        return true
+        
     }
     
     func stop() {

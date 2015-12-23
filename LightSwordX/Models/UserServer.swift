@@ -11,7 +11,9 @@ import Foundation
 public class UserServer {
     var address = "127.0.0.1"
     var port = 8900
+    var listenAddr = "127.0.0.1"
+    var listenPort = 1080
     var cipherAlgorithm = "aes-256-cfb"
     var password = "lightsword.neko"
-    var isDefault = false
+    var keepConnection = false
 }

@@ -584,8 +584,8 @@
                                                             </buttonCell>
                                                         </button>
                                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XJ-S9-V5S">
-                                                            <rect key="frame" x="1" y="1" width="106" height="18"/>
-                                                            <buttonCell key="cell" type="check" title="Set as default" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tZb-9v-MfO">
+                                                            <rect key="frame" x="1" y="1" width="126" height="18"/>
+                                                            <buttonCell key="cell" type="check" title="Keep Connection" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tZb-9v-MfO">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
@@ -738,6 +738,12 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                     </tabViewItem>
+                                    <tabViewItem label="Settings" identifier="" id="gyd-cc-HxZ">
+                                        <view key="view" id="7rm-bY-d0A">
+                                            <rect key="frame" x="10" y="33" width="524" height="225"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </tabViewItem>
                                 </tabViewItems>
                             </tabView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e6t-hs-Xqb">
@@ -774,12 +780,12 @@
                     <connections>
                         <outlet property="cipherAlgorithmComboBox" destination="UxA-ft-xlb" id="bhv-dJ-1gu"/>
                         <outlet property="connectionStatus" destination="W0g-Yo-ukb" id="DcL-ED-9EY"/>
+                        <outlet property="keepConnectionCheckBox" destination="2XJ-S9-V5S" id="mDB-FH-fEb"/>
                         <outlet property="passwordTextField" destination="tw4-3U-vVZ" id="2VG-Mv-zzp"/>
                         <outlet property="serverAddressTextField" destination="tLz-gS-MnF" id="sCK-vn-UGb"/>
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>
                         <outlet property="serverPortTextField" destination="mIT-kx-D6r" id="g3c-RY-QE2"/>
                         <outlet property="serversTableView" destination="HBH-e3-SfQ" id="YNK-VL-TXv"/>
-                        <outlet property="setAsDefaultCheckBox" destination="2XJ-S9-V5S" id="GYe-0p-Qfm"/>
                     </connections>
                 </viewController>
                 <customObject id="s1g-JA-Cfe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

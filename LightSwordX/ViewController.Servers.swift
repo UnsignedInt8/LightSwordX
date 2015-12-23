@@ -25,6 +25,9 @@ extension ViewController: NSTableViewDataSource {
         servers.append(server)
         serversTableView.reloadData()
         serverDetailsView.hidden = false
+
+        let indexSet = NSIndexSet(index: servers.count - 1)
+        serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
     }
     
     @IBAction func removeServer(sender: NSButton) {
@@ -95,8 +98,10 @@ extension ViewController: NSComboBoxDelegate {
             break
             
         default:
-            break
+            return
         }
+
+        SettingsHelper.saveValue(JSON(servers).toString(), forKey: "")
     }
     
     func comboBoxSelectionDidChange(notification: NSNotification) {

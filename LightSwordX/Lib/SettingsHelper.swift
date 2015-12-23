@@ -12,7 +12,7 @@ public class SettingsHelper {
     
     private static let defaults = NSUserDefaults.standardUserDefaults()
     
-    public class func saveValue<T: AnyObject>(value: T, forKey key: String) {
+    public class func saveValue(value: AnyObject, forKey key: String) {
         defaults.setValue(value, forKey: key)
     }
     

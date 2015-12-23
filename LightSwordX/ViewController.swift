@@ -102,7 +102,7 @@ class ViewController: NSViewController {
     
     func updateStatusText(runningCount: Int) {
         dispatch_async(dispatch_get_main_queue()) {
-            let color = runningCount == 0 ? NSColor.grayColor() : NSColor(red: 92.0 / 255, green: 214.0 / 255, blue: 92.0 / 255, alpha: 1)
+            let color = runningCount == 0 ? NSColor.grayColor() : NSColor(red: 51.0 / 255, green: 204.0 / 255, blue: 51 / 255, alpha: 1)
             let text = runningCount == 0 ? "Stopped" : "Running: \(runningCount)"
             
             self.connectionStatus.textColor = color

@@ -20,7 +20,10 @@ extension ViewController: NSTableViewDataSource {
     }
     
     @IBAction func addServer(sender: NSButton) {
-        servers.append(UserServer())
+        let server = UserServer()
+        server.isDefault = servers.count == 0 ? true : false
+        
+        servers.append(server)
         serversTableView.reloadData()
         serverDetailsView.hidden = false
     }

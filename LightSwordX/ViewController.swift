@@ -44,6 +44,7 @@ class ViewController: NSViewController {
     
     let serversKey = "Servers";
     var servers: [UserServer]!
+    var selectedServer: UserServer!
     
     @IBOutlet weak var serversTableView: NSTableView!
     @IBOutlet weak var serverDetailsView: NSView!

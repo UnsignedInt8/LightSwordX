@@ -406,7 +406,7 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" headerView="lYQ-To-DC3" id="HBH-e3-SfQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="148" height="152"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="148" height="146"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -446,7 +446,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <tableHeaderView key="headerView" identifier="address" id="lYQ-To-DC3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="148" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="148" height="23"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableHeaderView>
                                                 </scrollView>
@@ -497,13 +497,16 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLz-gS-MnF">
+                                                        <textField identifier="serverAddress" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tLz-gS-MnF">
                                                             <rect key="frame" x="0.0" y="148" width="264" height="22"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="IPv4/IPv6/Domain" drawsBackground="YES" id="1dW-tW-y1K">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="B3C-Ed-y2d" id="4aj-cC-Vuj"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jc0-77-5DV">
                                                             <rect key="frame" x="270" y="153" width="8" height="17"/>
@@ -516,7 +519,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mIT-kx-D6r">
+                                                        <textField identifier="serverPort" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mIT-kx-D6r">
                                                             <rect key="frame" x="284" y="148" width="48" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="48" id="k6c-g2-1Ps"/>
@@ -526,6 +529,9 @@
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="B3C-Ed-y2d" id="bBG-Wb-3Ep"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBr-bu-mt3">
                                                             <rect key="frame" x="-2" y="123" width="111" height="17"/>
@@ -535,7 +541,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-ft-xlb">
+                                                        <comboBox identifier="cipherAlgorithm" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-ft-xlb">
                                                             <rect key="frame" x="0.0" y="91" width="267" height="26"/>
                                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Required" drawsBackground="YES" numberOfVisibleItems="5" id="YEI-dA-kwa">
                                                                 <font key="font" metaFont="system"/>
@@ -556,7 +562,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tw4-3U-vVZ">
+                                                        <secureTextField identifier="password" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tw4-3U-vVZ">
                                                             <rect key="frame" x="0.0" y="40" width="264" height="22"/>
                                                             <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Required" drawsBackground="YES" usesSingleLineMode="YES" id="Z5R-gf-Vfe">
                                                                 <font key="font" metaFont="system"/>
@@ -566,6 +572,9 @@
                                                                     <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                                                 </allowedInputSourceLocales>
                                                             </secureTextFieldCell>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="B3C-Ed-y2d" id="Gsn-mr-gkR"/>
+                                                            </connections>
                                                         </secureTextField>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HXS-f0-CGf">
                                                             <rect key="frame" x="156" y="-7" width="182" height="32"/>
@@ -580,6 +589,9 @@
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
+                                                            <connections>
+                                                                <action selector="setAsDefaultServer:" target="B3C-Ed-y2d" id="X6s-ot-pPC"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>

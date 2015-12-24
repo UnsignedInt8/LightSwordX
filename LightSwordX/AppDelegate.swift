@@ -14,7 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
         let window = NSApplication.sharedApplication().windows.last
-        window?.close()
         window?.center()
         
         // Insert code here to initialize your application

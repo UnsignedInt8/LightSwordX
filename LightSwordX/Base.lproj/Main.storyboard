@@ -548,27 +548,17 @@
                                                                 <outlet property="delegate" destination="B3C-Ed-y2d" id="Gsn-mr-gkR"/>
                                                             </connections>
                                                         </secureTextField>
-                                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XJ-S9-V5S">
-                                                            <rect key="frame" x="-2" y="-2" width="126" height="18"/>
-                                                            <buttonCell key="cell" type="check" title="Keep Connection" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tZb-9v-MfO">
-                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                <font key="font" metaFont="system"/>
-                                                            </buttonCell>
-                                                            <connections>
-                                                                <action selector="setAsDefaultServer:" target="B3C-Ed-y2d" id="X6s-ot-pPC"/>
-                                                            </connections>
-                                                        </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iMa-xv-wmL">
-                                                            <rect key="frame" x="-2" y="64" width="83" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Local Server:" id="OwG-wI-lyB">
+                                                            <rect key="frame" x="-2" y="64" width="63" height="17"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Listening:" id="OwG-wI-lyB">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vqH-lE-KBL">
+                                                        <textField identifier="listenAddr" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vqH-lE-KBL">
                                                             <rect key="frame" x="0.0" y="34" width="264" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="kKq-2t-fwt">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Listening Address: 0.0.0.0, 127.0.0.1" drawsBackground="YES" id="kKq-2t-fwt">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -582,9 +572,9 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1t8-Km-Wwo">
+                                                        <textField identifier="listenPort" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1t8-Km-Wwo">
                                                             <rect key="frame" x="284" y="34" width="48" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="hpa-EM-orp">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="1080" drawsBackground="YES" id="hpa-EM-orp">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -596,6 +586,16 @@
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
+                                                        </button>
+                                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XJ-S9-V5S">
+                                                            <rect key="frame" x="-2" y="1" width="126" height="18"/>
+                                                            <buttonCell key="cell" type="check" title="Keep Connection" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tZb-9v-MfO">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="setAsDefaultServer:" target="B3C-Ed-y2d" id="X6s-ot-pPC"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -824,6 +824,8 @@
                         <outlet property="cipherAlgorithmComboBox" destination="UxA-ft-xlb" id="bhv-dJ-1gu"/>
                         <outlet property="connectionStatus" destination="W0g-Yo-ukb" id="DcL-ED-9EY"/>
                         <outlet property="keepConnectionCheckBox" destination="2XJ-S9-V5S" id="mDB-FH-fEb"/>
+                        <outlet property="listenAddressTextField" destination="vqH-lE-KBL" id="i0S-pV-hXb"/>
+                        <outlet property="listenPortTextField" destination="1t8-Km-Wwo" id="wzB-Ja-B2N"/>
                         <outlet property="passwordTextField" destination="tw4-3U-vVZ" id="2VG-Mv-zzp"/>
                         <outlet property="serverAddressTextField" destination="tLz-gS-MnF" id="sCK-vn-UGb"/>
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>

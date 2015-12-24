@@ -213,3 +213,11 @@ class Socks5Server {
         })
     }
 }
+
+extension Socks5Server: Equatable {
+    
+}
+
+func ==(lhs: Socks5Server, rhs: Socks5Server) -> Bool {
+    return lhs.serverAddr == rhs.serverAddr && lhs.serverPort == rhs.serverPort && lhs.listenAddr == rhs.listenAddr && lhs.listenPort == rhs.listenPort && lhs.cipherAlgorithm == rhs.cipherAlgorithm && lhs.password == rhs.password
+}

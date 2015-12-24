@@ -26,6 +26,8 @@ extension ViewController: NSTableViewDataSource {
         serversTableView.reloadData()
         serverDetailsView.hidden = false
         keepConnectionCheckBox.state = server.keepConnection ? NSOnState : NSOffState
+        listenAddressTextField.stringValue = server.listenAddr
+        listenPortTextField.stringValue = String(server.listenPort)
 
         let indexSet = NSIndexSet(index: servers.count - 1)
         serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
@@ -50,10 +52,17 @@ extension ViewController: NSTableViewDataSource {
     }
     
     @IBAction func setAsDefaultServer(sender: NSButton) {
+        let selectedServer = servers[selectedRow]
+        
         selectedServer.keepConnection = !selectedServer.keepConnection
+        saveServers()
+        
         if selectedServer.keepConnection {
-            
+            startServer(selectedServer)
+            return
         }
+        
+        stopServer(selectedServer)
     }
 }
 
@@ -61,14 +70,17 @@ extension ViewController: NSTableViewDelegate {
     func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
 
         let info = servers[row]
+        selectedRow = row
         
         serverAddressTextField.stringValue = info.address
         serverPortTextField.stringValue = String(info.port)
         cipherAlgorithmComboBox.stringValue = info.cipherAlgorithm
         passwordTextField.stringValue = info.password
         keepConnectionCheckBox.state = info.keepConnection ? NSOnState : NSOffState
+        listenAddressTextField.stringValue = info.listenAddr
+        listenPortTextField.stringValue = String(info.listenPort)
         
-        selectedServer = info
+        saveServers()
         return true
     }
 }
@@ -78,6 +90,7 @@ extension ViewController: NSComboBoxDelegate {
     override func controlTextDidChange(obj: NSNotification) {
         let textField = obj.object as! NSTextField
         var newValue = textField.stringValue
+        let selectedServer = servers[selectedRow]
         
         switch textField.identifier! {
             
@@ -104,6 +117,21 @@ extension ViewController: NSComboBoxDelegate {
             selectedServer.password = newValue
             break
             
+        case "listenAddr":
+            if (newValue.length == 0) {
+                newValue = "127.0.0.1"
+            }
+            
+            selectedServer.listenAddr = newValue
+            listenAddressTextField.stringValue = newValue
+            break
+            
+        case "listenPort":
+            let port = Int(newValue) ?? 1080
+            selectedServer.listenPort = port
+            listenPortTextField.stringValue = String(port)
+            break
+            
         default:
             return
         }
@@ -124,6 +152,6 @@ extension ViewController: NSComboBoxDelegate {
         
         let methods = ["aes-256-cfb", "aes-192-cfb", "aes-128-cfb"]
         let selectedIndex = comboBox.indexOfSelectedItem
-        selectedServer.cipherAlgorithm = methods[selectedIndex]
+        servers[selectedRow].cipherAlgorithm = methods[selectedIndex]
     }
 }

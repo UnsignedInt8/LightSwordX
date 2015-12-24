@@ -26,6 +26,7 @@ class ViewController: NSViewController {
         }
         
         let jObjs = JSON(string: jsonStr)
+        var index = 0
         self.servers = jObjs.map{ obj, jObj in
             let server = UserServer()
             
@@ -36,6 +37,7 @@ class ViewController: NSViewController {
             server.keepConnection = jObj["keepConnection"].asBool!
             server.listenAddr = jObj["listenAddr"].asString!
             server.listenPort = jObj["listenPort"].asInt!
+            server.id = ++index
             
             return server
         }
@@ -48,13 +50,15 @@ class ViewController: NSViewController {
     let serversKey = "Servers";
     var servers: [UserServer]!
     var runningServers = [Socks5Server]()
-    var selectedServer: UserServer!
+    var selectedRow: Int!
     var isDirty = false
     
     @IBOutlet weak var serversTableView: NSTableView!
     @IBOutlet weak var serverDetailsView: NSView!
     @IBOutlet weak var serverAddressTextField: NSTextField!
     @IBOutlet weak var serverPortTextField: NSTextField!
+    @IBOutlet weak var listenAddressTextField: NSTextField!
+    @IBOutlet weak var listenPortTextField: NSTextField!
     @IBOutlet weak var cipherAlgorithmComboBox: NSComboBox!
     @IBOutlet weak var passwordTextField: NSSecureTextField!
     @IBOutlet weak var keepConnectionCheckBox: NSButton!
@@ -79,6 +83,14 @@ class ViewController: NSViewController {
             self.runningServers.append(server)
             self.updateStatusText(self.runningServers.count)
         })
+    }
+    
+    func stopServer(userServer: UserServer) {
+        if let s = sinq(runningServers).firstOrNil({ s in s.serverAddr == userServer.address && s.serverPort == userServer.port }) {
+            s.stop()
+            runningServers.removeAtIndex(runningServers.indexOf({ ss in ss == s })!)
+            updateStatusText(runningServers.count)
+        }
     }
     
     func saveServers() {

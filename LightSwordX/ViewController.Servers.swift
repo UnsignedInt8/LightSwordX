@@ -25,16 +25,22 @@ extension ViewController: NSTableViewDataSource {
         
         servers.append(server)
         serversTableView.reloadData()
-        serverDetailsView.hidden = false
-        keepConnectionCheckBox.state = server.keepConnection ? NSOnState : NSOffState
-        listenAddressTextField.stringValue = server.listenAddr
-        listenPortTextField.stringValue = String(server.listenPort)
-        isDirty = true
-        saveServers()
-
+        
         let indexSet = NSIndexSet(index: servers.count - 1)
         serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
         
+        serverDetailsView.hidden = false
+        keepConnectionCheckBox.state = server.keepConnection ? NSOnState : NSOffState
+        serverAddressTextField.stringValue = server.address
+        serverPortTextField.stringValue = String(server.port)
+        cipherAlgorithmComboBox.stringValue = server.cipherAlgorithm
+        passwordTextField.stringValue = server.password
+        listenAddressTextField.stringValue = server.listenAddr
+        listenPortTextField.stringValue = String(server.listenPort)
+        
+        isDirty = true
+        saveServers()
+
         if (server.keepConnection) {
             startServer(server)
         }
@@ -155,6 +161,11 @@ extension ViewController: NSComboBoxDelegate {
         
         let methods = ["aes-256-cfb", "aes-192-cfb", "aes-128-cfb"]
         let selectedIndex = comboBox.indexOfSelectedItem
+        if (servers[selectedRow].cipherAlgorithm == methods[selectedIndex]) {
+            return
+        }
+        
         servers[selectedRow].cipherAlgorithm = methods[selectedIndex]
+        isDirty = true
     }
 }

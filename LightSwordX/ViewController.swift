@@ -18,6 +18,10 @@ class ViewController: NSViewController {
     
     override func awakeFromNib() {
         
+        if (servers != nil && servers.count > 0) {
+            return
+        }
+        
         let jsonStr = SettingsHelper.loadValue(defaultValue: "", forKey: self.serversKey)
         
         if (jsonStr.length == 0) {
@@ -42,7 +46,7 @@ class ViewController: NSViewController {
             return server
         }
         
-        sinq(servers).whereTrue({ s in s.keepConnection }).forEach { s in
+        servers.filter({ s in return s.keepConnection }).forEach { s in
             startServer(s)
         }
     }

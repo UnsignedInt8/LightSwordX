@@ -98,8 +98,8 @@ class ViewController: NSViewController {
         }
     }
     
-    func saveServers() {
-        if !isDirty {
+    func saveServers(force: Bool = false) {
+        if !force && !isDirty {
             return
         }
         

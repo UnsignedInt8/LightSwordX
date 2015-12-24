@@ -38,8 +38,7 @@ extension ViewController: NSTableViewDataSource {
         listenAddressTextField.stringValue = server.listenAddr
         listenPortTextField.stringValue = String(server.listenPort)
         
-        isDirty = true
-        saveServers()
+        saveServers(true)
 
         if (server.keepConnection) {
             startServer(server)
@@ -58,13 +57,15 @@ extension ViewController: NSTableViewDataSource {
         if (servers.count == 0) {
             serverDetailsView.hidden = true
         }
+        
+        saveServers(true)
     }
     
     @IBAction func setAsDefaultServer(sender: NSButton) {
         let selectedServer = servers[selectedRow]
         
         selectedServer.keepConnection = !selectedServer.keepConnection
-        saveServers()
+        saveServers(true)
         
         if selectedServer.keepConnection {
             startServer(selectedServer)

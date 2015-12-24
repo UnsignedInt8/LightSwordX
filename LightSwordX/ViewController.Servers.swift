@@ -20,6 +20,7 @@ extension ViewController: NSTableViewDataSource {
     
     @IBAction func addServer(sender: NSButton) {
         let server = UserServer()
+        server.id = servers.count
         server.keepConnection = servers.count == 0 ? true : false
         
         servers.append(server)
@@ -28,6 +29,8 @@ extension ViewController: NSTableViewDataSource {
         keepConnectionCheckBox.state = server.keepConnection ? NSOnState : NSOffState
         listenAddressTextField.stringValue = server.listenAddr
         listenPortTextField.stringValue = String(server.listenPort)
+        isDirty = true
+        saveServers()
 
         let indexSet = NSIndexSet(index: servers.count - 1)
         serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
@@ -62,7 +65,7 @@ extension ViewController: NSTableViewDataSource {
             return
         }
         
-        stopServer(selectedServer)
+        stopServerId(selectedServer)
     }
 }
 

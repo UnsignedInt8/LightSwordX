@@ -19,6 +19,8 @@ class Socks5Server {
     var password: String!
     var timeout: Int!
     var bypassLocal: Bool!
+    var tag: AnyObject?
+    
     private(set) var sentBytes: UInt64 = 0
     private(set) var receBytes: UInt64 = 0
     

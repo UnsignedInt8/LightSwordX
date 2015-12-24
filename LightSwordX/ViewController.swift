@@ -37,7 +37,7 @@ class ViewController: NSViewController {
             server.keepConnection = jObj["keepConnection"].asBool!
             server.listenAddr = jObj["listenAddr"].asString!
             server.listenPort = jObj["listenPort"].asInt!
-            server.id = ++index
+            server.id = index++
             
             return server
         }
@@ -74,6 +74,7 @@ class ViewController: NSViewController {
         server.cipherAlgorithm = userServer.cipherAlgorithm
         server.password = userServer.password
         server.timeout = 60 * 1000
+        server.tag = userServer.id
         
         server.startAsync({ s in
             if (!s) {
@@ -85,8 +86,8 @@ class ViewController: NSViewController {
         })
     }
     
-    func stopServer(userServer: UserServer) {
-        if let s = sinq(runningServers).firstOrNil({ s in s.serverAddr == userServer.address && s.serverPort == userServer.port }) {
+    func stopServerId(userServer: UserServer) {
+        if let s = sinq(runningServers).firstOrNil({ s in s.tag as! Int == userServer.id }) {
             s.stop()
             runningServers.removeAtIndex(runningServers.indexOf({ ss in ss == s })!)
             updateStatusText(runningServers.count)

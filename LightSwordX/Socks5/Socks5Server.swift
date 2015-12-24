@@ -10,6 +10,12 @@ import SINQ
 import Foundation
 import CryptoSwift
 
+enum ProxyMode: Int {
+    case GLOBAL = 0
+    case BLACK = 1
+    case WHITE = 2
+}
+
 class Socks5Server {
     var serverAddr: String!
     var serverPort: Int!
@@ -20,6 +26,9 @@ class Socks5Server {
     var timeout: Int!
     var bypassLocal: Bool!
     var tag: AnyObject?
+    var blackList: [String]!
+    var whiteList: [String]!
+    var proxyMode = ProxyMode.GLOBAL
     
     private(set) var sentBytes: UInt64 = 0
     private(set) var receBytes: UInt64 = 0
@@ -155,6 +164,26 @@ class Socks5Server {
     }
     
     private func connectToServer(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient) {
+        switch proxyMode {
+        case .BLACK:
+            if blackList.contains(destAddr) {
+                break
+            }
+            
+            connectToTarget(destAddr, destPort: destPort, requestBuf: requestBuf, client: client)
+            return
+            
+        case .WHITE:
+            if whiteList.contains(destAddr) {
+                connectToTarget(destAddr, destPort: destPort, requestBuf: requestBuf, client: client)
+                return
+            }
+            break
+            
+        case .GLOBAL:
+            break
+        }
+        
         let proxySocket = TCPClient(addr: serverAddr, port: serverPort)
         let (success, msg) = proxySocket.connect(timeout: timeout)
         if !success {

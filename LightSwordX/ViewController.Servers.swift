@@ -155,11 +155,15 @@ extension ViewController: NSComboBoxDelegate {
     
     func comboBoxSelectionDidChange(notification: NSNotification) {
         let comboBox = notification.object as! NSComboBox
+        let handlers = [
+            "cipherAlgorithm": cipherAlgorithmComboBoxChanged,
+            "proxyMode": proxyModeComboBoxChanged
+        ]
         
-        if (comboBox.identifier != "cipherAlgorithm") {
-            return
-        }
-        
+        handlers[comboBox.identifier!]?(comboBox)
+    }
+    
+    private func cipherAlgorithmComboBoxChanged(comboBox: NSComboBox) {
         let methods = ["aes-256-cfb", "aes-192-cfb", "aes-128-cfb"]
         let selectedIndex = comboBox.indexOfSelectedItem
         if (servers[selectedRow].cipherAlgorithm == methods[selectedIndex]) {
@@ -168,5 +172,23 @@ extension ViewController: NSComboBoxDelegate {
         
         servers[selectedRow].cipherAlgorithm = methods[selectedIndex]
         isDirty = true
+    }
+    
+    private func proxyModeComboBoxChanged(comboBox: NSComboBox) {
+        let modes = [
+            ProxyMode.GLOBAL.rawValue: ProxyMode.GLOBAL,
+            ProxyMode.BLACK.rawValue: ProxyMode.BLACK,
+            ProxyMode.WHITE.rawValue: ProxyMode.WHITE
+        ]
+        
+        let selectedIndex = comboBox.indexOfSelectedItem
+        if let selectedMode = modes[selectedIndex] {
+            if (servers[selectedRow].proxyMode == selectedMode) {
+                return
+            }
+            
+            servers[selectedRow].proxyMode = selectedMode
+            isDirty = true
+        }
     }
 }

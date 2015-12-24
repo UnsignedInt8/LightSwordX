@@ -604,7 +604,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
-                                                        <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8XI-zV-QyV">
+                                                        <comboBox identifier="proxyMode" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8XI-zV-QyV">
                                                             <rect key="frame" x="0.0" y="29" width="267" height="26"/>
                                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Global" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="C4f-hN-IR5">
                                                                 <font key="font" metaFont="system"/>
@@ -616,6 +616,9 @@
                                                                     <string>Global but except whitelist</string>
                                                                 </objectValues>
                                                             </comboBoxCell>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="B3C-Ed-y2d" id="oYy-pq-9DF"/>
+                                                            </connections>
                                                         </comboBox>
                                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XJ-S9-V5S">
                                                             <rect key="frame" x="-2" y="2" width="126" height="18"/>
@@ -862,6 +865,7 @@
                         <outlet property="listenAddressTextField" destination="vqH-lE-KBL" id="i0S-pV-hXb"/>
                         <outlet property="listenPortTextField" destination="1t8-Km-Wwo" id="wzB-Ja-B2N"/>
                         <outlet property="passwordTextField" destination="tw4-3U-vVZ" id="2VG-Mv-zzp"/>
+                        <outlet property="proxyModeComboBox" destination="8XI-zV-QyV" id="tZY-yL-ohf"/>
                         <outlet property="serverAddressTextField" destination="tLz-gS-MnF" id="sCK-vn-UGb"/>
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>
                         <outlet property="serverPortTextField" destination="mIT-kx-D6r" id="g3c-RY-QE2"/>

@@ -41,6 +41,7 @@ class ViewController: NSViewController {
             server.keepConnection = jObj["keepConnection"].asBool!
             server.listenAddr = jObj["listenAddr"].asString!
             server.listenPort = jObj["listenPort"].asInt!
+            server.proxyMode = ProxyMode(rawValue: jObj["proxyMode"].asInt ?? 0)!
             server.id = index++
             
             return server
@@ -66,6 +67,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var cipherAlgorithmComboBox: NSComboBox!
     @IBOutlet weak var passwordTextField: NSSecureTextField!
     @IBOutlet weak var keepConnectionCheckBox: NSButton!
+    @IBOutlet weak var proxyModeComboBox: NSComboBox!
     @IBOutlet weak var connectionStatus: NSTextField!
     
     func startServer(userServer: UserServer) {
@@ -111,7 +113,8 @@ class ViewController: NSViewController {
             "password": s.password,
             "keepConnection": s.keepConnection,
             "listenAddr": s.listenAddr,
-            "listenPort": s.listenPort
+            "listenPort": s.listenPort,
+            "proxyMode": s.proxyMode.rawValue
         ]}
         
         SettingsHelper.saveValue(JSON(list).toString(), forKey: serversKey)

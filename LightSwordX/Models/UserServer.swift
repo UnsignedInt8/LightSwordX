@@ -16,6 +16,7 @@ class UserServer: Equatable {
     var cipherAlgorithm = "aes-256-cfb"
     var password = "lightsword.neko"
     var keepConnection = false
+    var proxyMode = ProxyMode.GLOBAL
     var id = 0
 }
 

@@ -563,6 +563,9 @@
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="B3C-Ed-y2d" id="rVS-HB-yV2"/>
+                                                            </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5cC-eW-HrN">
                                                             <rect key="frame" x="270" y="37" width="8" height="17"/>
@@ -579,6 +582,9 @@
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="B3C-Ed-y2d" id="Fit-A8-rqf"/>
+                                                            </connections>
                                                         </textField>
                                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HXS-f0-CGf">
                                                             <rect key="frame" x="156" y="-7" width="182" height="32"/>

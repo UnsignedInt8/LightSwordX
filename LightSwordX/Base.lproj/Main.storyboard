@@ -394,7 +394,7 @@
                                 </constraints>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="Servers" identifier="1" id="A5f-Uf-vFi">
+                                    <tabViewItem label="Servers" identifier="Servers" id="A5f-Uf-vFi">
                                         <view key="view" id="TMM-3I-Oz4">
                                             <rect key="frame" x="10" y="33" width="524" height="329"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -719,18 +719,18 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Websites" identifier="2" id="EcX-pW-W6U">
+                                    <tabViewItem label="Websites" identifier="Websites" id="EcX-pW-W6U">
                                         <view key="view" id="E1d-1S-PnP">
                                             <rect key="frame" x="10" y="33" width="524" height="329"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Za9-nP-3if">
+                                                <scrollView identifier="BlackListTextView" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Za9-nP-3if">
                                                     <rect key="frame" x="17" y="17" width="240" height="284"/>
                                                     <clipView key="contentView" id="mod-oT-en6">
                                                         <rect key="frame" x="1" y="1" width="223" height="282"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="hrN-gu-wP1">
+                                                            <textView identifier="Blacklist" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="hrN-gu-wP1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="223" height="282"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -739,6 +739,9 @@
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="B3C-Ed-y2d" id="GLB-tm-T4P"/>
+                                                                </connections>
                                                             </textView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -761,20 +764,20 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-1y-tmz">
-                                                    <rect key="frame" x="269" y="309" width="69" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White List:" id="h6R-RQ-s0t">
+                                                    <rect key="frame" x="269" y="309" width="102" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White Sites List:" id="h6R-RQ-s0t">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr9-hb-zlX">
+                                                <scrollView identifier="WhiteListTextView" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr9-hb-zlX">
                                                     <rect key="frame" x="271" y="17" width="240" height="284"/>
                                                     <clipView key="contentView" id="HJt-fC-SwH">
                                                         <rect key="frame" x="1" y="1" width="223" height="282"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="AOd-Qh-7oi">
+                                                            <textView identifier="Whitelist" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="AOd-Qh-7oi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="223" height="282"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -826,6 +829,9 @@
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
+                                <connections>
+                                    <outlet property="delegate" destination="B3C-Ed-y2d" id="heP-XY-Myd"/>
+                                </connections>
                             </tabView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="W0g-Yo-ukb">
                                 <rect key="frame" x="18" y="7" width="175" height="17"/>
@@ -859,7 +865,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blackListTextView" destination="hrN-gu-wP1" id="xb2-Ym-pM5"/>
                         <outlet property="cipherAlgorithmComboBox" destination="UxA-ft-xlb" id="bhv-dJ-1gu"/>
                         <outlet property="connectionStatus" destination="W0g-Yo-ukb" id="DcL-ED-9EY"/>
                         <outlet property="keepConnectionCheckBox" destination="2XJ-S9-V5S" id="mDB-FH-fEb"/>
@@ -871,7 +876,6 @@
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>
                         <outlet property="serverPortTextField" destination="mIT-kx-D6r" id="g3c-RY-QE2"/>
                         <outlet property="serversTableView" destination="HBH-e3-SfQ" id="YNK-VL-TXv"/>
-                        <outlet property="whiteListTextView" destination="AOd-Qh-7oi" id="peM-wM-fOG"/>
                     </connections>
                 </viewController>
                 <customObject id="s1g-JA-Cfe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

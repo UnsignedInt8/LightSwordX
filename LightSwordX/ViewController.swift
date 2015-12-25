@@ -47,16 +47,47 @@ class ViewController: NSViewController {
             return server
         }
         
-        servers.filter({ s in return s.keepConnection }).forEach { s in
-            startServer(s)
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+            let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: self.whiteKey)
+            let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)
+            
+            if whiteList.length == 0 && blackList.length == 0 {
+                ["white", "black"].forEach { s in
+                    let path = NSBundle.mainBundle().pathForResource(s, ofType: "txt")!
+                    let content = try! NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+                    let list = content.componentsSeparatedByString("\n")
+                    if s == "white" {
+                        self.whiteList = list
+                        SettingsHelper.saveValue(content, forKey: self.whiteKey)
+                    } else {
+                        self.blackList = list
+                        SettingsHelper.saveValue(content, forKey: self.blackKey)
+                    }
+                }
+            } else {
+                self.whiteList = whiteList.componentsSeparatedByString("\n")
+                self.blackList = blackList.componentsSeparatedByString("\n")
+            }
+            
+            self.servers.filter({ s in return s.keepConnection }).forEach { s in
+                self.startServer(s)
+            }
+           
         }
+        
     }
     
-    let serversKey = "Servers";
+    var blackList: [String]!
+    var whiteList: [String]!
+    let serversKey = "Servers"
+    let whiteKey = "WhiteList"
+    let blackKey = "BlackList"
+    
     var servers: [UserServer]!
     var runningServers = [Socks5Server]()
     var selectedRow: Int!
     var isDirty = false
+    var isWebsitesDirty = false
     
     @IBOutlet weak var serversTableView: NSTableView!
     @IBOutlet weak var serverDetailsView: NSView!
@@ -69,8 +100,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var keepConnectionCheckBox: NSButton!
     @IBOutlet weak var proxyModeComboBox: NSComboBox!
     @IBOutlet weak var connectionStatus: NSTextField!
-    @IBOutlet weak var blackListTextView: NSTextView!
-    @IBOutlet weak var whiteListTextView: NSTextView!
+    var blackListTextView: NSTextView!
+    var whiteListTextView: NSTextView!
     
     func startServer(userServer: UserServer) {
         let server = Socks5Server()
@@ -83,6 +114,9 @@ class ViewController: NSViewController {
         server.password = userServer.password
         server.timeout = 60 * 1000
         server.tag = userServer.id
+        server.proxyMode = userServer.proxyMode
+        server.blackList = self.blackList
+        server.whiteList = self.whiteList
         
         server.startAsync({ s in
             if (!s) {
@@ -133,3 +167,33 @@ class ViewController: NSViewController {
     }
 }
 
+
+extension ViewController: NSTabViewDelegate {
+    func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?) {
+        if tabViewItem?.identifier as? String == "Websites" {
+            if blackListTextView == nil {
+                blackListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "BlackListTextView" }.subviews.first!.subviews.first as! NSTextView
+                whiteListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "WhiteListTextView" }.subviews.first!.subviews.first as! NSTextView
+            }
+            
+            let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)
+            let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: self.whiteKey)
+            blackListTextView.string = blackList
+            whiteListTextView.string = whiteList
+        }
+        
+        if isWebsitesDirty {
+            SettingsHelper.saveValue(blackListTextView.string!, forKey: self.blackKey)
+            SettingsHelper.saveValue(whiteListTextView.string!, forKey: self.whiteKey)
+            self.blackList = blackListTextView.string!.componentsSeparatedByString("\n")
+            self.whiteList = whiteListTextView.string!.componentsSeparatedByString("\n")
+            
+            self.runningServers.forEach { s in
+                s.blackList = self.blackList
+                s.whiteList = self.whiteList
+            }
+            
+            isWebsitesDirty = false
+        }
+    }
+}

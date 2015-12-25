@@ -10,7 +10,6 @@ import Foundation
 
 extension ViewController: NSTextDelegate {
     func textDidChange(notification: NSNotification) {
-        let textView = notification.object as! NSTextView
-        
+        isWebsitesDirty = true
     }
 }

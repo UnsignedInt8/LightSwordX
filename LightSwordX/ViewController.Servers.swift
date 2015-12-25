@@ -34,6 +34,7 @@ extension ViewController: NSTableViewDataSource {
         serverAddressTextField.stringValue = server.address
         serverPortTextField.stringValue = String(server.port)
         cipherAlgorithmComboBox.stringValue = server.cipherAlgorithm
+        proxyModeComboBox.selectItemAtIndex(server.proxyMode.rawValue)
         passwordTextField.stringValue = server.password
         listenAddressTextField.stringValue = server.listenAddr
         listenPortTextField.stringValue = String(server.listenPort)
@@ -85,6 +86,7 @@ extension ViewController: NSTableViewDelegate {
         serverAddressTextField.stringValue = info.address
         serverPortTextField.stringValue = String(info.port)
         cipherAlgorithmComboBox.stringValue = info.cipherAlgorithm
+        proxyModeComboBox.selectItemAtIndex(info.proxyMode.rawValue)
         passwordTextField.stringValue = info.password
         keepConnectionCheckBox.state = info.keepConnection ? NSOnState : NSOffState
         listenAddressTextField.stringValue = info.listenAddr
@@ -129,6 +131,8 @@ extension ViewController: NSComboBoxDelegate {
             
         case "listenAddr":
             if (newValue.length == 0) {
+                newValue = "127.0.0.1"
+            } else if (newValue == "localhost") {
                 newValue = "127.0.0.1"
             }
             

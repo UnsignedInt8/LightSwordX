@@ -169,7 +169,6 @@ class Socks5Server {
             if sinq(blackList).any({ l in destAddr.containsString(l) }) {
                 break
             }
-            
             connectToTarget(destAddr, destPort: destPort, requestBuf: requestBuf, client: client)
             return
             

@@ -6,3 +6,4 @@ qq.com
 163.com
 sohu.com
 baidu.com
+.cn

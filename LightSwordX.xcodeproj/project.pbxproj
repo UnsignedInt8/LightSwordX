@@ -11,6 +11,7 @@
 		A224C9401C2521F0008B64D3 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A224C9431C252369008B64D3 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224C9421C252369008B64D3 /* Crypto.swift */; };
 		A224C9451C2528B0008B64D3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A224C9441C2528B0008B64D3 /* String.swift */; };
+		A22E6AA21C2D13B60032DFBE /* ViewController.Websites.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22E6AA11C2D13B60032DFBE /* ViewController.Websites.swift */; };
 		A22E7ED81C26366A000785E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22E7ED71C26366A000785E3 /* Constants.swift */; };
 		A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963DF1C2299C4009F2158 /* AppDelegate.swift */; };
 		A23963E21C2299C4009F2158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23963E11C2299C4009F2158 /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 		A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/Mac/CryptoSwift.framework; sourceTree = "<group>"; };
 		A224C9421C252369008B64D3 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Crypto.swift; path = Lib/Crypto.swift; sourceTree = "<group>"; };
 		A224C9441C2528B0008B64D3 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Lib/String.swift; sourceTree = "<group>"; };
+		A22E6AA11C2D13B60032DFBE /* ViewController.Websites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Websites.swift; sourceTree = "<group>"; };
 		A22E7ED71C26366A000785E3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Lib/Constants.swift; sourceTree = "<group>"; };
 		A23963DC1C2299C4009F2158 /* LightSwordX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23963DF1C2299C4009F2158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				A23963E31C2299C4009F2158 /* Assets.xcassets */,
 				A23963E51C2299C4009F2158 /* Main.storyboard */,
 				A23963E81C2299C4009F2158 /* Info.plist */,
+				A22E6AA11C2D13B60032DFBE /* ViewController.Websites.swift */,
 			);
 			path = LightSwordX;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				A239642F1C22A2D4009F2158 /* ytcpsocket.swift in Sources */,
 				A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */,
 				A23964331C22AE82009F2158 /* Socks5Constants.swift in Sources */,
+				A22E6AA21C2D13B60032DFBE /* ViewController.Websites.swift in Sources */,
 				A23963E21C2299C4009F2158 /* ViewController.swift in Sources */,
 				A23964261C229FC5009F2158 /* Socks5Server.swift in Sources */,
 				A239642D1C22A2D4009F2158 /* ysocket.swift in Sources */,

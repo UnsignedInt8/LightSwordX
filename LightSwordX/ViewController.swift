@@ -69,6 +69,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var keepConnectionCheckBox: NSButton!
     @IBOutlet weak var proxyModeComboBox: NSComboBox!
     @IBOutlet weak var connectionStatus: NSTextField!
+    @IBOutlet weak var blackListTextView: NSTextView!
+    @IBOutlet weak var whiteListTextView: NSTextView!
     
     func startServer(userServer: UserServer) {
         let server = Socks5Server()

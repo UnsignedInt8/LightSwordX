@@ -13,10 +13,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
-        let window = NSApplication.sharedApplication().windows.last
-        window?.center()
-        
-        // Insert code here to initialize your application
+        if SettingsHelper.loadValue(defaultValue: "", forKey: "Servers").length > 0 {
+            NSApplication.sharedApplication().windows.last!.close()
+        }
         
         if let button = statusItem.button {
             button.image = NSImage(named: "TrayIcon")

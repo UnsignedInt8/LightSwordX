@@ -1,4 +1,8 @@
 twitter.com
 google.com
 youtube.com
+ytimg.com
+googleusercontent.com
 facebook.com
+twimg.com
+google-video.com

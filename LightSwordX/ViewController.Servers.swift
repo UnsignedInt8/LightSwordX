@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SINQ
 
 extension ViewController: NSTableViewDataSource {
     
@@ -192,6 +193,9 @@ extension ViewController: NSComboBoxDelegate {
             }
             
             servers[selectedRow].proxyMode = selectedMode
+            if let running = sinq(self.runningServers).firstOrNil({ s in s.tag as? Int == self.servers[self.selectedRow].id }) {
+                running.proxyMode = selectedMode
+            }
             isDirty = true
         }
     }

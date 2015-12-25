@@ -172,8 +172,8 @@ extension ViewController: NSTabViewDelegate {
     func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?) {
         if tabViewItem?.identifier as? String == "Websites" {
             if blackListTextView == nil {
-                blackListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "BlackListTextView" }.subviews.first!.subviews.first as! NSTextView
-                whiteListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "WhiteListTextView" }.subviews.first!.subviews.first as! NSTextView
+                blackListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "BlackListScrollView" }.subviews.first!.subviews.first as! NSTextView
+                whiteListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "WhiteListScrollView" }.subviews.first!.subviews.first as! NSTextView
             }
             
             let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)

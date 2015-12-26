@@ -77,6 +77,12 @@ class ViewController: NSViewController {
         
     }
     
+    @IBAction func onCloseClick(sender: NSButton) {
+        NSApplication.sharedApplication().windows.last?.close()
+        saveServers()
+        saveWebsites()
+    }
+    
     var blackList: [String]!
     var whiteList: [String]!
     let serversKey = "Servers"
@@ -156,6 +162,24 @@ class ViewController: NSViewController {
         SettingsHelper.saveValue(JSON(list).toString(), forKey: serversKey)
     }
     
+    func saveWebsites() {
+        if !isWebsitesDirty {
+            return
+        }
+        
+        SettingsHelper.saveValue(blackListTextView.string!, forKey: self.blackKey)
+        SettingsHelper.saveValue(whiteListTextView.string!, forKey: self.whiteKey)
+        self.blackList = blackListTextView.string!.componentsSeparatedByString("\n")
+        self.whiteList = whiteListTextView.string!.componentsSeparatedByString("\n")
+        
+        self.runningServers.forEach { s in
+            s.blackList = self.blackList
+            s.whiteList = self.whiteList
+        }
+        
+        isWebsitesDirty = false
+    }
+    
     func updateStatusText(runningCount: Int) {
         dispatch_async(dispatch_get_main_queue()) {
             let color = runningCount == 0 ? NSColor.grayColor() : NSColor(red: 51.0 / 255, green: 204.0 / 255, blue: 51 / 255, alpha: 1)
@@ -182,18 +206,6 @@ extension ViewController: NSTabViewDelegate {
             whiteListTextView.string = whiteList
         }
         
-        if isWebsitesDirty {
-            SettingsHelper.saveValue(blackListTextView.string!, forKey: self.blackKey)
-            SettingsHelper.saveValue(whiteListTextView.string!, forKey: self.whiteKey)
-            self.blackList = blackListTextView.string!.componentsSeparatedByString("\n")
-            self.whiteList = whiteListTextView.string!.componentsSeparatedByString("\n")
-            
-            self.runningServers.forEach { s in
-                s.blackList = self.blackList
-                s.whiteList = self.whiteList
-            }
-            
-            isWebsitesDirty = false
-        }
+        saveWebsites()
     }
 }

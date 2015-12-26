@@ -734,10 +734,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="282"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="B3C-Ed-y2d" id="GLB-tm-T4P"/>
@@ -751,7 +751,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="OkA-Vd-bSl">
-                                                        <rect key="frame" x="223" y="1" width="16" height="282"/>
+                                                        <rect key="frame" x="224" y="1" width="15" height="282"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -781,10 +781,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="282"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                             </textView>
                                                         </subviews>
@@ -795,7 +795,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Ue0-zu-Rku">
-                                                        <rect key="frame" x="223" y="1" width="16" height="282"/>
+                                                        <rect key="frame" x="224" y="1" width="15" height="282"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>

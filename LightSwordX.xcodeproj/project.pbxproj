@@ -34,6 +34,7 @@
 		A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */; };
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
 		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
+		A2FA5C3C1C2EB87D00D43267 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Servers.swift; sourceTree = "<group>"; };
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
 		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
+		A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				A23963E31C2299C4009F2158 /* Assets.xcassets */,
 				A23963E51C2299C4009F2158 /* Main.storyboard */,
 				A23963E81C2299C4009F2158 /* Info.plist */,
+				A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */,
 			);
 			path = LightSwordX;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FA5C3C1C2EB87D00D43267 /* Localizable.strings in Resources */,
 				A22E6AA61C2D1EE50032DFBE /* white.txt in Resources */,
 				A23963E41C2299C4009F2158 /* Assets.xcassets in Resources */,
 				A23963E71C2299C4009F2158 /* Main.storyboard in Resources */,

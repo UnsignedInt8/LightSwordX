@@ -17,6 +17,9 @@ class ViewController: NSViewController {
     }
     
     override func awakeFromNib() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+            self.initBlackWhiteList()
+        }
         
         if (servers != nil && servers.count > 0) {
             return
@@ -47,34 +50,34 @@ class ViewController: NSViewController {
             return server
         }
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-            let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: self.whiteKey)
-            let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)
-            
-            if whiteList.length == 0 && blackList.length == 0 {
-                ["white", "black"].forEach { s in
-                    let path = NSBundle.mainBundle().pathForResource(s, ofType: "txt")!
-                    let content = try! NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-                    let list = content.componentsSeparatedByString("\n")
-                    if s == "white" {
-                        self.whiteList = list
-                        SettingsHelper.saveValue(content, forKey: self.whiteKey)
-                    } else {
-                        self.blackList = list
-                        SettingsHelper.saveValue(content, forKey: self.blackKey)
-                    }
-                }
-            } else {
-                self.whiteList = whiteList.componentsSeparatedByString("\n")
-                self.blackList = blackList.componentsSeparatedByString("\n")
-            }
-            
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             self.servers.filter({ s in return s.keepConnection }).forEach { s in
                 self.startServer(s)
             }
-           
         }
+    }
+    
+    func initBlackWhiteList() {
+        let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: self.whiteKey)
+        let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)
         
+        if whiteList.length == 0 && blackList.length == 0 {
+            ["white", "black"].forEach { s in
+                let path = NSBundle.mainBundle().pathForResource(s, ofType: "txt")!
+                let content = try! NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
+                let list = content.componentsSeparatedByString("\n")
+                if s == "white" {
+                    self.whiteList = list
+                    SettingsHelper.saveValue(content, forKey: self.whiteKey)
+                } else {
+                    self.blackList = list
+                    SettingsHelper.saveValue(content, forKey: self.blackKey)
+                }
+            }
+        } else {
+            self.whiteList = whiteList.componentsSeparatedByString("\n")
+            self.blackList = blackList.componentsSeparatedByString("\n")
+        }
     }
     
     @IBAction func onCloseClick(sender: NSButton) {

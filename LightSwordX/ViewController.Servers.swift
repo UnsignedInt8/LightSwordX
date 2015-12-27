@@ -22,7 +22,6 @@ extension ViewController: NSTableViewDataSource {
     @IBAction func addServer(sender: NSButton) {
         let server = UserServer()
         server.id = servers.count
-        server.keepConnection = servers.count == 0 ? true : false
         
         servers.append(server)
         serversTableView.reloadData()

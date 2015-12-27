@@ -20,9 +20,11 @@ mmstat.com
 xunlei.com
 alicdn.com
 alipay.com
+aliyuncs.com
 alipayobjects.com
 tbcdn.com
 tmall.com
+aicdn.com
 upyun.com
 upaiyun.com
 jd.com
@@ -44,6 +46,7 @@ gfan.com
 hao123.com
 pcpop.com
 91.com
+cnzz.com
 56.com
 csdn.net
 cmbchina.com
@@ -53,6 +56,7 @@ abchina.com
 nuomi.com
 letv.com
 17173.com
+snda.com
 ifeng.com
 suning.com
 yhd.com
@@ -74,3 +78,13 @@ hjenglish.com
 hujiang.com
 hjclass.com
 cctalk.com
+kingsoft.com
+iciba.com
+duba.net
+wps.com
+sdo.com
+jiathis.com
+ijinshan.com
+pps.tv
+yixun.com
+renren.com

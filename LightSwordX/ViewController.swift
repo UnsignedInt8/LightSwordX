@@ -159,26 +159,26 @@ class ViewController: NSViewController {
             return
         }
         
-        print(self.runningServers[0].sentBytes, self.runningServers[0].receivedBytes)
         let curSent = self.runningServers.reduce(0, combine: { n, s in n + s.sentBytes })
         let curReceived = self.runningServers.reduce(0, combine: { n, s in n + s.receivedBytes })
         
+        print(curSent, curReceived)
         let deltaSent = curSent - totalSentBytes
         let deltaReceived = curReceived - totalReceivedBytes
         
         totalSentBytes = curSent
         totalReceivedBytes = curReceived
         
-        let (value: sent, unit: sentUnit) = StatisticsHelper.toStatisticsString(curSent)
+        let (value: _, formattedValue: sent, unit: sentUnit) = StatisticsHelper.toStatisticsString(curSent)
         sentBytesTextField.stringValue = "\(sent) \(sentUnit)"
         
-        let (value: received, unit: receivedUnit) = StatisticsHelper.toStatisticsString(curReceived)
+        let (value: _, formattedValue: received, unit: receivedUnit) = StatisticsHelper.toStatisticsString(curReceived)
         receivedBytesTextField.stringValue = "\(received) \(receivedUnit)"
         
-        let (value: sentSpeed, unit: sentSpeedUnit) = StatisticsHelper.toStatisticsString(deltaSent)
+        let (value: _, formattedValue: sentSpeed, unit: sentSpeedUnit) = StatisticsHelper.toStatisticsString(deltaSent)
         uploadSpeedTextField.stringValue = "\(sentSpeed) \(sentSpeedUnit)/s ↑"
         
-        let (value: receivedSpeed, unit: receivedSpeedUnit) = StatisticsHelper.toStatisticsString(deltaReceived)
+        let (value: _, formattedValue: receivedSpeed, unit: receivedSpeedUnit) = StatisticsHelper.toStatisticsString(deltaReceived)
         downloadSpeedTextField.stringValue = "\(receivedSpeed) \(receivedSpeedUnit)/s ↓"
     }
     

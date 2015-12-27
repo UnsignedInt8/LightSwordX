@@ -159,6 +159,7 @@ class ViewController: NSViewController {
             return
         }
         
+        print(self.runningServers[0].sentBytes, self.runningServers[0].receivedBytes)
         let curSent = self.runningServers.reduce(0, combine: { n, s in n + s.sentBytes })
         let curReceived = self.runningServers.reduce(0, combine: { n, s in n + s.receivedBytes })
         

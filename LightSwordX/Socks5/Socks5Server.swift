@@ -142,6 +142,7 @@ class Socks5Server {
             while true {
                 if let data = client.read(1500, timeout: self.timeout) {
                     transitSocket.send(data: data)
+                    self.sentBytes += UInt64(data.count)
                 } else {
                     client.close()
                     transitSocket.close()
@@ -154,6 +155,7 @@ class Socks5Server {
             while true {
                 if let data = transitSocket.read(1500, timeout: self.timeout) {
                     client.send(data: data)
+                    self.receivedBytes += UInt64(data.count)
                 } else {
                     client.close()
                     transitSocket.close()

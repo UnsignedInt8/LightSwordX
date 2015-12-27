@@ -672,6 +672,7 @@
                     <connections>
                         <outlet property="cipherAlgorithmComboBox" destination="UxA-ft-xlb" id="bhv-dJ-1gu"/>
                         <outlet property="connectionStatus" destination="W0g-Yo-ukb" id="DcL-ED-9EY"/>
+                        <outlet property="downloadSpeedTextField" destination="QTG-x4-jsx" id="YPA-t0-dNf"/>
                         <outlet property="keepConnectionCheckBox" destination="2XJ-S9-V5S" id="mDB-FH-fEb"/>
                         <outlet property="listenAddressTextField" destination="vqH-lE-KBL" id="i0S-pV-hXb"/>
                         <outlet property="listenPortTextField" destination="1t8-Km-Wwo" id="wzB-Ja-B2N"/>
@@ -683,6 +684,7 @@
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>
                         <outlet property="serverPortTextField" destination="mIT-kx-D6r" id="g3c-RY-QE2"/>
                         <outlet property="serversTableView" destination="HBH-e3-SfQ" id="YNK-VL-TXv"/>
+                        <outlet property="uploadSpeedTextField" destination="MVb-6d-6X5" id="ddf-rp-tS9"/>
                     </connections>
                 </viewController>
                 <customObject id="s1g-JA-Cfe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

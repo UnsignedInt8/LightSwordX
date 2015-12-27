@@ -361,8 +361,6 @@
                                                         <constraint firstAttribute="trailing" secondItem="UxA-ft-xlb" secondAttribute="trailing" constant="68" id="1R6-iW-XHg"/>
                                                         <constraint firstAttribute="trailing" secondItem="HXS-f0-CGf" secondAttribute="trailing" id="1Tm-ew-Fwk"/>
                                                         <constraint firstItem="DBr-bu-mt3" firstAttribute="top" secondItem="tLz-gS-MnF" secondAttribute="bottom" constant="8" id="3su-Pw-hJi"/>
-                                                        <constraint firstItem="HXS-f0-CGf" firstAttribute="top" secondItem="1t8-Km-Wwo" secondAttribute="bottom" constant="65" id="6Mu-aj-QAS"/>
-                                                        <constraint firstItem="HXS-f0-CGf" firstAttribute="top" secondItem="5cC-eW-HrN" secondAttribute="bottom" constant="68" id="6nX-jF-lWp"/>
                                                         <constraint firstItem="8EA-lm-t0S" firstAttribute="top" secondItem="UxA-ft-xlb" secondAttribute="bottom" constant="8" id="8Gl-zw-bNJ"/>
                                                         <constraint firstItem="1t8-Km-Wwo" firstAttribute="width" secondItem="mIT-kx-D6r" secondAttribute="width" id="F5p-be-yIb"/>
                                                         <constraint firstItem="i14-i0-AsW" firstAttribute="top" secondItem="1xq-7E-ppc" secondAttribute="top" id="FAo-Js-22o"/>
@@ -377,6 +375,7 @@
                                                         <constraint firstItem="i14-i0-AsW" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="QAG-Ha-N6s"/>
                                                         <constraint firstItem="vqH-lE-KBL" firstAttribute="width" secondItem="tLz-gS-MnF" secondAttribute="width" id="S5F-Vp-XhH"/>
                                                         <constraint firstItem="8XI-zV-QyV" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="SHg-9F-VIf"/>
+                                                        <constraint firstItem="1t8-Km-Wwo" firstAttribute="top" secondItem="mIT-kx-D6r" secondAttribute="bottom" constant="141" id="SQ0-4Y-awt"/>
                                                         <constraint firstItem="1t8-Km-Wwo" firstAttribute="leading" secondItem="5cC-eW-HrN" secondAttribute="trailing" constant="8" id="Tka-Qz-Qyi"/>
                                                         <constraint firstItem="tLz-gS-MnF" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="Vh4-1e-9pT"/>
                                                         <constraint firstItem="vqH-lE-KBL" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="VyC-OB-XCl"/>
@@ -389,6 +388,7 @@
                                                         <constraint firstItem="UxA-ft-xlb" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="fR4-0A-IoB"/>
                                                         <constraint firstItem="DBr-bu-mt3" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="gKG-LM-ZQv"/>
                                                         <constraint firstItem="UxA-ft-xlb" firstAttribute="top" secondItem="DBr-bu-mt3" secondAttribute="bottom" constant="8" id="gk5-Pg-iRW"/>
+                                                        <constraint firstItem="5cC-eW-HrN" firstAttribute="top" secondItem="Jc0-77-5DV" secondAttribute="bottom" constant="148" id="jcK-Ks-mRk"/>
                                                         <constraint firstItem="iMa-xv-wmL" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="mTb-eB-GXb"/>
                                                         <constraint firstItem="8XI-zV-QyV" firstAttribute="top" secondItem="jca-Pf-MFZ" secondAttribute="bottom" constant="8" id="oS6-xz-m0Q"/>
                                                         <constraint firstItem="5cC-eW-HrN" firstAttribute="leading" secondItem="vqH-lE-KBL" secondAttribute="trailing" constant="8" id="pO3-eb-CqZ"/>
@@ -487,8 +487,8 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-1y-tmz">
-                                                    <rect key="frame" x="269" y="309" width="102" height="17"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White Sites List:" id="h6R-RQ-s0t">
+                                                    <rect key="frame" x="269" y="309" width="69" height="17"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="White List:" id="h6R-RQ-s0t">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

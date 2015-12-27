@@ -162,7 +162,6 @@ class ViewController: NSViewController {
         let curSent = self.runningServers.reduce(0, combine: { n, s in n + s.sentBytes })
         let curReceived = self.runningServers.reduce(0, combine: { n, s in n + s.receivedBytes })
         
-        print(curSent, curReceived)
         let deltaSent = curSent - totalSentBytes
         let deltaReceived = curReceived - totalReceivedBytes
         
@@ -212,7 +211,7 @@ class ViewController: NSViewController {
         self.blackList = blackListTextView.string!.componentsSeparatedByString("\n")
         self.whiteList = whiteListTextView.string!.componentsSeparatedByString("\n")
         
-        self.runningServers.forEach { s in
+        for s in self.runningServers {
             s.blackList = self.blackList
             s.whiteList = self.whiteList
         }

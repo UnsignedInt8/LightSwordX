@@ -12,7 +12,8 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        
+        SettingsHelper.reset()
+        SettingsHelper.synchronize()
         if SettingsHelper.loadValue(defaultValue: "", forKey: "Servers").length > 0 {
             NSApplication.sharedApplication().windows.last!.close()
         }

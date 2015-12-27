@@ -34,7 +34,10 @@ public class SettingsHelper {
     }
     
     public class func reset() {
-        NSUserDefaults.resetStandardUserDefaults()
+        defaults.dictionaryRepresentation().forEach { key, obj in
+            defaults.removeObjectForKey(key)
+        }
+        defaults.synchronize()
     }
     
     public class func synchronize() {

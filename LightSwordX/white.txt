@@ -17,7 +17,7 @@ qihoo.com
 taobao.com
 aliyun.com
 mmstat.com
-zhifubao.com
+xunlei.com
 alicdn.com
 alipay.com
 alipayobjects.com
@@ -67,3 +67,10 @@ u17.com
 bankcomm.com
 acfun.tv
 126.com
+tgbus.com
+bitauto.com
+alibaba.com
+hjenglish.com
+hujiang.com
+hjclass.com
+cctalk.com

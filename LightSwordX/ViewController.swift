@@ -165,7 +165,20 @@ class ViewController: NSViewController {
         let deltaSent = curSent - totalSentBytes
         let deltaReceived = curReceived - totalReceivedBytes
         
-//        let speed = 
+        totalSentBytes = curSent
+        totalReceivedBytes = curReceived
+        
+        let (value: sent, unit: sentUnit) = StatisticsHelper.toStatisticsString(curSent)
+        sentBytesTextField.stringValue = "\(sent) \(sentUnit)"
+        
+        let (value: received, unit: receivedUnit) = StatisticsHelper.toStatisticsString(curReceived)
+        receivedBytesTextField.stringValue = "\(received) \(receivedUnit)"
+        
+        let (value: sentSpeed, unit: sentSpeedUnit) = StatisticsHelper.toStatisticsString(deltaSent)
+        uploadSpeedTextField.stringValue = "\(sentSpeed) \(sentSpeedUnit)/s ↑"
+        
+        let (value: receivedSpeed, unit: receivedSpeedUnit) = StatisticsHelper.toStatisticsString(deltaReceived)
+        downloadSpeedTextField.stringValue = "\(receivedSpeed) \(receivedSpeedUnit)/s ↓"
     }
     
     func saveServers(force: Bool = false) {

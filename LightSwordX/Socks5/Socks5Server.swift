@@ -233,7 +233,7 @@ class Socks5Server {
             while true {
                 if let data = proxySocket.read(1500, timeout: self.timeout) {
                     client.send(data: data.map{ n in n ^ paddingSize })
-                    self.receBytes += UInt64(data.count)
+                    self.receivedBytes += UInt64(data.count)
                 } else {
                     proxySocket.close()
                     client.close()

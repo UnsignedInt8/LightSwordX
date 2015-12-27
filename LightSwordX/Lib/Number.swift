@@ -16,7 +16,7 @@ class StatisticsHelper {
     private static let TB = 1024 * GB
     private static var formatter: NSNumberFormatter!
     
-    static func toStatisticsString(number: UInt64) -> (value: Double, unit: String, formattedString: String) {
+    static func toStatisticsString(number: UInt64) -> (value: Double, unit: String) {
         if formatter == nil {
             formatter = NSNumberFormatter()
             formatter.numberStyle = .DecimalStyle
@@ -52,7 +52,6 @@ class StatisticsHelper {
             break
         }
         
-        let formatted = "\(formatter.stringFromNumber(NSNumber(double: value))!) \(unit)"
-        return (value: value, unit: unit, formattedString: formatted)
+        return (value: value, unit: unit)
     }
 }

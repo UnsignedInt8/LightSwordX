@@ -1,13 +1,12 @@
-//: Playground - noun: a place where people can play
+//
+//  Number.swift
+//  LightSwordX
+//
+//  Created by Neko on 12/27/15.
+//  Copyright © 2015 Neko. All rights reserved.
+//
 
-import Cocoa
-
-let bytes1: [UInt8] = [0x1, 0x2, 0x3, 0x4]
-let xr = UInt8(arc4random() % 256)
-let bytesXor = bytes1.map({ n in n ^ xr })
-let bytesRaw = bytesXor.map({ n in n ^ xr })
-assert(bytesRaw[0] == bytes1[0])
-
+import Foundation
 
 class StatisticsHelper {
     
@@ -17,7 +16,7 @@ class StatisticsHelper {
     private static let TB = 1024 * GB
     private static var formatter: NSNumberFormatter!
     
-    static func toStatisticsString(number: UInt64) -> String {
+    static func toStatisticsString(number: UInt64) -> (value: Double, unit: String, formattedString: String) {
         if formatter == nil {
             formatter = NSNumberFormatter()
             formatter.numberStyle = .DecimalStyle
@@ -53,8 +52,7 @@ class StatisticsHelper {
             break
         }
         
-        return "\(formatter.stringFromNumber(NSNumber(double: value))!) \(unit)"
+        let formatted = "\(formatter.stringFromNumber(NSNumber(double: value))!) \(unit)"
+        return (value: value, unit: unit, formattedString: formatted)
     }
 }
-
-StatisticsHelper.toStatisticsString(1025000000)

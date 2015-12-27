@@ -94,6 +94,9 @@ class ViewController: NSViewController {
     var selectedRow: Int!
     var isDirty = false
     var isWebsitesDirty = false
+    var statisticsTimer: NSTimer!
+    var totalSentBytes: UInt64 = 0
+    var totalReceivedBytes: UInt64 = 0
     
     @IBOutlet weak var serversTableView: NSTableView!
     @IBOutlet weak var serverDetailsView: NSView!
@@ -108,6 +111,10 @@ class ViewController: NSViewController {
     @IBOutlet weak var connectionStatus: NSTextField!
     var blackListTextView: NSTextView!
     var whiteListTextView: NSTextView!
+    @IBOutlet weak var sentBytesTextField: NSTextField!
+    @IBOutlet weak var receivedBytesTextField: NSTextField!
+    @IBOutlet weak var uploadSpeedTextField: NSTextField!
+    @IBOutlet weak var downloadSpeedTextField: NSTextField!
     
     func startServer(userServer: UserServer) {
         let server = Socks5Server()
@@ -131,6 +138,11 @@ class ViewController: NSViewController {
             
             self.runningServers.append(server)
             self.updateStatusText(self.runningServers.count)
+            
+            if self.statisticsTimer == nil {
+                self.statisticsTimer = NSTimer(timeInterval: 1, target: self, selector: Selector("refreshStatistics"), userInfo: nil, repeats: true)
+                NSRunLoop.mainRunLoop().addTimer(self.statisticsTimer, forMode: NSRunLoopCommonModes)
+            }
         })
     }
     
@@ -140,6 +152,20 @@ class ViewController: NSViewController {
             runningServers.removeAtIndex(runningServers.indexOf({ ss in ss == s })!)
             updateStatusText(runningServers.count)
         }
+    }
+    
+    func refreshStatistics() {
+        if self.runningServers.count == 0 {
+            return
+        }
+        
+        let curSent = self.runningServers.reduce(0, combine: { n, s in n + s.sentBytes })
+        let curReceived = self.runningServers.reduce(0, combine: { n, s in n + s.receivedBytes })
+        
+        let deltaSent = curSent - totalSentBytes
+        let deltaReceived = curReceived - totalReceivedBytes
+        
+//        let speed = 
     }
     
     func saveServers(force: Bool = false) {

@@ -31,7 +31,7 @@ class Socks5Server {
     var proxyMode = ProxyMode.GLOBAL
     
     private(set) var sentBytes: UInt64 = 0
-    private(set) var receBytes: UInt64 = 0
+    private(set) var receivedBytes: UInt64 = 0
     
     private var server: TCPServer!
     private var running = true

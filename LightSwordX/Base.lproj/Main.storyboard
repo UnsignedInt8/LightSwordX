@@ -677,6 +677,8 @@
                         <outlet property="listenPortTextField" destination="1t8-Km-Wwo" id="wzB-Ja-B2N"/>
                         <outlet property="passwordTextField" destination="tw4-3U-vVZ" id="2VG-Mv-zzp"/>
                         <outlet property="proxyModeComboBox" destination="8XI-zV-QyV" id="tZY-yL-ohf"/>
+                        <outlet property="receivedBytesTextField" destination="ai7-jq-7eu" id="WPQ-Wa-SHV"/>
+                        <outlet property="sentBytesTextField" destination="BfM-n4-bBx" id="hdq-dW-M9Y"/>
                         <outlet property="serverAddressTextField" destination="tLz-gS-MnF" id="sCK-vn-UGb"/>
                         <outlet property="serverDetailsView" destination="1xq-7E-ppc" id="uP7-IO-PeT"/>
                         <outlet property="serverPortTextField" destination="mIT-kx-D6r" id="g3c-RY-QE2"/>

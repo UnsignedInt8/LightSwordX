@@ -86,6 +86,8 @@ extension ViewController: NSTableViewDataSource {
             
             let con = TCPClient(addr: ip, port: port)
             let (success, _) = con.connect(timeout: 10)
+            con.close()
+            
             let message = success ? "\(NSLocalizedString("Elapsed Time", comment: "")): \(StatisticsHelper.getUptimeInMilliseconds() - start)ms" : NSLocalizedString("Connection Timeout", comment: "")
             
             let notification = NSUserNotification()

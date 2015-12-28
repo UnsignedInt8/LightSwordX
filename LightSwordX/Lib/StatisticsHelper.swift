@@ -54,4 +54,17 @@ class StatisticsHelper {
         
         return (value: value, formattedValue: formatter.stringFromNumber(value)!, unit: unit)
     }
+    
+    static func getUptimeInMilliseconds() -> UInt64 {
+        let kOneMillion: UInt64 = 1000 * 1000;
+        var s_timebase_info = mach_timebase_info_data_t();
+        
+        if (s_timebase_info.denom == 0) {
+            mach_timebase_info(&s_timebase_info);
+        }
+        
+        // mach_absolute_time() returns billionth of seconds,
+        // so divide by one million to get milliseconds
+        return mach_absolute_time() * UInt64(s_timebase_info.numer) / (kOneMillion * UInt64(s_timebase_info.denom))
+    }
 }

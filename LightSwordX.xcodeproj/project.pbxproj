@@ -30,7 +30,7 @@
 		A23964351C22B37A009F2158 /* SINQ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; };
 		A23964361C22B37A009F2158 /* SINQ.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A23964341C22B37A009F2158 /* SINQ.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23964381C22BB9D009F2158 /* Socks5Helper.swift */; };
-		A24197CC1C2F831E0037369C /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24197CB1C2F831E0037369C /* Number.swift */; };
+		A24197CC1C2F831E0037369C /* StatisticsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24197CB1C2F831E0037369C /* StatisticsHelper.swift */; };
 		A248203D1C2A3D0F00EE41A3 /* UserServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203C1C2A3D0F00EE41A3 /* UserServer.swift */; };
 		A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */; };
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
@@ -91,7 +91,7 @@
 		A23964321C22AE82009F2158 /* Socks5Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Constants.swift; path = Socks5/Socks5Constants.swift; sourceTree = "<group>"; };
 		A23964341C22B37A009F2158 /* SINQ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SINQ.framework; path = Carthage/Build/Mac/SINQ.framework; sourceTree = "<group>"; };
 		A23964381C22BB9D009F2158 /* Socks5Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socks5Helper.swift; path = Socks5/Socks5Helper.swift; sourceTree = "<group>"; };
-		A24197CB1C2F831E0037369C /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Number.swift; path = Lib/Number.swift; sourceTree = "<group>"; };
+		A24197CB1C2F831E0037369C /* StatisticsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatisticsHelper.swift; path = Lib/StatisticsHelper.swift; sourceTree = "<group>"; };
 		A248203C1C2A3D0F00EE41A3 /* UserServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserServer.swift; path = Models/UserServer.swift; sourceTree = "<group>"; };
 		A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Servers.swift; sourceTree = "<group>"; };
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				A224C9441C2528B0008B64D3 /* String.swift */,
 				A22E7ED71C26366A000785E3 /* Constants.swift */,
 				A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */,
-				A24197CB1C2F831E0037369C /* Number.swift */,
+				A24197CB1C2F831E0037369C /* StatisticsHelper.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -335,7 +335,7 @@
 				A224C9451C2528B0008B64D3 /* String.swift in Sources */,
 				A22E7ED81C26366A000785E3 /* Constants.swift in Sources */,
 				A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */,
-				A24197CC1C2F831E0037369C /* Number.swift in Sources */,
+				A24197CC1C2F831E0037369C /* StatisticsHelper.swift in Sources */,
 				A239642E1C22A2D4009F2158 /* ytcpsocket.c in Sources */,
 				A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */,
 				A224C9431C252369008B64D3 /* Crypto.swift in Sources */,

@@ -318,6 +318,9 @@
                                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
+                                                            <connections>
+                                                                <action selector="testConnectionSpeed:" target="B3C-Ed-y2d" id="r0u-Zx-Jdj"/>
+                                                            </connections>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jca-Pf-MFZ">
                                                             <rect key="frame" x="-2" y="61" width="80" height="17"/>

@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
@@ -26,6 +26,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Exit", action: Selector("exit:"), keyEquivalent: ""))
         
         statusItem.menu = menu
+        
+        NSUserNotificationCenter.defaultUserNotificationCenter().delegate = self
+    }
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+        return true
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

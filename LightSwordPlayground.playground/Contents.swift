@@ -8,6 +8,21 @@ let bytesXor = bytes1.map({ n in n ^ xr })
 let bytesRaw = bytesXor.map({ n in n ^ xr })
 assert(bytesRaw[0] == bytes1[0])
 
+func getUptimeInMilliseconds() -> UInt64
+{
+    let kOneMillion: UInt64 = 1000 * 1000;
+    var s_timebase_info = mach_timebase_info_data_t();
+    
+    if (s_timebase_info.denom == 0) {
+        mach_timebase_info(&s_timebase_info);
+    }
+    
+    // mach_absolute_time() returns billionth of seconds,
+    // so divide by one million to get milliseconds
+    return mach_absolute_time() * UInt64(s_timebase_info.numer) / (kOneMillion * UInt64(s_timebase_info.denom))
+}
+
+let start = getUptimeInMilliseconds()
 
 class StatisticsHelper {
     
@@ -58,3 +73,6 @@ class StatisticsHelper {
 }
 
 StatisticsHelper.toStatisticsString(1025000000)
+
+getUptimeInMilliseconds() - start
+

@@ -1,7 +1,3 @@
-/* 
-  Localizable.strings
-  LightSwordX
-
-  Created by Neko on 12/26/15.
-  Copyright © 2015 Neko. All rights reserved.
-*/
+"Test Connection Speed" = "Test Connection Speed";
+"Elapsed Time" = "Elapsed Time";
+"Connection Timeout" = "Connection Timeout";

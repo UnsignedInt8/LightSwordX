@@ -75,6 +75,31 @@ extension ViewController: NSTableViewDataSource {
         
         stopServerId(selectedServer)
     }
+    
+    @IBAction func testConnectionSpeed(sender: NSButton) {
+        let ip = servers[selectedRow].address
+        let port = servers[selectedRow].port
+        
+        sender.enabled = false
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let start = StatisticsHelper.getUptimeInMilliseconds()
+            
+            let con = TCPClient(addr: ip, port: port)
+            let (success, _) = con.connect(timeout: 10)
+            let message = success ? "\(NSLocalizedString("Elapsed Time", comment: "")): \(StatisticsHelper.getUptimeInMilliseconds() - start)ms" : NSLocalizedString("Connection Timeout", comment: "")
+            
+            let notification = NSUserNotification()
+            notification.title = NSLocalizedString("Test Connection Speed", comment: "")
+            notification.informativeText = message
+            notification.soundName = NSUserNotificationDefaultSoundName
+            
+            NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                sender.enabled = true
+            }
+        }
+    }
 }
 
 extension ViewController: NSTableViewDelegate {

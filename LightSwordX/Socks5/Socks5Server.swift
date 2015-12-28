@@ -168,14 +168,14 @@ class Socks5Server {
     private func connectToServer(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient) {
         switch proxyMode {
         case .BLACK:
-            if sinq(blackList).any({ l in destAddr.endsWith(l) }) {
+            if blackList != nil && sinq(blackList).any({ l in destAddr.endsWith(l) }) {
                 break
             }
             connectToTarget(destAddr, destPort: destPort, requestBuf: requestBuf, client: client)
             return
             
         case .WHITE:
-            if sinq(whiteList).any({ l in destAddr.endsWith(l) }) {
+            if whiteList != nil && sinq(whiteList).any({ l in destAddr.endsWith(l) }) {
                 connectToTarget(destAddr, destPort: destPort, requestBuf: requestBuf, client: client)
                 return
             }

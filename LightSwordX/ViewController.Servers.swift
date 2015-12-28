@@ -26,9 +26,9 @@ extension ViewController: NSTableViewDataSource {
         servers.append(server)
         serversTableView.reloadData()
         
-        let indexSet = NSIndexSet(index: servers.count - 1)
-        serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
         selectedRow = servers.count - 1
+        let indexSet = NSIndexSet(index: selectedRow)
+        serversTableView.selectRowIndexes(indexSet, byExtendingSelection: false)
         
         serverDetailsView.hidden = false
         keepConnectionCheckBox.state = server.keepConnection ? NSOnState : NSOffState

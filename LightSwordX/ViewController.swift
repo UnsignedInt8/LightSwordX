@@ -155,6 +155,11 @@ class ViewController: NSViewController {
             runningServers.removeAtIndex(runningServers.indexOf({ ss in ss == s })!)
             updateStatusText(runningServers.count)
         }
+        
+        if runningServers.count == 0 {
+            statisticsTimer.invalidate()
+            statisticsTimer = nil
+        }
     }
     
     func refreshStatistics() {

@@ -24,7 +24,7 @@ class StatisticsHelper {
         
         var value = Double(number)
         var unit = "Bytes"
-        formatter.format = "0.00"
+        formatter.format = "0.0#"
         
         switch value {
         case let v where v > TB:

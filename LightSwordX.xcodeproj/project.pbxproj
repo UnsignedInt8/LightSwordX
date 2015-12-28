@@ -35,6 +35,12 @@
 		A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */; };
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
 		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
+		A28092901C31421400EBA9E1 /* LightSwordXHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A29557471C313DF200C9A74C /* LightSwordXHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A28092921C31427000EBA9E1 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28092911C31427000EBA9E1 /* ServiceManagement.framework */; };
+		A295574A1C313DF200C9A74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29557491C313DF200C9A74C /* AppDelegate.swift */; };
+		A295574C1C313DF200C9A74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295574B1C313DF200C9A74C /* ViewController.swift */; };
+		A295574E1C313DF200C9A74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295574D1C313DF200C9A74C /* Assets.xcassets */; };
+		A29557511C313DF200C9A74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295574F1C313DF200C9A74C /* Main.storyboard */; };
 		A2FA5C3C1C2EB87D00D43267 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +65,16 @@
 				A224C9401C2521F0008B64D3 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A280928F1C31419B00EBA9E1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				A28092901C31421400EBA9E1 /* LightSwordXHelper.app in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -96,6 +112,14 @@
 		A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Servers.swift; sourceTree = "<group>"; };
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
 		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
+		A28092911C31427000EBA9E1 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		A29557471C313DF200C9A74C /* LightSwordXHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordXHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A29557491C313DF200C9A74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A295574B1C313DF200C9A74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A295574D1C313DF200C9A74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A29557501C313DF200C9A74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A29557521C313DF200C9A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A29557561C313E6E00C9A74C /* LightSwordXHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LightSwordXHelper.entitlements; sourceTree = "<group>"; };
 		A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,12 +128,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28092921C31427000EBA9E1 /* ServiceManagement.framework in Frameworks */,
 				A23964351C22B37A009F2158 /* SINQ.framework in Frameworks */,
 				A224C93F1C2521F0008B64D3 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A23963EA1C2299C4009F2158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A29557441C313DF200C9A74C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,10 +167,12 @@
 		A23963D31C2299C4009F2158 = {
 			isa = PBXGroup;
 			children = (
+				A28092911C31427000EBA9E1 /* ServiceManagement.framework */,
 				A224C93E1C2521F0008B64D3 /* CryptoSwift.framework */,
 				A23964341C22B37A009F2158 /* SINQ.framework */,
 				A23963DE1C2299C4009F2158 /* LightSwordX */,
 				A23963F01C2299C4009F2158 /* LightSwordXTests */,
+				A29557481C313DF200C9A74C /* LightSwordXHelper */,
 				A23963DD1C2299C4009F2158 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -148,6 +182,7 @@
 			children = (
 				A23963DC1C2299C4009F2158 /* LightSwordX.app */,
 				A23963ED1C2299C4009F2158 /* LightSwordXTests.xctest */,
+				A29557471C313DF200C9A74C /* LightSwordXHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +249,19 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		A29557481C313DF200C9A74C /* LightSwordXHelper */ = {
+			isa = PBXGroup;
+			children = (
+				A29557561C313E6E00C9A74C /* LightSwordXHelper.entitlements */,
+				A29557491C313DF200C9A74C /* AppDelegate.swift */,
+				A295574B1C313DF200C9A74C /* ViewController.swift */,
+				A295574D1C313DF200C9A74C /* Assets.xcassets */,
+				A295574F1C313DF200C9A74C /* Main.storyboard */,
+				A29557521C313DF200C9A74C /* Info.plist */,
+			);
+			path = LightSwordXHelper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +273,7 @@
 				A23963D91C2299C4009F2158 /* Frameworks */,
 				A23963DA1C2299C4009F2158 /* Resources */,
 				A23964371C22B37B009F2158 /* Embed Frameworks */,
+				A280928F1C31419B00EBA9E1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,23 @@
 			productReference = A23963ED1C2299C4009F2158 /* LightSwordXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A29557461C313DF200C9A74C /* LightSwordXHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A29557531C313DF200C9A74C /* Build configuration list for PBXNativeTarget "LightSwordXHelper" */;
+			buildPhases = (
+				A29557431C313DF200C9A74C /* Sources */,
+				A29557441C313DF200C9A74C /* Frameworks */,
+				A29557451C313DF200C9A74C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightSwordXHelper;
+			productName = LightSwordXHelper;
+			productReference = A29557471C313DF200C9A74C /* LightSwordXHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,6 +341,14 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = A23963DB1C2299C4009F2158;
 					};
+					A29557461C313DF200C9A74C = {
+						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = A23963D71C2299C4009F2158 /* Build configuration list for PBXProject "LightSwordX" */;
@@ -292,6 +366,7 @@
 			targets = (
 				A23963DB1C2299C4009F2158 /* LightSwordX */,
 				A23963EC1C2299C4009F2158 /* LightSwordXTests */,
+				A29557461C313DF200C9A74C /* LightSwordXHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -313,6 +388,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A29557451C313DF200C9A74C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295574E1C313DF200C9A74C /* Assets.xcassets in Resources */,
+				A29557511C313DF200C9A74C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +437,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A29557431C313DF200C9A74C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295574C1C313DF200C9A74C /* ViewController.swift in Sources */,
+				A295574A1C313DF200C9A74C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -368,6 +461,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				A23963E61C2299C4009F2158 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A295574F1C313DF200C9A74C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A29557501C313DF200C9A74C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -522,6 +623,34 @@
 			};
 			name = Release;
 		};
+		A29557541C313DF200C9A74C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LightSwordXHelper/LightSwordXHelper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LightSwordXHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordXHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A29557551C313DF200C9A74C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LightSwordXHelper/LightSwordXHelper.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LightSwordXHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordXHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -548,6 +677,15 @@
 			buildConfigurations = (
 				A23963FA1C2299C4009F2158 /* Debug */,
 				A23963FB1C2299C4009F2158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A29557531C313DF200C9A74C /* Build configuration list for PBXNativeTarget "LightSwordXHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A29557541C313DF200C9A74C /* Debug */,
+				A29557551C313DF200C9A74C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

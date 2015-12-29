@@ -41,6 +41,7 @@
 		A295574A1C313DF200C9A74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29557491C313DF200C9A74C /* AppDelegate.swift */; };
 		A295574E1C313DF200C9A74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295574D1C313DF200C9A74C /* Assets.xcassets */; };
 		A29557511C313DF200C9A74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295574F1C313DF200C9A74C /* Main.storyboard */; };
+		A2B3CAFD1C3268E500353F97 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3CAFC1C3268E500353F97 /* AppKeys.swift */; };
 		A2FA5C3C1C2EB87D00D43267 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		A29557501C313DF200C9A74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A29557521C313DF200C9A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29557561C313E6E00C9A74C /* LightSwordXHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LightSwordXHelper.entitlements; sourceTree = "<group>"; };
+		A2B3CAFC1C3268E500353F97 /* AppKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppKeys.swift; path = Common/AppKeys.swift; sourceTree = "<group>"; };
 		A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 			children = (
 				A22E6AA31C2D1EE50032DFBE /* black.txt */,
 				A22E6AA41C2D1EE50032DFBE /* white.txt */,
+				A2B3CAFB1C3268CD00353F97 /* Common */,
 				A248203B1C2A3CF400EE41A3 /* Models */,
 				A224C9411C252339008B64D3 /* Lib */,
 				A23964241C229F7F009F2158 /* Socks5 */,
@@ -260,6 +263,14 @@
 				A29557521C313DF200C9A74C /* Info.plist */,
 			);
 			path = LightSwordXHelper;
+			sourceTree = "<group>";
+		};
+		A2B3CAFB1C3268CD00353F97 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A2B3CAFC1C3268E500353F97 /* AppKeys.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,6 +427,7 @@
 				A23963E21C2299C4009F2158 /* ViewController.swift in Sources */,
 				A23964261C229FC5009F2158 /* Socks5Server.swift in Sources */,
 				A239642D1C22A2D4009F2158 /* ysocket.swift in Sources */,
+				A2B3CAFD1C3268E500353F97 /* AppKeys.swift in Sources */,
 				A224C9451C2528B0008B64D3 /* String.swift in Sources */,
 				A24F83D31C3262FE0020AE85 /* ViewController.Settings.swift in Sources */,
 				A22E7ED81C26366A000785E3 /* Constants.swift in Sources */,

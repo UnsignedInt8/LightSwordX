@@ -14,6 +14,9 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         serverDetailsView.hidden = servers.count == 0 ? true : false
+        
+        let login = SettingsHelper.loadValue(defaultValue: false, forKey: AppKeys.LoginItem)
+        loginItemCheckBox.state = login ? NSOnState : NSOffState
     }
     
     override func awakeFromNib() {
@@ -25,7 +28,7 @@ class ViewController: NSViewController {
             return
         }
         
-        let jsonStr = SettingsHelper.loadValue(defaultValue: "", forKey: self.serversKey)
+        let jsonStr = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.Servers)
         
         if (jsonStr.length == 0) {
             self.servers = [UserServer]()
@@ -58,8 +61,8 @@ class ViewController: NSViewController {
     }
     
     func initBlackWhiteList() {
-        let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: self.whiteKey)
-        let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)
+        let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.WhiteList)
+        let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.BlackList)
         
         if whiteList.length == 0 && blackList.length == 0 {
             ["white", "black"].forEach { s in
@@ -68,10 +71,10 @@ class ViewController: NSViewController {
                 let list = content.componentsSeparatedByString("\n")
                 if s == "white" {
                     self.whiteList = list
-                    SettingsHelper.saveValue(content, forKey: self.whiteKey)
+                    SettingsHelper.saveValue(content, forKey: AppKeys.WhiteList)
                 } else {
                     self.blackList = list
-                    SettingsHelper.saveValue(content, forKey: self.blackKey)
+                    SettingsHelper.saveValue(content, forKey: AppKeys.BlackList)
                 }
             }
         } else {
@@ -88,9 +91,6 @@ class ViewController: NSViewController {
     
     var blackList: [String]!
     var whiteList: [String]!
-    let serversKey = "Servers"
-    let whiteKey = "WhiteList"
-    let blackKey = "BlackList"
     
     var servers: [UserServer]!
     var runningServers = [Socks5Server]()
@@ -118,6 +118,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var receivedBytesTextField: NSTextField!
     @IBOutlet weak var uploadSpeedTextField: NSTextField!
     @IBOutlet weak var downloadSpeedTextField: NSTextField!
+    @IBOutlet weak var loginItemCheckBox: NSButton!
     
     func startServer(userServer: UserServer) {
         let server = Socks5Server()
@@ -206,7 +207,7 @@ class ViewController: NSViewController {
             "proxyMode": s.proxyMode.rawValue
         ]}
         
-        SettingsHelper.saveValue(JSON(list).toString(), forKey: serversKey)
+        SettingsHelper.saveValue(JSON(list).toString(), forKey: AppKeys.Servers)
     }
     
     func saveWebsites() {
@@ -214,8 +215,8 @@ class ViewController: NSViewController {
             return
         }
         
-        SettingsHelper.saveValue(blackListTextView.string!, forKey: self.blackKey)
-        SettingsHelper.saveValue(whiteListTextView.string!, forKey: self.whiteKey)
+        SettingsHelper.saveValue(blackListTextView.string!, forKey: AppKeys.BlackList)
+        SettingsHelper.saveValue(whiteListTextView.string!, forKey: AppKeys.WhiteList)
         self.blackList = blackListTextView.string!.componentsSeparatedByString("\n")
         self.whiteList = whiteListTextView.string!.componentsSeparatedByString("\n")
         
@@ -247,8 +248,8 @@ extension ViewController: NSTabViewDelegate {
                 whiteListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "WhiteListScrollView" }.subviews.first!.subviews.first as! NSTextView
             }
             
-            let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: self.blackKey)
-            let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: self.whiteKey)
+            let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.BlackList)
+            let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.WhiteList)
             blackListTextView.string = blackList
             whiteListTextView.string = whiteList
         }

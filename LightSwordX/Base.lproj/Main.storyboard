@@ -633,10 +633,13 @@
                                             <subviews>
                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXf-2g-R4l">
                                                     <rect key="frame" x="15" y="310" width="133" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="Startup after login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="8d1-XH-mmP">
+                                                    <buttonCell key="cell" type="check" title="Startup after login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="8d1-XH-mmP">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="toggleLoginItem:" target="B3C-Ed-y2d" id="T7E-rt-kso"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </view>
@@ -687,6 +690,7 @@
                         <outlet property="keepConnectionCheckBox" destination="2XJ-S9-V5S" id="mDB-FH-fEb"/>
                         <outlet property="listenAddressTextField" destination="vqH-lE-KBL" id="i0S-pV-hXb"/>
                         <outlet property="listenPortTextField" destination="1t8-Km-Wwo" id="wzB-Ja-B2N"/>
+                        <outlet property="loginItemCheckBox" destination="tXf-2g-R4l" id="V0T-ZO-rrd"/>
                         <outlet property="passwordTextField" destination="tw4-3U-vVZ" id="2VG-Mv-zzp"/>
                         <outlet property="proxyModeComboBox" destination="8XI-zV-QyV" id="tZY-yL-ohf"/>
                         <outlet property="receivedBytesTextField" destination="ai7-jq-7eu" id="WPQ-Wa-SHV"/>

@@ -6,7 +6,7 @@
 //  Copyright © 2015 Neko. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 
 extension ViewController: NSTextDelegate {
     func textDidChange(notification: NSNotification) {

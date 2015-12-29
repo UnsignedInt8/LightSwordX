@@ -77,7 +77,8 @@ StatisticsHelper.toStatisticsString(1025000000)
 getUptimeInMilliseconds() - start
 
 
-
+NSOnState
+NSOffState
 
 public func getLoginItems() -> LSSharedFileList? {
     let allocator : CFAllocator! = CFAllocatorGetDefault().takeUnretainedValue()

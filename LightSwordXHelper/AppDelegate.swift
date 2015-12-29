@@ -17,7 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         components.removeLast()
         components.removeLast()
         components.removeLast()
-        components.removeLast()
+        components.append("MacOS")
+        components.append("LightSwordX")
         
         NSWorkspace.sharedWorkspace().launchApplication(NSString.pathWithComponents(components))
         NSApp.terminate(nil)

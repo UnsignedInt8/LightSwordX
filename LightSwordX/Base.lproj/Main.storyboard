@@ -632,8 +632,8 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXf-2g-R4l">
-                                                    <rect key="frame" x="15" y="310" width="133" height="18"/>
-                                                    <buttonCell key="cell" type="check" title="Startup after login" bezelStyle="regularSquare" imagePosition="left" inset="2" id="8d1-XH-mmP">
+                                                    <rect key="frame" x="15" y="310" width="246" height="18"/>
+                                                    <buttonCell key="cell" type="check" title="Start LigthSwordX on system startup" bezelStyle="regularSquare" imagePosition="left" inset="2" id="8d1-XH-mmP">
                                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>

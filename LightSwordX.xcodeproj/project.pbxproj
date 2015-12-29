@@ -35,10 +35,10 @@
 		A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */; };
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
 		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
+		A24F83D31C3262FE0020AE85 /* ViewController.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */; };
 		A28092901C31421400EBA9E1 /* LightSwordXHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A29557471C313DF200C9A74C /* LightSwordXHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A28092921C31427000EBA9E1 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28092911C31427000EBA9E1 /* ServiceManagement.framework */; };
 		A295574A1C313DF200C9A74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29557491C313DF200C9A74C /* AppDelegate.swift */; };
-		A295574C1C313DF200C9A74C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295574B1C313DF200C9A74C /* ViewController.swift */; };
 		A295574E1C313DF200C9A74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295574D1C313DF200C9A74C /* Assets.xcassets */; };
 		A29557511C313DF200C9A74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295574F1C313DF200C9A74C /* Main.storyboard */; };
 		A2FA5C3C1C2EB87D00D43267 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2FA5C3B1C2EB87D00D43267 /* Localizable.strings */; };
@@ -112,10 +112,10 @@
 		A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Servers.swift; sourceTree = "<group>"; };
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
 		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
+		A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Settings.swift; sourceTree = "<group>"; };
 		A28092911C31427000EBA9E1 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		A29557471C313DF200C9A74C /* LightSwordXHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordXHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29557491C313DF200C9A74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A295574B1C313DF200C9A74C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A295574D1C313DF200C9A74C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A29557501C313DF200C9A74C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A29557521C313DF200C9A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 				A23963E11C2299C4009F2158 /* ViewController.swift */,
 				A248203E1C2A45CF00EE41A3 /* ViewController.Servers.swift */,
 				A22E6AA11C2D13B60032DFBE /* ViewController.Websites.swift */,
+				A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */,
 				A23963E31C2299C4009F2158 /* Assets.xcassets */,
 				A23963E51C2299C4009F2158 /* Main.storyboard */,
 				A23963E81C2299C4009F2158 /* Info.plist */,
@@ -254,7 +255,6 @@
 			children = (
 				A29557561C313E6E00C9A74C /* LightSwordXHelper.entitlements */,
 				A29557491C313DF200C9A74C /* AppDelegate.swift */,
-				A295574B1C313DF200C9A74C /* ViewController.swift */,
 				A295574D1C313DF200C9A74C /* Assets.xcassets */,
 				A295574F1C313DF200C9A74C /* Main.storyboard */,
 				A29557521C313DF200C9A74C /* Info.plist */,
@@ -417,6 +417,7 @@
 				A23964261C229FC5009F2158 /* Socks5Server.swift in Sources */,
 				A239642D1C22A2D4009F2158 /* ysocket.swift in Sources */,
 				A224C9451C2528B0008B64D3 /* String.swift in Sources */,
+				A24F83D31C3262FE0020AE85 /* ViewController.Settings.swift in Sources */,
 				A22E7ED81C26366A000785E3 /* Constants.swift in Sources */,
 				A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */,
 				A24197CC1C2F831E0037369C /* StatisticsHelper.swift in Sources */,
@@ -441,7 +442,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A295574C1C313DF200C9A74C /* ViewController.swift in Sources */,
 				A295574A1C313DF200C9A74C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,6 +25,7 @@ blogspot.com
 googlevideo.com
 proxy.googlezip.net
 twimg.com
+xiaolan.me
 wikipedia.com
 wikipedia.org
 .exblog.jp
@@ -1186,8 +1187,7 @@ rfi.my
 vds.rightster.com
 rlwlw.com
 robustnessiskey.com
-..rocketbbs.com
-..rocketbbs.com
+.rocketbbs.com
 rocmp.org
 rojo.com
 ronjoneswriter.com
@@ -1478,7 +1478,6 @@ blog.iphone-dev.org
 jayparkinsonmd.com
 blog.joeyrobert.org
 kt.kcome.org
-
 blog.kickstarter.com
 blog.kl.am
 blog.klip.me
@@ -1533,8 +1532,6 @@ tvunetworks.com
 twapperkeeper.com
 twaud.io
 twblogger.com
-];
-var proxyWildcardList  = [
 .lsxszzg.com
 hulu.com
 huluim.com
@@ -1691,7 +1688,6 @@ blogimg.jp
 rconversation.blogs.com
 blogtd.net
 .blogtd.org
-
 .bloomberg.com
 bloomberg.de
 boardreader.com
@@ -1720,7 +1716,6 @@ brucewang.net
 .bullog.org
 .bullogger.com
 .businessweek.com
-
 .buzzhand.com
 buzzurl.jp
 bwsj.hk
@@ -1895,7 +1890,6 @@ dalianmeng.org
 .danwei.org
 daolan.net
 .david-kilgour.com
-
 cn.dayabook.com
 .daylife.com
 .ddc.com.tw
@@ -2416,7 +2410,6 @@ mefeedia.com
 .megaporn.com
 megavideo.com
 meirixiaochao.com
-
 .memehk.com
 .memrijttm.org
 merit-times.com.tw
@@ -2494,7 +2487,6 @@ nccwatch.org.tw
 .nde.de
 .ndr.de
 .ned.org
-
 netcolony.com
 bolin.netfirms.com
 zh.netlog.com
@@ -2550,7 +2542,7 @@ oclp.hk
 offbeatchina.com
 officeoftibet.com
 twtr2src.ogaoga.org
-..ohchr.org
+.ohchr.org
 .oikos.com.tw
 .oiktv.com
 oizoblog.com
@@ -2562,7 +2554,6 @@ cling.omy.sg
 forum.omy.sg
 news.omy.sg
 showbiz.omy.sg
-
 onmoon.net
 onmoon.com
 .oopsforum.com
@@ -2685,7 +2676,6 @@ python.com
 qi-gong.me
 .qidian.ca
 .qienkuen.org
-
 bbs.qmzdd.com
 .qkshare.com
 qoos.com

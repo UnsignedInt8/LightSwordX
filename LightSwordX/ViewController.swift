@@ -129,7 +129,7 @@ class ViewController: NSViewController {
         server.bypassLocal = true
         server.cipherAlgorithm = userServer.cipherAlgorithm
         server.password = userServer.password
-        server.timeout = 60 * 1000
+        server.timeout = 10
         server.tag = userServer.id
         server.proxyMode = userServer.proxyMode
         server.blackList = self.blackList

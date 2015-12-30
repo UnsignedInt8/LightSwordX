@@ -7,3 +7,6 @@ googleusercontent.com
 facebook.com
 twimg.com
 googlevideo.com
+blogspot.com
+googleapis.com
+gstatic.com

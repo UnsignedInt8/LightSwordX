@@ -12,6 +12,13 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        let isRunning = NSWorkspace.sharedWorkspace().runningApplications.filter({ a in a.bundleIdentifier?.containsString("org.lightsword.LightSwordX") ?? false }).count > 0
+        
+        if isRunning {
+            NSApp.terminate(nil)
+            return
+        }
+        
         let path = NSBundle.mainBundle().bundlePath as NSString
         var components = path.pathComponents
         components.removeLast()

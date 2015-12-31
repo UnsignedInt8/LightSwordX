@@ -76,57 +76,5 @@ StatisticsHelper.toStatisticsString(1025000000)
 
 getUptimeInMilliseconds() - start
 
-
-NSOnState
-NSOffState
-
-public func getLoginItems() -> LSSharedFileList? {
-    let allocator : CFAllocator! = CFAllocatorGetDefault().takeUnretainedValue()
-    let kLoginItems : CFString! = kLSSharedFileListSessionLoginItems.takeUnretainedValue()
-    var loginItems_ = LSSharedFileListCreate(allocator, kLoginItems, nil)
-    if loginItems_ == nil {return nil}
-    let loginItems : LSSharedFileList! = loginItems_.takeRetainedValue()
-    return loginItems
-}
-
-public func existingItem(itemURL : NSURL) -> LSSharedFileListItem? {
-    let loginItems_ = getLoginItems()
-    if loginItems_ == nil {return nil}
-    let loginItems = loginItems_!
-    
-    var seed : UInt32 = 0
-    let currentItems = LSSharedFileListCopySnapshot(loginItems, &seed).takeRetainedValue() as NSArray
-    
-    for item in currentItems {
-        let resolutionFlags : UInt32 = UInt32(kLSSharedFileListNoUserInteraction | kLSSharedFileListDoNotMountVolumes)
-        var url = LSSharedFileListItemCopyResolvedURL(item as! LSSharedFileListItem, resolutionFlags, nil).takeRetainedValue() as NSURL
-        if url.isEqual(itemURL) {
-            let result = item as! LSSharedFileListItem
-            return result
-        }
-    }
-    
-    return nil
-}
-
-public func willLaunchAtLogin(itemURL : NSURL) -> Bool {
-    return existingItem(itemURL) != nil
-}
-
-public func setLaunchAtLogin(itemURL: NSURL, enabled: Bool) -> Bool {
-    let loginItems_ = getLoginItems()
-    if loginItems_ == nil {return false}
-    let loginItems = loginItems_!
-    
-    var item = existingItem(itemURL)
-    if item != nil && enabled {return true}
-    if item != nil && !enabled {
-        LSSharedFileListItemRemove(loginItems, item)
-        return true
-    }
-    
-    LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst.takeUnretainedValue(), nil, nil, itemURL as CFURL, nil, nil)
-    return true
-}
-
-print(getLoginItems())
+let a = NSWorkspace.sharedWorkspace().runningApplications.filter({ a in (a.bundleIdentifier?.containsString("org.lightsword.LightSword")) ?? false })
+print(a[0].bundleIdentifier!)

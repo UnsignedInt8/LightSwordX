@@ -128,7 +128,11 @@ extension ViewController: NSTableViewDelegate {
 extension ViewController: NSComboBoxDelegate {
     
     override func controlTextDidChange(obj: NSNotification) {
-        let textField = obj.object as! NSTextField
+        let textField: NSTextField! = obj.object as? NSTextField
+        if textField == nil {
+            return
+        }
+        
         var newValue = textField.stringValue
         let selectedServer = servers[selectedRow]
         

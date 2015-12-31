@@ -90,3 +90,7 @@ yixun.com
 renren.com
 tom.com
 paypal.com
+.hdslb.com
+aixifan.com
+.tanx.com
+taobaocdn.com

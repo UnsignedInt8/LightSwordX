@@ -22,8 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
         
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Open Window", action: Selector("openWindow:"), keyEquivalent: ""))
-        menu.addItem(NSMenuItem(title: "Exit", action: Selector("exit:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: NSLocalizedString("Preferences", comment: ""), action: Selector("openPreferences:"), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: NSLocalizedString("Quit", comment: ""), action: Selector("quit:"), keyEquivalent: ""))
         
         statusItem.menu = menu
         
@@ -40,12 +40,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSSquareStatusItemLength)
     
-    func openWindow(sender: NSMenuItem) {
+    func openPreferences(sender: NSMenuItem) {
         NSApplication.sharedApplication().windows.last!.makeKeyAndOrderFront(nil)
         NSApplication.sharedApplication().activateIgnoringOtherApps(true)
     }
     
-    func exit(sender: NSMenuItem) {
+    func quit(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
     }
 }

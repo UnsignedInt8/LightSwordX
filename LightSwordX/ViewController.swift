@@ -20,7 +20,7 @@ class ViewController: NSViewController {
     }
     
     override func awakeFromNib() {
-        
+
         if self.blackList == nil {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
                 self.initBlackWhiteList()
@@ -131,11 +131,6 @@ class ViewController: NSViewController {
             
             self.runningServers.append(server)
             self.updateStatusText(self.runningServers.count)
-            
-            if self.statisticsTimer == nil {
-                self.statisticsTimer = NSTimer(timeInterval: 1, target: self, selector: Selector("refreshStatistics"), userInfo: nil, repeats: true)
-                NSRunLoop.mainRunLoop().addTimer(self.statisticsTimer, forMode: NSRunLoopCommonModes)
-            }
         })
     }
     
@@ -144,11 +139,6 @@ class ViewController: NSViewController {
             s.stop()
             runningServers.removeAtIndex(runningServers.indexOf({ ss in ss == s })!)
             updateStatusText(runningServers.count)
-        }
-        
-        if runningServers.count == 0 {
-            statisticsTimer.invalidate()
-            statisticsTimer = nil
         }
     }
     
@@ -239,7 +229,17 @@ class ViewController: NSViewController {
 
 extension ViewController: NSTabViewDelegate {
     func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?) {
-        if tabViewItem?.identifier as? String == "Websites" {
+        let identifier = tabViewItem?.identifier as? String
+        if identifier == nil {
+            return
+        }
+        
+        if statisticsTimer != nil {
+            statisticsTimer.invalidate()
+            statisticsTimer = nil
+        }
+        
+        if identifier! == "Websites" {
             if blackListTextView == nil {
                 blackListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "BlackListScrollView" }.subviews.first!.subviews.first as! NSTextView
                 whiteListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "WhiteListScrollView" }.subviews.first!.subviews.first as! NSTextView
@@ -249,8 +249,20 @@ extension ViewController: NSTabViewDelegate {
             let whiteList = SettingsHelper.loadValue(defaultValue: try! NSString(contentsOfFile: NSBundle.mainBundle().pathForResource("white", ofType: "txt")!, encoding: NSUTF8StringEncoding) as String, forKey: AppKeys.WhiteList)
             blackListTextView.string = blackList
             whiteListTextView.string = whiteList
+            
+            saveWebsites()
+            return
         }
         
-        saveWebsites()
+        if identifier! == "Statistics" {
+            if self.statisticsTimer == nil {
+                self.statisticsTimer = NSTimer(timeInterval: 1, target: self, selector: Selector("refreshStatistics"), userInfo: nil, repeats: true)
+                NSRunLoop.mainRunLoop().addTimer(self.statisticsTimer, forMode: NSRunLoopCommonModes)
+                refreshStatistics()
+            }
+            
+            return
+        }
+        
     }
 }

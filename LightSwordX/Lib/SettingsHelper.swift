@@ -34,10 +34,7 @@ public class SettingsHelper {
     }
     
     public class func reset() {
-        defaults.dictionaryRepresentation().forEach { key, obj in
-            defaults.removeObjectForKey(key)
-        }
-        defaults.synchronize()
+        defaults.removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
     }
     
     public class func synchronize() {

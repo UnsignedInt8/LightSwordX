@@ -20,6 +20,7 @@ class ViewController: NSViewController {
     }
     
     override func awakeFromNib() {
+        
         if self.blackList == nil {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
                 self.initBlackWhiteList()
@@ -63,26 +64,12 @@ class ViewController: NSViewController {
     }
     
     func initBlackWhiteList() {
-        let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.WhiteList)
-        let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.BlackList)
+        let mainBundle = NSBundle.mainBundle()
+        let whiteList = SettingsHelper.loadValue(defaultValue: try! NSString(contentsOfFile: mainBundle.pathForResource("white", ofType: "txt")!, encoding: NSUTF8StringEncoding), forKey: AppKeys.WhiteList)
+        let blackList = SettingsHelper.loadValue(defaultValue: try! NSString(contentsOfFile: mainBundle.pathForResource("black", ofType: "txt")!, encoding: NSUTF8StringEncoding), forKey: AppKeys.BlackList)
         
-        if whiteList.length == 0 && blackList.length == 0 {
-            ["white", "black"].forEach { s in
-                let path = NSBundle.mainBundle().pathForResource(s, ofType: "txt")!
-                let content = try! NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding)
-                let list = content.componentsSeparatedByString("\n")
-                if s == "white" {
-                    self.whiteList = list
-                    SettingsHelper.saveValue(content, forKey: AppKeys.WhiteList)
-                } else {
-                    self.blackList = list
-                    SettingsHelper.saveValue(content, forKey: AppKeys.BlackList)
-                }
-            }
-        } else {
-            self.whiteList = whiteList.componentsSeparatedByString("\n")
-            self.blackList = blackList.componentsSeparatedByString("\n")
-        }
+        self.whiteList = whiteList.componentsSeparatedByString("\n")
+        self.blackList = blackList.componentsSeparatedByString("\n")
     }
     
     @IBAction func onCloseClick(sender: NSButton) {
@@ -250,8 +237,8 @@ extension ViewController: NSTabViewDelegate {
                 whiteListTextView = sinq(tabViewItem!.view!.subviews).first{ v in v.identifier == "WhiteListScrollView" }.subviews.first!.subviews.first as! NSTextView
             }
             
-            let blackList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.BlackList)
-            let whiteList = SettingsHelper.loadValue(defaultValue: "", forKey: AppKeys.WhiteList)
+            let blackList = SettingsHelper.loadValue(defaultValue: try! NSString(contentsOfFile: NSBundle.mainBundle().pathForResource("black", ofType: "txt")!, encoding: NSUTF8StringEncoding) as String, forKey: AppKeys.BlackList)
+            let whiteList = SettingsHelper.loadValue(defaultValue: try! NSString(contentsOfFile: NSBundle.mainBundle().pathForResource("white", ofType: "txt")!, encoding: NSUTF8StringEncoding) as String, forKey: AppKeys.WhiteList)
             blackListTextView.string = blackList
             whiteListTextView.string = whiteList
         }

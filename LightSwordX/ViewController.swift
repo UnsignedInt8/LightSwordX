@@ -157,8 +157,16 @@ class ViewController: NSViewController {
             return
         }
         
-        let curSent = self.runningServers.reduce(0, combine: { n, s in n + s.sentBytes })
-        let curReceived = self.runningServers.reduce(0, combine: { n, s in n + s.receivedBytes })
+        var curSent = self.runningServers.reduce(0, combine: { n, s in n + s.sentBytes })
+        var curReceived = self.runningServers.reduce(0, combine: { n, s in n + s.receivedBytes })
+        
+        if curSent < totalSentBytes {
+            curSent = totalSentBytes
+        }
+        
+        if curReceived < totalReceivedBytes {
+            curReceived = totalReceivedBytes
+        }
         
         let deltaSent = curSent - totalSentBytes
         let deltaReceived = curReceived - totalReceivedBytes

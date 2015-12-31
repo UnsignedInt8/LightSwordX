@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let isRunning = NSWorkspace.sharedWorkspace().runningApplications.filter({ a in a.bundleIdentifier?.containsString("org.lightsword.LightSwordX") ?? false }).count > 0
+        let isRunning = NSWorkspace.sharedWorkspace().runningApplications.filter({ a in a.bundleIdentifier != nil ? a.bundleIdentifier! == "org.lightsword.LightSwordX" : false ?? false }).count > 0
         
         if isRunning {
             NSApp.terminate(nil)

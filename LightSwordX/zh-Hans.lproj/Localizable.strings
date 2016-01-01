@@ -8,3 +8,8 @@
 
 "Preferences" = "偏好设置";
 "Quit" = "退出";
+
+// Status
+
+"Stopped" = "已停止";
+"Running" = "运行中";

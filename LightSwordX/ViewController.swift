@@ -123,14 +123,16 @@ class ViewController: NSViewController {
         server.proxyMode = userServer.proxyMode
         server.blackList = self.blackList
         server.whiteList = self.whiteList
-        
+
         server.startAsync({ s in
             if (!s) {
                 return
             }
             
-            self.runningServers.append(server)
-            self.updateStatusText(self.runningServers.count)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.runningServers.append(server)
+                self.updateStatusText(self.runningServers.count)
+            }
         })
     }
     
@@ -218,7 +220,7 @@ class ViewController: NSViewController {
     func updateStatusText(runningCount: Int) {
         dispatch_async(dispatch_get_main_queue()) {
             let color = runningCount == 0 ? NSColor.grayColor() : NSColor(red: 51.0 / 255, green: 204.0 / 255, blue: 51 / 255, alpha: 1)
-            let text = runningCount == 0 ? "Stopped" : "Running: \(runningCount)"
+            let text = runningCount == 0 ? NSLocalizedString("Stopped", comment: "") : "\(NSLocalizedString("Running", comment: "")): \(runningCount)"
             
             self.connectionStatus.textColor = color
             self.connectionStatus.stringValue = "◉ \(text)"

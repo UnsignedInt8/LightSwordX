@@ -677,7 +677,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Do-hi-VfB">
-                                                    <rect key="frame" x="15" y="17" width="375" height="17"/>
+                                                    <rect key="frame" x="15" y="17" width="383" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source Code: https://github.com/SunshinyNeko/LightSwordX" id="xjN-cc-33o">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" red="0.18903386780104714" green="0.18903386780104714" blue="0.18903386780104714" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -692,7 +692,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="1Do-hi-VfB" secondAttribute="bottom" constant="17" id="TOP-6f-Ckl"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hbp-rz-tIX" secondAttribute="bottom" constant="42" id="csb-nq-fAC"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hbp-rz-tIX" secondAttribute="trailing" constant="8" id="kex-BQ-pyh"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1Do-hi-VfB" secondAttribute="trailing" constant="136" id="mnT-WY-KS0"/>
                                                 <constraint firstItem="tXf-2g-R4l" firstAttribute="leading" secondItem="Hbp-rz-tIX" secondAttribute="leading" id="y1l-km-mln"/>
                                             </constraints>
                                         </view>

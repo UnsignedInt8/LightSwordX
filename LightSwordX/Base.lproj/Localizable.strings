@@ -8,3 +8,8 @@
 
 "Preferences" = "Preferences";
 "Quit" = "Quit";
+
+// Status
+
+"Stopped" = "Stopped";
+"Running" = "Running";

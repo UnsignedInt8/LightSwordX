@@ -1,6 +1,10 @@
+// Connection Test
+
 "Test Connection Speed" = "Test Connection Speed";
 "Elapsed Time" = "Elapsed Time";
 "Connection Timeout" = "Connection Timeout";
+
+// Menu Bar
 
 "Preferences" = "Preferences";
 "Quit" = "Quit";

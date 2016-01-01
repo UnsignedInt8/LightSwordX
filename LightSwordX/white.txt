@@ -94,3 +94,4 @@ paypal.com
 aixifan.com
 .tanx.com
 taobaocdn.com
+sogou.com

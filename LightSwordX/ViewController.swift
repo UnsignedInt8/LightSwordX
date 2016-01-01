@@ -73,7 +73,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func onCloseClick(sender: NSButton) {
-        NSApplication.sharedApplication().windows.last?.close()
+        view.window?.close()
         saveServers()
         saveWebsites()
     }

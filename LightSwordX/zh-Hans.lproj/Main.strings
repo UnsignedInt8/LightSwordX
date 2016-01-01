@@ -60,7 +60,7 @@
 "C4f-hN-IR5.ibShadowedObjectValues[0]" = "全局代理";
 
 /* Class = "NSComboBoxCell"; C4f-hN-IR5.ibShadowedObjectValues[1] = "Blacklist only"; ObjectID = "C4f-hN-IR5"; */
-"C4f-hN-IR5.ibShadowedObjectValues[1]" = "黑名单(仅被封网址)";
+"C4f-hN-IR5.ibShadowedObjectValues[1]" = "仅黑名单(仅被封网址)";
 
 /* Class = "NSComboBoxCell"; C4f-hN-IR5.ibShadowedObjectValues[2] = "Global except whitelist"; ObjectID = "C4f-hN-IR5"; */
 "C4f-hN-IR5.ibShadowedObjectValues[2]" = "全局代理(白名单除外）";

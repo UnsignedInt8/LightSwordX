@@ -1,0 +1,10 @@
+// Connection Test
+
+"Test Connection Speed" = "测试连接速度";
+"Elapsed Time" = "总耗时";
+"Connection Timeout" = "连接超时";
+
+// Menu Bar
+
+"Preferences" = "偏好设置";
+"Quit" = "退出";

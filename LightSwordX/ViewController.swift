@@ -230,7 +230,6 @@ class ViewController: NSViewController {
     }
     
     func stopTimer() {
-        print("close timer")
         if statisticsTimer == nil {
             return
         }

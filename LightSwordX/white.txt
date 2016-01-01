@@ -95,3 +95,5 @@ aixifan.com
 .tanx.com
 taobaocdn.com
 sogou.com
+.docin.com
+.v2ex.com

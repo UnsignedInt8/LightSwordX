@@ -13,6 +13,7 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         serverDetailsView.hidden = servers.count == 0 ? true : false
         
         let login = SettingsHelper.loadValue(defaultValue: false, forKey: AppKeys.LoginItem)
@@ -76,6 +77,7 @@ class ViewController: NSViewController {
         view.window?.close()
         saveServers()
         saveWebsites()
+        stopTimer()
     }
     
     var blackList: [String]!
@@ -118,7 +120,7 @@ class ViewController: NSViewController {
         server.bypassLocal = true
         server.cipherAlgorithm = userServer.cipherAlgorithm
         server.password = userServer.password
-        server.timeout = 10
+        server.timeout = 30
         server.tag = userServer.id
         server.proxyMode = userServer.proxyMode
         server.blackList = self.blackList
@@ -226,8 +228,17 @@ class ViewController: NSViewController {
             self.connectionStatus.stringValue = "◉ \(text)"
         }
     }
+    
+    func stopTimer() {
+        print("close timer")
+        if statisticsTimer == nil {
+            return
+        }
+        
+        statisticsTimer.invalidate()
+        statisticsTimer = nil
+    }
 }
-
 
 extension ViewController: NSTabViewDelegate {
     func tabView(tabView: NSTabView, didSelectTabViewItem tabViewItem: NSTabViewItem?) {
@@ -236,10 +247,7 @@ extension ViewController: NSTabViewDelegate {
             return
         }
         
-        if statisticsTimer != nil {
-            statisticsTimer.invalidate()
-            statisticsTimer = nil
-        }
+        stopTimer()
         
         if identifier! == "Websites" {
             if blackListTextView == nil {

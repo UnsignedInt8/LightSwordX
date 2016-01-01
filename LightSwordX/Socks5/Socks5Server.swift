@@ -190,6 +190,12 @@ class Socks5Server {
         if !success {
             client.close()
             print(msg)
+            
+            if msg == "query server fail" {
+                self.stop()
+                self.startAsync({ s in })
+            }
+            
             return
         }
         

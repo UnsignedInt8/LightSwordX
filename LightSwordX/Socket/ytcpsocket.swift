@@ -49,7 +49,7 @@ public class TCPClient:YSocket{
         }else{
             switch rs{
             case -1:
-                return (false,"qeury server fail")
+                return (false,"query server fail")
             case -2:
                 return (false,"connection closed")
             case -3:

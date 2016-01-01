@@ -89,7 +89,7 @@ extension ViewController: NSTableViewDataSource {
             let (success, _) = con.connect(timeout: 10)
             con.close()
             
-            let message = success ? "\(NSLocalizedString("Elapsed Time", comment: "")): \(StatisticsHelper.getUptimeInMilliseconds() - start)ms" : NSLocalizedString("Connection Timeout", comment: "")
+            let message = success ? "\(ip) \(NSLocalizedString("Elapsed Time", comment: "")): \(StatisticsHelper.getUptimeInMilliseconds() - start)ms" : NSLocalizedString("Connection Timeout", comment: "")
             
             let notification = NSUserNotification()
             notification.title = NSLocalizedString("Test Connection Speed", comment: "")

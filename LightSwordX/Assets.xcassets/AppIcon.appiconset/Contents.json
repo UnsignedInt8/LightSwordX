@@ -3,7 +3,7 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "happy-16.png",
+      "filename" : "happy_16.png",
       "scale" : "1x"
     },
     {
@@ -14,7 +14,7 @@
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "happy-32.png",
+      "filename" : "happy_32.png",
       "scale" : "1x"
     },
     {
@@ -25,7 +25,7 @@
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "happy-128.png",
+      "filename" : "happy_128.png",
       "scale" : "1x"
     },
     {
@@ -36,7 +36,7 @@
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "happy-256.png",
+      "filename" : "happy_256.png",
       "scale" : "1x"
     },
     {
@@ -47,7 +47,7 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "happy-512.png",
+      "filename" : "happy_512.png",
       "scale" : "1x"
     },
     {

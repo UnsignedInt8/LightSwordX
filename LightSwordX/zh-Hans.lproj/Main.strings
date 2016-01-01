@@ -30,7 +30,7 @@
 "8WL-FF-sEa.title" = "代理模式:";
 
 /* Class = "NSButtonCell"; title = "Start LigthSwordX on system startup"; ObjectID = "8d1-XH-mmP"; */
-"8d1-XH-mmP.title" = "开机启动LightSwordX";
+"8d1-XH-mmP.title" = "开机启动 LightSwordX";
 
 /* Class = "NSWindow"; title = "LightSwordX"; ObjectID = "8fW-kc-wPs"; */
 "8fW-kc-wPs.title" = "LightSwordX";
@@ -106,12 +106,12 @@
 5. Fill in Proxy Server Address (eg. 127.0.0.1  1080, NOTE: No Password Required.)
 
 "; ObjectID = "Te6-Td-saK"; */
-"Te6-Td-saK.title" = "Tips:
+"Te6-Td-saK.title" = "提示:
 1. 打开系统偏好
 2. 选择 “网络”
-3. 点击右下角 “高级...” -> “代理”
+3. 点击 “高级...” -> “代理”
 4. 勾选 “SOCKS 代理”
-5. 填写代理服务器地址 (例如: 127.0.0.1  1080, 注意: 无需填写密码.)
+5. 填写代理服务器地址 (例如: 127.0.0.1  1080, 注意: 无需填写密码)
 
 ";
 

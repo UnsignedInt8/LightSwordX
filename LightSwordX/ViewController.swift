@@ -138,7 +138,7 @@ class ViewController: NSViewController {
         })
     }
     
-    func stopServerId(userServer: UserServer) {
+    func stopServer(userServer: UserServer) {
         if let s = sinq(runningServers).firstOrNil({ s in s.tag as! Int == userServer.id }) {
             s.stop()
             runningServers.removeAtIndex(runningServers.indexOf({ ss in ss == s })!)
@@ -247,6 +247,7 @@ extension ViewController: NSTabViewDelegate {
         }
         
         stopTimer()
+        saveWebsites()
         
         if identifier! == "Websites" {
             if blackListTextView == nil {
@@ -259,7 +260,6 @@ extension ViewController: NSTabViewDelegate {
             blackListTextView.string = blackList
             whiteListTextView.string = whiteList
             
-            saveWebsites()
             return
         }
         

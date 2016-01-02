@@ -53,7 +53,7 @@ extension ViewController: NSTableViewDataSource {
             return
         }
         
-        servers.removeAtIndex(selectedRow)
+        let removed = servers.removeAtIndex(selectedRow)
         serversTableView.reloadData()
         
         if (servers.count == 0) {
@@ -61,6 +61,7 @@ extension ViewController: NSTableViewDataSource {
         }
         
         saveServers(true)
+        stopServer(removed)
     }
     
     @IBAction func setAsDefaultServer(sender: NSButton) {
@@ -74,7 +75,7 @@ extension ViewController: NSTableViewDataSource {
             return
         }
         
-        stopServerId(selectedServer)
+        stopServer(selectedServer)
     }
     
     @IBAction func testConnectionSpeed(sender: NSButton) {

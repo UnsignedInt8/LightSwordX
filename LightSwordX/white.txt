@@ -18,6 +18,7 @@
 .aliyun.com
 .mmstat.com
 .xunlei.com
+bdimg.com
 .alicdn.com
 .alipay.com
 .aliyuncs.com
@@ -97,3 +98,5 @@ taobaocdn.com
 sogou.com
 .docin.com
 .v2ex.com
+.cocoachina.com
+.sspai.com

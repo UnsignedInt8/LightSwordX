@@ -1,6 +1,7 @@
 twitter.com
 youtube.com
 g.co
+t.co
 ggpht.com
 gmail.com
 gmodules.com

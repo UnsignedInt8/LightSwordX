@@ -1,2 +1,4 @@
 # LightSwordX
-LightSword for OS X
+
+LightSwordX is a SOCKS5 client for OS X.
+

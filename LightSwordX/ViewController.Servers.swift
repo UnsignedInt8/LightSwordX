@@ -23,6 +23,11 @@ extension ViewController: NSTableViewDataSource {
         let server = UserServer()
         server.id = servers.count
         
+        if servers.count == 0 {
+            server.address = "public1.lightsword.org"
+            server.port = 443
+        }
+        
         servers.append(server)
         serversTableView.reloadData()
         
@@ -90,12 +95,12 @@ extension ViewController: NSTableViewDataSource {
             let (success, _) = con.connect(timeout: 10)
             con.close()
             
-            let message = success ? "\(ip) \(NSLocalizedString("Elapsed Time", comment: "")): \(StatisticsHelper.getUptimeInMilliseconds() - start)ms" : NSLocalizedString("Connection Timeout", comment: "")
+            let message = success ? "\(NSLocalizedString("Elapsed Time", comment: "")): \(StatisticsHelper.getUptimeInMilliseconds() - start)ms\n\(ip) ✓" : NSLocalizedString("Connection Timeout", comment: "")
             
             let notification = NSUserNotification()
             notification.title = NSLocalizedString("Test Connection Speed", comment: "")
             notification.informativeText = message
-            notification.soundName = NSUserNotificationDefaultSoundName
+//            notification.soundName = NSUserNotificationDefaultSoundName
             
             NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
             

@@ -100,3 +100,4 @@ sogou.com
 .v2ex.com
 .cocoachina.com
 .sspai.com
+.duokan.com

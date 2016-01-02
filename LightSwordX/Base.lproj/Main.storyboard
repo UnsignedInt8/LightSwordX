@@ -288,7 +288,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField identifier="listenAddr" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vqH-lE-KBL">
-                                                            <rect key="frame" x="0.0" y="86" width="264" height="22"/>
+                                                            <rect key="frame" x="0.0" y="86" width="265" height="22"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Listening Address: 0.0.0.0, 127.0.0.1" drawsBackground="YES" id="kKq-2t-fwt">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -299,7 +299,7 @@
                                                             </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5cC-eW-HrN">
-                                                            <rect key="frame" x="270" y="89" width="8" height="17"/>
+                                                            <rect key="frame" x="271" y="89" width="8" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=":" id="RLb-g5-Plg">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -307,7 +307,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField identifier="listenPort" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1t8-Km-Wwo">
-                                                            <rect key="frame" x="284" y="86" width="48" height="22"/>
+                                                            <rect key="frame" x="285" y="86" width="47" height="22"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="1080" drawsBackground="YES" id="hpa-EM-orp">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -339,7 +339,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <comboBox identifier="proxyMode" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8XI-zV-QyV">
-                                                            <rect key="frame" x="0.0" y="29" width="267" height="26"/>
+                                                            <rect key="frame" x="0.0" y="29" width="268" height="26"/>
                                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Global" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="C4f-hN-IR5">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -677,7 +677,7 @@
                                                     </textFieldCell>
                                                 </textField>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Do-hi-VfB">
-                                                    <rect key="frame" x="15" y="17" width="383" height="17"/>
+                                                    <rect key="frame" x="15" y="17" width="375" height="17"/>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Source Code: https://github.com/SunshinyNeko/LightSwordX" id="xjN-cc-33o">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" red="0.18903386780104714" green="0.18903386780104714" blue="0.18903386780104714" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>

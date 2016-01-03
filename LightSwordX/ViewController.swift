@@ -128,6 +128,11 @@ class ViewController: NSViewController {
 
         server.startAsync({ s in
             if (!s) {
+                let notification = NSUserNotification()
+                notification.title = NSLocalizedString("Start Failed", comment: "")
+                notification.informativeText = NSString(format: NSLocalizedString("Port is used", comment: "Port: %d is used"), server.listenPort) as String
+                
+                NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
                 return
             }
             

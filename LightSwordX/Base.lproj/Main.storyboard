@@ -240,7 +240,7 @@
                                                         </textField>
                                                         <comboBox identifier="cipherAlgorithm" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-ft-xlb">
                                                             <rect key="frame" x="0.0" y="192" width="267" height="26"/>
-                                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Required" drawsBackground="YES" numberOfVisibleItems="5" id="YEI-dA-kwa">
+                                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Required" drawsBackground="YES" numberOfVisibleItems="5" id="YEI-dA-kwa">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -340,7 +340,7 @@
                                                         </textField>
                                                         <comboBox identifier="proxyMode" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8XI-zV-QyV">
                                                             <rect key="frame" x="0.0" y="29" width="267" height="26"/>
-                                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Global" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="C4f-hN-IR5">
+                                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Global" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="C4f-hN-IR5">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -483,10 +483,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="282"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="B3C-Ed-y2d" id="GLB-tm-T4P"/>
@@ -500,7 +500,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="OkA-Vd-bSl">
-                                                        <rect key="frame" x="223" y="1" width="16" height="282"/>
+                                                        <rect key="frame" x="224" y="1" width="15" height="282"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -530,10 +530,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="238" height="282"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="238" height="282"/>
+                                                                <size key="minSize" width="223" height="282"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="B3C-Ed-y2d" id="WgZ-G2-9oY"/>
@@ -547,7 +547,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Ue0-zu-Rku">
-                                                        <rect key="frame" x="223" y="1" width="16" height="282"/>
+                                                        <rect key="frame" x="224" y="1" width="15" height="282"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -671,7 +671,7 @@
                                                     </constraints>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="Te6-Td-saK">
                                                         <font key="font" metaFont="system"/>
-                                                        <string key="title">Tips: 1. Open System Preferences 2. Select Network 3. Click Advanced -&gt; Proxies 4. Select SOCKS Proxy 5. Fill in Proxy Server Address (eg. 127.0.0.1  1080, NOTE: No Password Required.)  </string>
+                                                        <string key="title">Tips: 1. Open System Preferences 2. Select Network 3. Click Advanced -&gt; Proxies 4. Select SOCKS Proxy 5. Fill in Proxy Server Address (eg. 127.0.0.1, Port: 1080, No Password Required.)  </string>
                                                         <color key="textColor" red="0.19588514397905754" green="0.19588514397905754" blue="0.19588514397905754" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>

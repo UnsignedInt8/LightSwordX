@@ -13,3 +13,8 @@
 
 "Stopped" = "已停止";
 "Running" = "运行中";
+
+// Local Server
+
+"Start Failed" = "本地服务器启动失败";
+"Port is used" = "端口号: %d 已被使用或拒绝访问，请更换其它端口号";

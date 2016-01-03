@@ -101,3 +101,6 @@ sogou.com
 .cocoachina.com
 .sspai.com
 .duokan.com
+sogoucdn.com
+.tsdm.net
+.pcbeta.com

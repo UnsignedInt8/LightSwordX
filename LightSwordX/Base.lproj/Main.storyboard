@@ -355,11 +355,11 @@
                                                             </connections>
                                                         </comboBox>
                                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="2XJ-S9-V5S">
-                                                            <rect key="frame" x="-2" y="2" width="126" height="18"/>
+                                                            <rect key="frame" x="-2" y="2" width="132" height="18"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="122" id="ueT-ea-VRD"/>
+                                                                <constraint firstAttribute="width" constant="128" id="ueT-ea-VRD"/>
                                                             </constraints>
-                                                            <buttonCell key="cell" type="check" title="Keep Connection" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tZb-9v-MfO">
+                                                            <buttonCell key="cell" type="check" title="Enable this Server" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tZb-9v-MfO">
                                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                 <font key="font" metaFont="system"/>
                                                             </buttonCell>
@@ -410,7 +410,7 @@
                                                         <constraint firstItem="UxA-ft-xlb" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="fR4-0A-IoB"/>
                                                         <constraint firstItem="DBr-bu-mt3" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="gKG-LM-ZQv"/>
                                                         <constraint firstItem="UxA-ft-xlb" firstAttribute="top" secondItem="DBr-bu-mt3" secondAttribute="bottom" constant="8" id="gk5-Pg-iRW"/>
-                                                        <constraint firstItem="HXS-f0-CGf" firstAttribute="leading" secondItem="2XJ-S9-V5S" secondAttribute="trailing" constant="40" id="j2g-6s-C6J"/>
+                                                        <constraint firstItem="HXS-f0-CGf" firstAttribute="leading" secondItem="2XJ-S9-V5S" secondAttribute="trailing" constant="34" id="j2g-6s-C6J"/>
                                                         <constraint firstItem="5cC-eW-HrN" firstAttribute="top" secondItem="Jc0-77-5DV" secondAttribute="bottom" constant="148" id="jcK-Ks-mRk"/>
                                                         <constraint firstItem="iMa-xv-wmL" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="mTb-eB-GXb"/>
                                                         <constraint firstItem="vqH-lE-KBL" firstAttribute="baseline" secondItem="5cC-eW-HrN" secondAttribute="firstBaseline" id="nIz-Yg-gkh"/>

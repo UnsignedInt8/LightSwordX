@@ -182,7 +182,7 @@
 "rP6-Tk-LZ4.title" = "服务器列表:";
 
 /* Class = "NSButtonCell"; title = "Keep Connection"; ObjectID = "tZb-9v-MfO"; */
-"tZb-9v-MfO.title" = "自动连接";
+"tZb-9v-MfO.title" = "启用服务器";
 
 /* Class = "NSMenu"; title = "LightSwordX"; ObjectID = "uQy-DD-JDr"; */
 "uQy-DD-JDr.title" = "LightSwordX";

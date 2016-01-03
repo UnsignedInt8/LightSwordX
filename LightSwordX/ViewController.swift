@@ -92,6 +92,8 @@ class ViewController: NSViewController {
     var totalSentBytes: UInt64 = 0
     var totalReceivedBytes: UInt64 = 0
     
+    let ipv4Regex = Regex("^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$")
+    
     @IBOutlet weak var serversTableView: NSTableView!
     @IBOutlet weak var serverDetailsView: NSView!
     @IBOutlet weak var serverAddressTextField: NSTextField!

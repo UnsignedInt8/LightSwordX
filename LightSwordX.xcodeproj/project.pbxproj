@@ -37,6 +37,7 @@
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
 		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
 		A24F83D31C3262FE0020AE85 /* ViewController.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */; };
+		A279FA661C38D6D50065F76C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279FA651C38D6D50065F76C /* Regex.swift */; };
 		A28092901C31421400EBA9E1 /* LightSwordXHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A29557471C313DF200C9A74C /* LightSwordXHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A28092921C31427000EBA9E1 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28092911C31427000EBA9E1 /* ServiceManagement.framework */; };
 		A295574A1C313DF200C9A74C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29557491C313DF200C9A74C /* AppDelegate.swift */; };
@@ -118,6 +119,7 @@
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
 		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
 		A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Settings.swift; sourceTree = "<group>"; };
+		A279FA651C38D6D50065F76C /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = Lib/Regex.swift; sourceTree = "<group>"; };
 		A28092911C31427000EBA9E1 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		A29557471C313DF200C9A74C /* LightSwordXHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordXHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A29557491C313DF200C9A74C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				A22E7ED71C26366A000785E3 /* Constants.swift */,
 				A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */,
 				A24197CB1C2F831E0037369C /* StatisticsHelper.swift */,
+				A279FA651C38D6D50065F76C /* Regex.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				A23964311C22A2D4009F2158 /* yudpsocket.swift in Sources */,
 				A23964301C22A2D4009F2158 /* yudpsocket.c in Sources */,
 				A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */,
+				A279FA661C38D6D50065F76C /* Regex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

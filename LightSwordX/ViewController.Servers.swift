@@ -100,7 +100,6 @@ extension ViewController: NSTableViewDataSource {
             let notification = NSUserNotification()
             notification.title = NSLocalizedString("Test Connection Speed", comment: "")
             notification.informativeText = message
-//            notification.soundName = NSUserNotificationDefaultSoundName
             
             NSUserNotificationCenter.defaultUserNotificationCenter().deliverNotification(notification)
             
@@ -171,6 +170,10 @@ extension ViewController: NSComboBoxDelegate {
             if (newValue.length == 0) {
                 newValue = "127.0.0.1"
             } else if (newValue == "localhost") {
+                newValue = "127.0.0.1"
+            }
+            
+            if ipv4Regex.test(newValue) && !["127.0.0.1", "0.0.0.0"].contains(newValue) {
                 newValue = "127.0.0.1"
             }
             

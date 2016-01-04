@@ -1,0 +1,20 @@
+// Connection Test
+
+"Test Connection Speed" = "Test Connection Speed";
+"Elapsed Time" = "Elapsed Time";
+"Connection Timeout" = "Connection Timeout";
+
+// Menu Bar
+
+"Preferences" = "Preferences";
+"Quit" = "Quit";
+
+// Status
+
+"Stopped" = "Stopped";
+"Running" = "Running";
+
+// Local Server
+
+"Start Failed" = "Start Failed";
+"Port is used" = "Port number: %d is used by other process or access denied";

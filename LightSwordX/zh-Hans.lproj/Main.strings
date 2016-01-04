@@ -1,0 +1,197 @@
+
+/* Class = "NSMenuItem"; title = "LightSwordX"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "LightSwordX";
+
+/* Class = "NSTextFieldCell"; placeholderString = "IPv4/Domain"; ObjectID = "1dW-tW-y1K"; */
+"1dW-tW-y1K.placeholderString" = "IPv4/Domain";
+
+/* Class = "NSTextFieldCell"; title = "Cipher Algorithm:"; ObjectID = "2EF-Gk-wm0"; */
+"2EF-Gk-wm0.title" = "加密方式 (OS X客户端仅在握手时使用): ";
+
+/* Class = "NSTextFieldCell"; title = "0 KB"; ObjectID = "40K-aO-fio"; */
+"40K-aO-fio.title" = "0 KB";
+
+/* Class = "NSTextFieldCell"; title = "Blocked Sites List:"; ObjectID = "4ox-Ns-yq2"; */
+"4ox-Ns-yq2.title" = "被屏蔽网址:";
+
+/* Class = "NSMenuItem"; title = "Quit LightSwordX"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "退出 LightSwordX";
+
+/* Class = "NSTabViewItem"; label = "Statistics"; ObjectID = "50s-kU-6kF"; */
+"50s-kU-6kF.label" = "统计";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "编辑";
+
+/* Class = "NSMenuItem"; title = "About LightSwordX"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "关于 LightSwordX";
+
+/* Class = "NSTextFieldCell"; title = "Proxy Mode:"; ObjectID = "8WL-FF-sEa"; */
+"8WL-FF-sEa.title" = "代理模式:";
+
+/* Class = "NSButtonCell"; title = "Start LigthSwordX on system startup"; ObjectID = "8d1-XH-mmP"; */
+"8d1-XH-mmP.title" = "开机启动 LightSwordX";
+
+/* Class = "NSWindow"; title = "LightSwordX"; ObjectID = "8fW-kc-wPs"; */
+"8fW-kc-wPs.title" = "LightSwordX";
+
+/* Class = "NSTextFieldCell"; title = "0 KB/s ↑"; ObjectID = "9mK-b0-W6S"; */
+"9mK-b0-W6S.title" = "0 KB/s ↑";
+
+/* Class = "NSTextFieldCell"; title = "Remote Server:"; ObjectID = "9zW-eR-W7U"; */
+"9zW-eR-W7U.title" = "服务器地址:";
+
+/* Class = "NSTabViewItem"; label = "Servers"; ObjectID = "A5f-Uf-vFi"; */
+"A5f-Uf-vFi.label" = "服务器";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "主菜单";
+
+/* Class = "NSViewController"; title = "LightSwordX"; ObjectID = "B3C-Ed-y2d"; */
+"B3C-Ed-y2d.title" = "LightSwordX";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "偏好…";
+
+/* Class = "NSComboBoxCell"; title = "Global"; ObjectID = "C4f-hN-IR5"; */
+"C4f-hN-IR5.title" = "全局";
+
+/* Class = "NSComboBoxCell"; C4f-hN-IR5.ibShadowedObjectValues[0] = "Global"; ObjectID = "C4f-hN-IR5"; */
+"C4f-hN-IR5.ibShadowedObjectValues[0]" = "全局代理";
+
+/* Class = "NSComboBoxCell"; C4f-hN-IR5.ibShadowedObjectValues[1] = "Blacklist only"; ObjectID = "C4f-hN-IR5"; */
+"C4f-hN-IR5.ibShadowedObjectValues[1]" = "仅黑名单(仅被封网址)";
+
+/* Class = "NSComboBoxCell"; C4f-hN-IR5.ibShadowedObjectValues[2] = "Global except whitelist"; ObjectID = "C4f-hN-IR5"; */
+"C4f-hN-IR5.ibShadowedObjectValues[2]" = "全局代理(白名单除外）";
+
+/* Class = "NSTextFieldCell"; placeholderString = "8900"; ObjectID = "DgL-yC-gyI"; */
+"DgL-yC-gyI.placeholderString" = "8900";
+
+/* Class = "NSTextFieldCell"; title = "◉ Stopped"; ObjectID = "Dlh-tC-hWx"; */
+"Dlh-tC-hWx.title" = "◉ 未启动";
+
+/* Class = "NSTabViewItem"; label = "Websites"; ObjectID = "EcX-pW-W6U"; */
+"EcX-pW-W6U.label" = "网址列表";
+
+/* Class = "NSTextFieldCell"; title = ":"; ObjectID = "FLy-ws-6rO"; */
+"FLy-ws-6rO.title" = ":";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "H8h-7b-M4v"; */
+"H8h-7b-M4v.title" = "查看";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "显示全部";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "服务";
+
+/* Class = "NSMenuItem"; title = "Hide LightSwordX"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "隐藏 LightSwordX";
+
+/* Class = "NSTextFieldCell"; title = "Listening:"; ObjectID = "OwG-wI-lyB"; */
+"OwG-wI-lyB.title" = "本地监听地址:";
+
+/* Class = "NSTextFieldCell"; title = ":"; ObjectID = "RLb-g5-Plg"; */
+"RLb-g5-Plg.title" = ":";
+
+/* Class = "NSTableColumn"; headerCell.title = "Address"; ObjectID = "Se1-fH-6G4"; */
+"Se1-fH-6G4.headerCell.title" = "地址";
+
+/* Class = "NSTextFieldCell"; title = "Tips:
+1. Open System Preferences
+2. Select Network
+3. Click Advanced -> Proxies
+4. Select SOCKS Proxy
+5. Fill in Proxy Server Address (eg. 127.0.0.1  1080, NOTE: No Password Required.)
+
+"; ObjectID = "Te6-Td-saK"; */
+"Te6-Td-saK.title" = "提示:
+1. 打开系统偏好
+2. 选择 “网络”
+3. 点击 “高级...” -> “代理”
+4. 勾选 “SOCKS 代理”
+5. 填写代理服务器地址 (例如: 127.0.0.1  1080, 注意: 无需填写密码)
+
+";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "隐藏其它";
+
+/* Class = "NSComboBoxCell"; placeholderString = "Required"; ObjectID = "YEI-dA-kwa"; */
+"YEI-dA-kwa.placeholderString" = "必填";
+
+/* Class = "NSComboBoxCell"; YEI-dA-kwa.ibShadowedObjectValues[0] = "aes-256-cfb"; ObjectID = "YEI-dA-kwa"; */
+"YEI-dA-kwa.ibShadowedObjectValues[0]" = "aes-256-cfb";
+
+/* Class = "NSComboBoxCell"; YEI-dA-kwa.ibShadowedObjectValues[1] = "aes-192-cfb"; ObjectID = "YEI-dA-kwa"; */
+"YEI-dA-kwa.ibShadowedObjectValues[1]" = "aes-192-cfb";
+
+/* Class = "NSComboBoxCell"; YEI-dA-kwa.ibShadowedObjectValues[2] = "aes-128-cfb"; ObjectID = "YEI-dA-kwa"; */
+"YEI-dA-kwa.ibShadowedObjectValues[2]" = "aes-128-cfb";
+
+/* Class = "NSSecureTextFieldCell"; placeholderString = "Required"; ObjectID = "Z5R-gf-Vfe"; */
+"Z5R-gf-Vfe.placeholderString" = "必填";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "窗口";
+
+/* Class = "NSTextFieldCell"; title = "Sent:"; ObjectID = "bYm-WL-eY4"; */
+"bYm-WL-eY4.title" = "已发送:";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "ciz-Oo-91w"; */
+"ciz-Oo-91w.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Received:"; ObjectID = "d6A-Ze-fIH"; */
+"d6A-Ze-fIH.title" = "已接收:";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "文件";
+
+/* Class = "NSButtonCell"; title = "Test Connection Speed"; ObjectID = "fWM-7s-Kmi"; */
+"fWM-7s-Kmi.title" = "测试连接速度";
+
+/* Class = "NSTabViewItem"; label = "Settings"; ObjectID = "gyd-cc-HxZ"; */
+"gyd-cc-HxZ.label" = "设置";
+
+/* Class = "NSTextFieldCell"; title = "White List:"; ObjectID = "h6R-RQ-s0t"; */
+"h6R-RQ-s0t.title" = "白名单:";
+
+/* Class = "NSTextFieldCell"; placeholderString = "1080"; ObjectID = "hpa-EM-orp"; */
+"hpa-EM-orp.placeholderString" = "1080";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "服务";
+
+/* Class = "NSMenuItem"; title = "Format"; ObjectID = "jxT-CU-nIS"; */
+"jxT-CU-nIS.title" = "格式";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Listening Address: 0.0.0.0, 127.0.0.1"; ObjectID = "kKq-2t-fwt"; */
+"kKq-2t-fwt.placeholderString" = "监听地址: 0.0.0.0, 127.0.0.1";
+
+/* Class = "NSTextFieldCell"; title = "0 KB/s ↓"; ObjectID = "kcC-Z5-c4O"; */
+"kcC-Z5-c4O.title" = "0 KB/s ↓";
+
+/* Class = "NSTextFieldCell"; title = "0 KB"; ObjectID = "q8v-Xs-Nzp"; */
+"q8v-Xs-Nzp.title" = "0 KB";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "qah-Sp-kt3"; */
+"qah-Sp-kt3.title" = "关闭";
+
+/* Class = "NSTextFieldCell"; title = "Servers List:"; ObjectID = "rP6-Tk-LZ4"; */
+"rP6-Tk-LZ4.title" = "服务器列表:";
+
+/* Class = "NSButtonCell"; title = "Keep Connection"; ObjectID = "tZb-9v-MfO"; */
+"tZb-9v-MfO.title" = "启用服务器";
+
+/* Class = "NSMenu"; title = "LightSwordX"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "LightSwordX";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "帮助";
+
+/* Class = "NSTextFieldCell"; title = "Source Code: https://github.com/SunshinyNeko/LightSwordX"; ObjectID = "xjN-cc-33o"; */
+"xjN-cc-33o.title" = "源码地址: https://github.com/SunshinyNeko/LightSwordX";
+
+/* Class = "NSTextFieldCell"; title = "Password:"; ObjectID = "xmv-oa-oyN"; */
+"xmv-oa-oyN.title" = "密码:";

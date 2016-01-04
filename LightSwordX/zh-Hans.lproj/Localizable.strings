@@ -1,0 +1,20 @@
+// Connection Test
+
+"Test Connection Speed" = "测试连接速度";
+"Elapsed Time" = "总耗时";
+"Connection Timeout" = "连接超时";
+
+// Menu Bar
+
+"Preferences" = "偏好设置";
+"Quit" = "退出";
+
+// Status
+
+"Stopped" = "已停止";
+"Running" = "运行中";
+
+// Local Server
+
+"Start Failed" = "本地服务器启动失败";
+"Port is used" = "端口号: %d 已被使用或拒绝访问，请更换其它端口号";

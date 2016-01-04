@@ -348,7 +348,7 @@
 				TargetAttributes = {
 					A23963DB1C2299C4009F2158 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = SAHM7A67B8;
+						DevelopmentTeam = T5N7G9B32Z;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -361,7 +361,7 @@
 					};
 					A29557461C313DF200C9A74C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = SAHM7A67B8;
+						DevelopmentTeam = T5N7G9B32Z;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;

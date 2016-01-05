@@ -62,7 +62,7 @@ class Socks5Server {
         while running {
             if let client = server.accept() {
                 dispatch_async(queue, { () -> Void in
-                    var data = client.read(100)
+                    var data = client.read(512)
                     if data == nil {
                         client.close()
                         return
@@ -75,13 +75,18 @@ class Socks5Server {
                         return
                     }
                     
-                    data = client.read(100)
+                    data = client.read(1500)
                     if data == nil {
                         client.close()
                         return
                     }
                     
-                    let request = Socks5Helper.refineDestination(data!)
+                    let request: (cmd: REQUEST_CMD, addr: String, port: Int, headerSize: Int)! = Socks5Helper.refineDestination(data!)
+                    if request == nil {
+                        client.close()
+                        return
+                    }
+                    
                     let connectLocal = sinq(self.localServers).any({ s in self.serverAddr.containsString(s)}) || self.bypassLocal.boolValue && sinq(self.localAreas).any({ s in request.addr.containsString(s)})
                     
                     switch(request.cmd) {
@@ -127,7 +132,7 @@ class Socks5Server {
         let (success, msg) = transitSocket.connect(timeout: timeout)
         if !success {
             client.close()
-            print(msg)
+            print(msg, destAddr)
             return
         }
         

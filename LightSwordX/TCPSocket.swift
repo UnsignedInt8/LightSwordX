@@ -8,16 +8,16 @@
 
 import Foundation
 
-@asmname("tcpsocket_connect") func c_tcpsocket_connect(host:UnsafePointer<Int8>, port:UInt16, timeout:Int32) -> Int32
+@asmname("tcpsocket_connect") func c_tcpsocket_connect(host:UnsafePointer<Int8>, port:Int32, timeout:Int32) -> Int32
 @asmname("tcpsocket_close") func c_tcpsocket_close(fd:Int32) -> Int32
 @asmname("tcpsocket_send") func c_tcpsocket_send(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32) -> Int32
 @asmname("tcpsocket_pull") func c_tcpsocket_pull(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32, timeout:Int32) -> Int32
-@asmname("tcpsocket_listen") func c_tcpsocket_listen(addr:UnsafePointer<Int8>, port:UInt16)->Int32
-@asmname("tcpsocket_accept") func c_tcpsocket_accept(socketfd:Int32, ip:UnsafePointer<Int8>, port:UnsafePointer<UInt16>) -> Int32
+@asmname("tcpsocket_listen") func c_tcpsocket_listen(addr:UnsafePointer<Int8>, port:Int32)->Int32
+@asmname("tcpsocket_accept") func c_tcpsocket_accept(socketfd:Int32, ip:UnsafePointer<Int8>, port:UnsafePointer<Int32>) -> Int32
 
 class TCPClient6: Socket {
     func connect(timeout t: Int32) -> (Bool, String) {
-        let r = c_tcpsocket_connect(self.addr, port: self.port, timeout: t)
+        let r = c_tcpsocket_connect(self.addr, port: Int32(self.port), timeout: t)
         
         if r > 0 {
             self.fd = r
@@ -102,7 +102,7 @@ class TCPClient6: Socket {
 class TCPServer6: Socket {
     
     func listen() -> (Bool, String) {
-        let fd = c_tcpsocket_listen(self.addr, port: self.port)
+        let fd = c_tcpsocket_listen(self.addr, port: Int32(self.port))
         if fd > 0 {
             self.fd = fd;
             return (true, "listening")
@@ -117,7 +117,7 @@ class TCPServer6: Socket {
         }
         
         var buf = [Int8](count: 16, repeatedValue: 0)
-        var port: UInt16 = 0
+        var port: Int32 = 0
         let clientfd = c_tcpsocket_accept(fd, ip: &buf, port: &port)
         if clientfd < 0 {
             return nil
@@ -125,7 +125,7 @@ class TCPServer6: Socket {
         
         let client = TCPClient6()
         client.fd = clientfd
-        client.port = port
+        client.port = Int(port)
         if let addr = String(CString: buf, encoding: NSUTF8StringEncoding) {
             client.addr = addr
         }

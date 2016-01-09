@@ -10,7 +10,7 @@ import Foundation
 
 class Socket {
     var addr: String
-    var port: UInt16
+    var port: Int
     var fd: Int32?
     
     init() {
@@ -18,7 +18,7 @@ class Socket {
         self.port = 0
     }
     
-    init(addr a: String, port p: UInt16) {
+    init(addr a: String, port p: Int) {
         self.addr = a
         self.port = p
     }

@@ -37,6 +37,8 @@
 		A24820411C2A4BCB00EE41A3 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820401C2A4BCB00EE41A3 /* Json.swift */; };
 		A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */; };
 		A24F83D31C3262FE0020AE85 /* ViewController.Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */; };
+		A2625F401C40B70D002A3719 /* TCPSocket.c in Sources */ = {isa = PBXBuildFile; fileRef = A2625F3F1C40B70D002A3719 /* TCPSocket.c */; };
+		A2625F411C40B70D002A3719 /* TCPSocket.c in Sources */ = {isa = PBXBuildFile; fileRef = A2625F3F1C40B70D002A3719 /* TCPSocket.c */; };
 		A279FA661C38D6D50065F76C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279FA651C38D6D50065F76C /* Regex.swift */; };
 		A28092901C31421400EBA9E1 /* LightSwordXHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = A29557471C313DF200C9A74C /* LightSwordXHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A28092921C31427000EBA9E1 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28092911C31427000EBA9E1 /* ServiceManagement.framework */; };
@@ -44,6 +46,8 @@
 		A295574E1C313DF200C9A74C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295574D1C313DF200C9A74C /* Assets.xcassets */; };
 		A29557511C313DF200C9A74C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295574F1C313DF200C9A74C /* Main.storyboard */; };
 		A2B3CAFD1C3268E500353F97 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3CAFC1C3268E500353F97 /* AppKeys.swift */; };
+		A2FC4EB71C40E2E2007595B1 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC4EB61C40E2E2007595B1 /* Socket.swift */; };
+		A2FC4EB91C40E375007595B1 /* TCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FC4EB81C40E375007595B1 /* TCPSocket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,7 @@
 		A24820401C2A4BCB00EE41A3 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json.swift; path = Lib/Json.swift; sourceTree = "<group>"; };
 		A24820421C2A4C1100EE41A3 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsHelper.swift; path = Lib/SettingsHelper.swift; sourceTree = "<group>"; };
 		A24F83D21C3262FE0020AE85 /* ViewController.Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.Settings.swift; sourceTree = "<group>"; };
+		A2625F3F1C40B70D002A3719 /* TCPSocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TCPSocket.c; path = Socket6/TCPSocket.c; sourceTree = "<group>"; };
 		A279FA651C38D6D50065F76C /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = Lib/Regex.swift; sourceTree = "<group>"; };
 		A28092911C31427000EBA9E1 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		A29557471C313DF200C9A74C /* LightSwordXHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightSwordXHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +133,8 @@
 		A29557521C313DF200C9A74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29557561C313E6E00C9A74C /* LightSwordXHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LightSwordXHelper.entitlements; sourceTree = "<group>"; };
 		A2B3CAFC1C3268E500353F97 /* AppKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppKeys.swift; path = Common/AppKeys.swift; sourceTree = "<group>"; };
+		A2FC4EB61C40E2E2007595B1 /* Socket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Socket.swift; path = Socket6/Socket.swift; sourceTree = "<group>"; };
+		A2FC4EB81C40E375007595B1 /* TCPSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPSocket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +211,7 @@
 				A248203B1C2A3CF400EE41A3 /* Models */,
 				A224C9411C252339008B64D3 /* Lib */,
 				A23964241C229F7F009F2158 /* Socks5 */,
+				A2625F3D1C40B5F1002A3719 /* Socket6 */,
 				A23963FD1C229F6D009F2158 /* Socket */,
 				A23963FC1C2299E6009F2158 /* LightSwordX.entitlements */,
 				A23964271C22A2D4009F2158 /* LightSwordX-Bridging-Header.h */,
@@ -257,6 +265,16 @@
 				A248203C1C2A3D0F00EE41A3 /* UserServer.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A2625F3D1C40B5F1002A3719 /* Socket6 */ = {
+			isa = PBXGroup;
+			children = (
+				A2625F3F1C40B70D002A3719 /* TCPSocket.c */,
+				A2FC4EB61C40E2E2007595B1 /* Socket.swift */,
+				A2FC4EB81C40E375007595B1 /* TCPSocket.swift */,
+			);
+			name = Socket6;
 			sourceTree = "<group>";
 		};
 		A29557481C313DF200C9A74C /* LightSwordXHelper */ = {
@@ -429,12 +447,14 @@
 			files = (
 				A248203F1C2A45CF00EE41A3 /* ViewController.Servers.swift in Sources */,
 				A248203D1C2A3D0F00EE41A3 /* UserServer.swift in Sources */,
+				A2FC4EB91C40E375007595B1 /* TCPSocket.swift in Sources */,
 				A239642F1C22A2D4009F2158 /* ytcpsocket.swift in Sources */,
 				A23964391C22BB9D009F2158 /* Socks5Helper.swift in Sources */,
 				A23964331C22AE82009F2158 /* Socks5Constants.swift in Sources */,
 				A22E6AA21C2D13B60032DFBE /* ViewController.Websites.swift in Sources */,
 				A23963E21C2299C4009F2158 /* ViewController.swift in Sources */,
 				A23964261C229FC5009F2158 /* Socks5Server.swift in Sources */,
+				A2FC4EB71C40E2E2007595B1 /* Socket.swift in Sources */,
 				A239642D1C22A2D4009F2158 /* ysocket.swift in Sources */,
 				A2B3CAFD1C3268E500353F97 /* AppKeys.swift in Sources */,
 				A224C9451C2528B0008B64D3 /* String.swift in Sources */,
@@ -442,6 +462,7 @@
 				A22E7ED81C26366A000785E3 /* Constants.swift in Sources */,
 				A23963E01C2299C4009F2158 /* AppDelegate.swift in Sources */,
 				A24197CC1C2F831E0037369C /* StatisticsHelper.swift in Sources */,
+				A2625F401C40B70D002A3719 /* TCPSocket.c in Sources */,
 				A239642E1C22A2D4009F2158 /* ytcpsocket.c in Sources */,
 				A24820431C2A4C1100EE41A3 /* SettingsHelper.swift in Sources */,
 				A224C9431C252369008B64D3 /* Crypto.swift in Sources */,
@@ -456,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2625F411C40B70D002A3719 /* TCPSocket.c in Sources */,
 				A23963F21C2299C4009F2158 /* LightSwordXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,11 +662,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LightSwordXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightSwordX/LightSwordXTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightSwordX.app/Contents/MacOS/LightSwordX";
 			};
 			name = Debug;
@@ -653,11 +678,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LightSwordXTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.lightsword.LightSwordXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightSwordX/LightSwordXTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightSwordX.app/Contents/MacOS/LightSwordX";
 			};
 			name = Release;

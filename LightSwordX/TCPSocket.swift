@@ -106,7 +106,12 @@ class TCPClient6: Socket {
 class TCPServer6: Socket {
     
     func listen() -> (Bool, String) {
-        let fd = c_tcpsocket_listen(self.addr, port: Int32(self.port))
+        var listenAddr: String! = ["127.0.0.1": "::1", "0.0.0.0": "::0"][self.addr]
+        if listenAddr == nil {
+            listenAddr = "::1"
+        }
+        
+        let fd = c_tcpsocket_listen(listenAddr, port: Int32(self.port))
         if fd > 0 {
             self.fd = fd;
             return (true, "listening")

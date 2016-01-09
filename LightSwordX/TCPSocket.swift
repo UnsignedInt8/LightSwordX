@@ -12,8 +12,9 @@ import Foundation
 @asmname("tcpsocket_close") func c_tcpsocket_close(fd:Int32) -> Int32
 @asmname("tcpsocket_send") func c_tcpsocket_send(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32) -> Int32
 @asmname("tcpsocket_pull") func c_tcpsocket_pull(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32, timeout:Int32) -> Int32
-@asmname("tcpsocket_listen") func c_tcpsocket_listen(addr:UnsafePointer<Int8>, port:Int32)->Int32
+@asmname("tcpsocket_listen") func c_tcpsocket_listen(addr:UnsafePointer<Int8>, port:Int32) -> Int32
 @asmname("tcpsocket_accept") func c_tcpsocket_accept(socketfd:Int32, ip:UnsafePointer<Int8>, port:UnsafePointer<Int32>) -> Int32
+@asmname("tcpsocket6_listen") func c_tcpsocket6_listen(addr: UnsafePointer<Int8>, port: Int32) -> Int32
 
 class TCPClient6: Socket {
     func connect(timeout t: Int) -> (Bool, String) {
@@ -106,12 +107,12 @@ class TCPClient6: Socket {
 class TCPServer6: Socket {
     
     func listen() -> (Bool, String) {
-        var listenAddr: String! = ["127.0.0.1": "::1", "0.0.0.0": "::0"][self.addr]
-        if listenAddr == nil {
-            listenAddr = "::1"
+        
+        if self.fd != nil {
+            return (false, "listening ready")
         }
         
-        let fd = c_tcpsocket_listen(listenAddr, port: Int32(self.port))
+        let fd = c_tcpsocket_listen(self.addr, port: Int32(self.port))
         if fd > 0 {
             self.fd = fd;
             return (true, "listening")
@@ -143,6 +144,7 @@ class TCPServer6: Socket {
     }
     
     func close() -> (Bool, String) {
+        
         guard let fd = self.fd else {
             return (false, "socket not open")
         }
@@ -151,4 +153,5 @@ class TCPServer6: Socket {
         self.fd = nil
         return (true, "closed")
     }
+
 }

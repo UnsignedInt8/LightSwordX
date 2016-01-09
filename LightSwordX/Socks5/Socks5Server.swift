@@ -35,7 +35,6 @@ class Socks5Server {
     
     private var server: TCPServer6!
     private var running = true
-    private var queryFailedCount = 0
     private var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     private let localAreas = ["10.", "192.168.", "localhost", "127.0.0.1", "172.16.", "::1", "169.254.0.0"]
     private let localServers = ["127.0.0.1", "localhost", "::1"]
@@ -196,24 +195,8 @@ class Socks5Server {
         if !success {
             client.close()
             print(msg)
-            
-            if msg == "query server fail" {
-                self.queryFailedCount++
-                
-                if queryFailedCount > 15 {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
-                        self.stop()
-                        self.startSync { s in }
-                    }
-                    
-                    queryFailedCount = 0
-                }
-            }
-            
             return
         }
-        
-        self.queryFailedCount = 0
         
         let (cipher, iv) = Crypto.createCipher(cipherAlgorithm, password: password)
         let pl = UInt8(arc4random() % 256)

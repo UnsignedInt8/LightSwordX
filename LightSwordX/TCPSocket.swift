@@ -26,6 +26,10 @@ class TCPClient6: Socket {
             switch r {
             case -1:
                 return (false, "query server fail")
+            case -2:
+                return (false,"connection closed")
+            case -3:
+                return (false,"connect timeout")
             default:
                 return (false, "unknow err")
             }

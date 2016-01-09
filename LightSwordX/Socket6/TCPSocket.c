@@ -47,26 +47,27 @@ int tcpsocket_connect(const char* host, int port, int timeout) {
     }
 
     int socketfd = -1;
+    int error = -1;
+    int errorlen = sizeof(error);
     
     for (p = addrs; p != NULL; p = p->ai_next) {
         
         socketfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
         if (socketfd == -1) {
+            error = socketfd;
             continue;
         }
         
-        char s[512];
+//        char s[512];
         if (p->ai_family == AF_INET) {
             struct sockaddr_in* ipv4 = (struct sockaddr_in*)(p->ai_addr);
             ipv4->sin_port = htons(port);
-            inet_ntop(AF_INET, &(ipv4->sin_addr), s, 512);
+//            inet_ntop(AF_INET, &(ipv4->sin_addr), s, 512);
         } else if(p->ai_family == AF_INET6) {
             struct sockaddr_in6* ipv6 = (struct sockaddr_in6*)(p->ai_addr);
             ipv6->sin6_port = htons(port);
-            inet_ntop(p->ai_family, &(ipv6->sin6_addr), s, 512);
+//            inet_ntop(p->ai_family, &(ipv6->sin6_addr), s, 512);
         }
-        
-        printf("%s:%d\n", s, port);
         
         tcpsocket_set_block(socketfd, 0); // Set non-block socket
         connect(socketfd, p->ai_addr, p->ai_addrlen);
@@ -83,11 +84,9 @@ int tcpsocket_connect(const char* host, int port, int timeout) {
         if (retval <= 0) {
             close(socketfd); // Error or Timeout
             socketfd = -1;
+            error = retval < 0 ? -2 : -3;
             continue;
         }
-        
-        int error = 0;
-        int errorlen = sizeof(error);
         
         getsockopt(socketfd, SOL_SOCKET, SO_ERROR, &error, (socklen_t *)&errorlen);
         if (error != 0) {
@@ -106,7 +105,7 @@ int tcpsocket_connect(const char* host, int port, int timeout) {
     
     freeaddrinfo(addrs);
     
-    return socketfd;
+    return socketfd > 0 ? socketfd : error;
 }
 
 int tcpsocket_close(int socketfd) {

@@ -38,6 +38,7 @@ cnbetacdn.com
 waerfa.com
 .microsoft.com
 .apple.com
+.cdn-apple.com
 .ifanr.com
 .meizu.com
 .mi.com

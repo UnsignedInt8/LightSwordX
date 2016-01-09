@@ -40,7 +40,7 @@ int tcpsocket_connect(const char* host, int port, int timeout) {
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
     
-    int s = getaddrinfo(host, NULL, NULL, &addrs);
+    int s = getaddrinfo(host, NULL, &hints, &addrs);
     if (s != 0) {
         fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(s));
         return -1;
@@ -49,14 +49,27 @@ int tcpsocket_connect(const char* host, int port, int timeout) {
     int socketfd = -1;
     
     for (p = addrs; p != NULL; p = p->ai_next) {
-    
-        if ((socketfd = socket(addrs->ai_family, addrs->ai_socktype, addrs->ai_protocol) < 0)) {
-            socketfd = -1;
+        
+        socketfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
+        if (socketfd == -1) {
             continue;
         }
         
+        char s[512];
+        if (p->ai_family == AF_INET) {
+            struct sockaddr_in* ipv4 = (struct sockaddr_in*)(p->ai_addr);
+            ipv4->sin_port = htons(port);
+            inet_ntop(AF_INET, &(ipv4->sin_addr), s, 512);
+        } else if(p->ai_family == AF_INET6) {
+            struct sockaddr_in6* ipv6 = (struct sockaddr_in6*)(p->ai_addr);
+            ipv6->sin6_port = htons(port);
+            inet_ntop(p->ai_family, &(ipv6->sin6_addr), s, 512);
+        }
+        
+        printf("%s:%d\n", s, port);
+        
         tcpsocket_set_block(socketfd, 0); // Set non-block socket
-        connect(socketfd, addrs->ai_addr, addrs->ai_addrlen);
+        connect(socketfd, p->ai_addr, p->ai_addrlen);
         
         fd_set fdset;
         FD_ZERO(&fdset);
@@ -161,42 +174,70 @@ int tcpsocket_accept(int socketfd, char* remoteip, int* remoteport) {
     return connfd > 0 ? connfd : -1;
 }
 
-int tcpsocket_listen(const char* addr, int port) {
-    int socketfd = -1;
-    struct addrinfo hints, *servinfo, *p;
-    int rv;
+int tcpsocket_listen(const char *addr,int port){
     
-    memset(&hints, 0, sizeof(hints));
-    hints.ai_family = AF_UNSPEC;
-    hints.ai_socktype = SOCK_STREAM;
-    hints.ai_flags = AI_PASSIVE; // Used for self IP
+    int socketfd=socket(AF_INET, SOCK_STREAM, 0);
+    int reuseon = 1;
     
-    char portnumber[6];
-    memset(portnumber, 0, 6);
-    snprintf(portnumber, 6, "%d", port);
+    setsockopt( socketfd, SOL_SOCKET, SO_REUSEADDR, &reuseon, sizeof(reuseon) );
     
-    if ((rv = getaddrinfo(NULL, portnumber, &hints, &servinfo)) != 0) {
-        fprintf(stderr, "%s", gai_strerror(rv));
-        return -1;
+    //bind
+    struct sockaddr_in serv_addr;
+    memset( &serv_addr, '\0', sizeof(serv_addr));
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = inet_addr(addr);
+    serv_addr.sin_port = htons(port);
+    
+    int r = bind(socketfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr));
+    if(r == 0){
+        if (listen(socketfd, 128) == 0) {
+            return socketfd;
+        }else{
+            return -2;//listen error
+        }
+    }else{
+        return -1;//bind error
     }
-    
-    for (p = servinfo; p != NULL; p = p->ai_next) {
-        if ((socketfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol) == -1)) {
-            continue;
-        }
-        
-        if (bind(socketfd, p->ai_addr, p->ai_addrlen) != 0) {
-            close(socketfd);
-            continue;
-        }
-        
-        if (listen(socketfd, 256) == 0) {
-            break;
-        }
-    }
-    
-    freeaddrinfo(servinfo);
-    
-    return socketfd;
 }
+
+//int tcpsocket_listen(const char* addr, int port) {
+//    int socketfd = -1;
+//    struct addrinfo hints, *servinfo, *p;
+//    int rv;
+//    
+//    memset(&hints, 0, sizeof(hints));
+//    hints.ai_family = AF_UNSPEC;
+//    hints.ai_socktype = SOCK_STREAM;
+//    hints.ai_flags = AI_PASSIVE; // Used for self IP
+//    
+//    char portnumber[6];
+//    memset(portnumber, 0, 6);
+//    snprintf(portnumber, 6, "%d", port);
+//    
+//    if ((rv = getaddrinfo(NULL, portnumber, &hints, &servinfo)) != 0) {
+//        fprintf(stderr, "%s", gai_strerror(rv));
+//        return -1;
+//    }
+//    
+//    for (p = servinfo; p != NULL; p = p->ai_next) {
+//        if ((socketfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol) == -1)) {
+//            continue;
+//        }
+//        
+//        int r = 0;
+//        if ((r = bind(socketfd, p->ai_addr, p->ai_addrlen)) != 0) {
+//            fprintf(stderr, "listen %s\n", gai_strerror(r));
+//            close(socketfd);
+//            continue;
+//        }
+//        
+//        if (listen(socketfd, 256) == 0) {
+//            break;
+//        }
+//    }
+//    
+//    freeaddrinfo(servinfo);
+//    
+//    return socketfd;
+//}
 

@@ -33,7 +33,7 @@ class Socks5Server {
     private(set) var sentBytes: UInt64 = 0
     private(set) var receivedBytes: UInt64 = 0
     
-    private var server: TCPServer!
+    private var server: TCPServer6!
     private var running = true
     private var queryFailedCount = 0
     private var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -49,7 +49,7 @@ class Socks5Server {
     func startSync(callback: (success: Bool) -> Void) {
         running = true
         
-        server = TCPServer(addr: listenAddr, port: listenPort)
+        server = TCPServer6(addr: listenAddr, port: listenPort)
         let (success, msg) = server.listen()
         if !success {
             running = false
@@ -127,8 +127,8 @@ class Socks5Server {
         return (success: true, reply: [0x5, code.rawValue])
     }
     
-    private func connectToTarget(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient) {
-        let transitSocket = TCPClient(addr: destAddr, port: destPort)
+    private func connectToTarget(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient6) {
+        let transitSocket = TCPClient6(addr: destAddr, port: destPort)
         let (success, msg) = transitSocket.connect(timeout: timeout)
         if !success {
             client.close()
@@ -171,7 +171,7 @@ class Socks5Server {
         })
     }
     
-    private func connectToServer(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient) {
+    private func connectToServer(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient6) {
         switch proxyMode {
         case .BLACK:
             if blackList != nil && sinq(blackList).any({ l in destAddr.endsWith(l) }) {
@@ -191,7 +191,7 @@ class Socks5Server {
             break
         }
 
-        let proxySocket = TCPClient(addr: serverAddr, port: serverPort)
+        let proxySocket = TCPClient6(addr: serverAddr, port: serverPort)
         let (success, msg) = proxySocket.connect(timeout: timeout)
         if !success {
             client.close()

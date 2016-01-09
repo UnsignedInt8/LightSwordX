@@ -16,8 +16,8 @@ import Foundation
 @asmname("tcpsocket_accept") func c_tcpsocket_accept(socketfd:Int32, ip:UnsafePointer<Int8>, port:UnsafePointer<Int32>) -> Int32
 
 class TCPClient6: Socket {
-    func connect(timeout t: Int32) -> (Bool, String) {
-        let r = c_tcpsocket_connect(self.addr, port: Int32(self.port), timeout: t)
+    func connect(timeout t: Int) -> (Bool, String) {
+        let r = c_tcpsocket_connect(self.addr, port: Int32(self.port), timeout: Int32(t))
         
         if r > 0 {
             self.fd = r
@@ -84,13 +84,13 @@ class TCPClient6: Socket {
         return (false, "error")
     }
     
-    func read(exceptLength: Int, timeout: Int32 = -1) -> [UInt8]? {
+    func read(exceptLength: Int, timeout: Int = -1) -> [UInt8]? {
         guard let fd = self.fd else {
             return nil
         }
         
         var buf = [UInt8](count: exceptLength, repeatedValue: 0)
-        let read = c_tcpsocket_pull(fd, buff: buf, len: Int32(exceptLength), timeout: timeout)
+        let read = c_tcpsocket_pull(fd, buff: buf, len: Int32(exceptLength), timeout: Int32(timeout))
         if read <= 0 {
             return nil
         }

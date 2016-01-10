@@ -39,4 +39,20 @@ extension String {
         }
         return false
     }
+    
+    func indexOf(target: String) -> Int? {
+        guard let range = self.rangeOfString(target) else {
+            return nil
+        }
+        
+        return startIndex.distanceTo(range.startIndex)
+    }
+    
+    func lastIndexOf(target: String) -> Int {
+        guard let range = self.rangeOfString(target, options: .BackwardsSearch) else {
+            return -1
+        }
+        
+        return startIndex.distanceTo(range.startIndex)
+    }
 }

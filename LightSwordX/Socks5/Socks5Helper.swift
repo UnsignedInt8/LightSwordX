@@ -33,9 +33,15 @@ class Socks5Helper {
                 dnLength = 16
                 let bytes = sinq(rawData).skip(4).take(16).toArray()
                 addr = bytes.reduce("", combine: { (s: String, n: UInt8) -> String in
-                    return ""
+                    let length = s.length
+                    let lastSemicolon = s.lastIndexOf(":")
+                    
+                    if length == 4 {
+                        return "\(s):\(String(format: "%02x", n))"
+                    }
+                    
+                    return length - lastSemicolon == 5 ? "\(s):\(String(format: "%02x", n))" : "\(s)\(String(format: "%02x", n))"
                 })
-                
                 break
                 
             default:

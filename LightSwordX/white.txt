@@ -12,7 +12,7 @@
 .baidu.com
 .baidupcs.com
 .bdstatic.com
-.zhihu.com
+zhihu.com
 .zhimg.com
 .360.com
 .qhimg.com
@@ -75,6 +75,8 @@ nuomi.com
 .ifeng.com
 .ifengimg.com
 suning.com
+.ipinyou.com
+.zhiziyun.com
 .yhd.com
 .yihaodianimg.com
 qidian.com
@@ -194,3 +196,16 @@ kugou.com
 .tankr.net
 .guokr.com
 .bfcdn.com
+soso.com
+xinhuanet.com
+haosou.com
+.tongdaohui.com
+huanqiu.com
+.oeeee.com
+kouclo.com
+bing.com
+live.com
+.yunshipei.com
+meiqia.com
+.youboy.com
+hupu.com

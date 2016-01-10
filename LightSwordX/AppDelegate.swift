@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         
         if let button = statusItem.button {
             button.image = NSImage(named: "TrayIcon")
+            button.image?.template = true
             button.alternateImage = NSImage(named: "TrayIconHighlight")
         }
         

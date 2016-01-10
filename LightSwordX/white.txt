@@ -8,6 +8,7 @@
 .163.com
 .sohu.com
 .baidu.com
+.baidupcs.com
 .bdstatic.com
 .zhihu.com
 .zhimg.com
@@ -32,6 +33,7 @@ alipayobjects.com
 .qiniu.com
 .iqiyi.com
 douban.com
+.wscdns.com
 cnbeta.com
 cnbetacdn.com
 .36kr.com

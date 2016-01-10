@@ -87,6 +87,9 @@ qidian.com
 1ting.com
 .xiami.com
 bilibili.com
+.hdslb.com
+.hdslb.net
+tietuku.com
 .u17.com
 bankcomm.com
 acfun.tv

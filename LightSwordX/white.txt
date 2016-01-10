@@ -21,7 +21,7 @@ zhihu.com
 .aliyun.com
 .mmstat.com
 .xunlei.com
-bdimg.com
+.bdimg.com
 .alicdn.com
 .alipay.com
 .aliyuncs.com

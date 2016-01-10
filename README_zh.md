@@ -1,5 +1,7 @@
 # LightSwordX
 
+[English](./README.md)
+
 LightSwordX 是一款基于 OS X 10.10+ 的 SOCKS5 代理客户端应用
 
 LightSwordX 是完全开源的，你可以下载源码并且在 Mac 上编译，或者从 Mac App Store 上购买。

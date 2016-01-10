@@ -218,9 +218,12 @@ int tcpsocket_listen(const char *addr,int port){
     }
 }
 
-int tcpsocket6_listen(const char* ipv6addr, int port) {
+int tcpsocket6_listen(const char* addr, int port) {
     
     int socketfd = socket(AF_INET6, SOCK_STREAM, 0);
+    
+    int reuse = 1;
+    setsockopt(socketfd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
     
     if (socketfd < 0) {
         return socketfd;
@@ -231,14 +234,17 @@ int tcpsocket6_listen(const char* ipv6addr, int port) {
     sa.sin6_port = htons(port);
     sa.sin6_family = AF_INET6;
     sa.sin6_len = sizeof(sa);
-    inet_pton(AF_INET6, ipv6addr, &(sa.sin6_addr));
+    inet_pton(AF_INET6, addr, &(sa.sin6_addr));
     
     int b = bind(socketfd, (struct sockaddr *) &sa, sizeof(sa));
     if (b != 0) {
+        fprintf(stderr, "%s\n", gai_strerror(b));
         return -1;
     }
     
-    if (listen(socketfd, 128) !=0 ) {
+    int l = listen(socketfd, 128);
+    if (l !=0 ) {
+        fprintf(stderr, "%s\n", gai_strerror(b));
         return -2;
     }
     

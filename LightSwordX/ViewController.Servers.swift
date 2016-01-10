@@ -24,7 +24,7 @@ extension ViewController: NSTableViewDataSource {
         server.id = servers.count
         
         if servers.count == 0 {
-            server.address = "public1.lightsword.org"
+            server.address = "public1.2jien.com"
             server.port = 443
         }
         

@@ -30,6 +30,19 @@ Price: $0.99
 
 LightSwordX is an open-source software, everyone can download the source code and compile it on Mac without any cost. But you may know **maintenance is the most expensive part** of software. No one can live without money! So, as a developer, I hope people would use and buy it. Thanks.
 
+Features
+---
+
+✓ Enable mutli proxy servers simultaneously
+
+✓ IPv6
+
+✓ Whitelist & Blacklist
+
+✓ Start self on system startup
+
+✓ Traffic statistics
+
 Privacy Policy
 ---
 

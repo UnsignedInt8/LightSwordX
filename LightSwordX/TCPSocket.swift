@@ -112,7 +112,7 @@ class TCPServer6: Socket {
             return (false, "listening ready")
         }
         
-        let fd = c_tcpsocket_listen(self.addr, port: Int32(self.port))
+        let fd = c_tcpsocket6_listen(self.addr, port: Int32(self.port))
         if fd > 0 {
             self.fd = fd;
             return (true, "listening")

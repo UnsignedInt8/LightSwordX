@@ -11,6 +11,10 @@ import SINQ
 
 class Socks5Helper {
     static func refineDestination(rawData: [UInt8]) -> (cmd: REQUEST_CMD, addr: String, port: Int, headerSize: Int)? {
+        if rawData.count < 4 {
+            return nil
+        }
+        
         if let cmd = REQUEST_CMD(rawValue: rawData[1]) {
             
             let atyp = rawData[3]
@@ -45,7 +49,7 @@ class Socks5Helper {
                 break
                 
             default:
-                break
+                return nil
             }
             
             let headerSize = Int(4 + (atyp == ATYP.DN.rawValue ? 1 : 0) + dnLength + 2)

@@ -38,6 +38,7 @@ class Socks5Server {
     private var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     private let localAreas = ["10.", "192.168.", "localhost", "127.0.0.1", "172.16.", "::1", "169.254.0.0"]
     private let localServers = ["127.0.0.1", "localhost", "::1"]
+    private let bufferSize = 1520
     
     func startAsync(callback: (success: Bool) -> Void) {
         dispatch_async(queue) {
@@ -61,26 +62,25 @@ class Socks5Server {
         while running {
             if let client = server.accept() {
                 dispatch_async(queue, { () -> Void in
-                    var data = client.read(512)
-                    if data == nil {
+                    guard let hello = client.read(768) else {
                         client.close()
                         return
                     }
                     
-                    let (success, reply) = self.handleHandshake(data!)
+                    let (success, reply) = self.handleHandshake(hello)
                     client.send(data: reply)
+                    
                     if !success {
                         client.close()
                         return
                     }
                     
-                    data = client.read(1500)
-                    if data == nil {
+                    guard let data = client.read(self.bufferSize) else {
                         client.close()
                         return
                     }
                     
-                    let request: (cmd: REQUEST_CMD, addr: String, port: Int, headerSize: Int)! = Socks5Helper.refineDestination(data!)
+                    let request: (cmd: REQUEST_CMD, addr: String, port: Int, headerSize: Int)! = Socks5Helper.refineDestination(data)
                     if request == nil {
                         client.close()
                         return
@@ -93,9 +93,9 @@ class Socks5Server {
                         break
                     case .CONNECT:
                         if (connectLocal) {
-                            self.connectToTarget(request.addr, destPort: request.port, requestBuf: data!, client: client)
+                            self.connectToTarget(request.addr, destPort: request.port, requestBuf: data, client: client)
                         } else {
-                            self.connectToServer(request.addr, destPort: request.port, requestBuf: data!, client: client)
+                            self.connectToServer(request.addr, destPort: request.port, requestBuf: data, client: client)
                         }
                         
                         break
@@ -120,6 +120,10 @@ class Socks5Server {
     }
     
     private func handleHandshake(data: [UInt8]) -> (success: Bool, reply: [UInt8]) {
+        if data.count < 2 {
+            return (success: false, reply: [0x5, Authentication.NONE.rawValue])
+        }
+        
         let methodCount = data[1]
         let code = sinq(data).skip(2).take(Int(methodCount)).contains(Authentication.NOAUTH.rawValue) ? Authentication.NOAUTH : Authentication.NONE
         
@@ -145,7 +149,7 @@ class Socks5Server {
         
         dispatch_async(queue, { () -> Void in
             while true {
-                if let data = client.read(1500, timeout: self.timeout) {
+                if let data = client.read(self.bufferSize, timeout: self.timeout) {
                     transitSocket.send(data: data)
                     self.sentBytes += UInt64(data.count)
                 } else {
@@ -158,7 +162,7 @@ class Socks5Server {
         
         dispatch_async(queue, { () -> Void in
             while true {
-                if let data = transitSocket.read(1500, timeout: self.timeout) {
+                if let data = transitSocket.read(self.bufferSize, timeout: self.timeout) {
                     client.send(data: data)
                     self.receivedBytes += UInt64(data.count)
                 } else {
@@ -225,7 +229,7 @@ class Socks5Server {
         
         dispatch_async(queue, { () -> Void in
             while true {
-                if let data = client.read(1500, timeout: self.timeout) {
+                if let data = client.read(self.bufferSize, timeout: self.timeout) {
                     proxySocket.send(data: data.map{ n in n ^ pl })
                     self.sentBytes += UInt64(data.count)
                 } else {
@@ -238,7 +242,7 @@ class Socks5Server {
         
         dispatch_async(queue, { () -> Void in
             while true {
-                if let data = proxySocket.read(1500, timeout: self.timeout) {
+                if let data = proxySocket.read(self.bufferSize, timeout: self.timeout) {
                     client.send(data: data.map{ n in n ^ paddingSize })
                     self.receivedBytes += UInt64(data.count)
                 } else {

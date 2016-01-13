@@ -53,9 +53,12 @@ class Socks5Helper {
             }
             
             let headerSize = Int(4 + (atyp == ATYP.DN.rawValue ? 1 : 0) + dnLength + 2)
+            if rawData.count < headerSize {
+                return nil
+            }
+            
             let littleEndian = [rawData[headerSize - 2], rawData[headerSize - 1]]
-            var port = UnsafePointer<UInt16>(littleEndian).memory
-            port = port.bigEndian
+            let port = UnsafePointer<UInt16>(littleEndian).memory.bigEndian
             return ( cmd, addr, Int(port), headerSize )
         }
         

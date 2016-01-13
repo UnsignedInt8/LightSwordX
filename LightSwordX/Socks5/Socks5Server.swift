@@ -255,7 +255,7 @@ class Socks5Server {
                     self.sentBytes += UInt64(data.count)
                     retry = 0
                 } else {
-                    if retry <= 10 {
+                    if retry < 10 {
                         retry++
                         print("retry", retry)
                         continue
@@ -274,11 +274,15 @@ class Socks5Server {
             while true {
                 if let data = proxySocket.read(self.bufferSize, timeout: self.timeout) {
                     client.send(data: data.map{ n in n ^ paddingSize })
+
+                    if retry > 0 {
+                        print("retry 0 - ", retry)
+                    }
                     
                     self.receivedBytes += UInt64(data.count)
                     retry = 0
                 } else {
-                    if retry <= 10 {
+                    if retry < 10 {
                         retry++
                         print("retry", retry)
                         continue

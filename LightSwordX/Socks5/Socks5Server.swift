@@ -148,11 +148,20 @@ class Socks5Server {
         client.send(data: reply)
         
         dispatch_async(queue, { () -> Void in
+            var retry = 0
+            
             while true {
                 if let data = client.read(self.bufferSize, timeout: self.timeout) {
                     transitSocket.send(data: data)
+                    
                     self.sentBytes += UInt64(data.count)
+                    retry = 0
                 } else {
+                    if retry <= 10 {
+                        retry++
+                        continue
+                    }
+                    
                     client.close()
                     transitSocket.close()
                     break
@@ -161,11 +170,20 @@ class Socks5Server {
         })
         
         dispatch_async(queue, { () -> Void in
+            var retry = 0
+            
             while true {
                 if let data = transitSocket.read(self.bufferSize, timeout: self.timeout) {
                     client.send(data: data)
+                    
                     self.receivedBytes += UInt64(data.count)
+                    retry = 0
                 } else {
+                    if retry <= 10 {
+                        retry++
+                        continue
+                    }
+                    
                     client.close()
                     transitSocket.close()
                     break
@@ -228,11 +246,21 @@ class Socks5Server {
         print("connected:", destAddr)
         
         dispatch_async(queue, { () -> Void in
+            var retry = 0
+            
             while true {
                 if let data = client.read(self.bufferSize, timeout: self.timeout) {
                     proxySocket.send(data: data.map{ n in n ^ pl })
+                    
                     self.sentBytes += UInt64(data.count)
+                    retry = 0
                 } else {
+                    if retry <= 10 {
+                        retry++
+                        print("retry", retry)
+                        continue
+                    }
+                    
                     proxySocket.close()
                     client.close()
                     break
@@ -241,11 +269,21 @@ class Socks5Server {
         })
         
         dispatch_async(queue, { () -> Void in
+            var retry = 0
+            
             while true {
                 if let data = proxySocket.read(self.bufferSize, timeout: self.timeout) {
                     client.send(data: data.map{ n in n ^ paddingSize })
+                    
                     self.receivedBytes += UInt64(data.count)
+                    retry = 0
                 } else {
+                    if retry <= 10 {
+                        retry++
+                        print("retry", retry)
+                        continue
+                    }
+                    
                     proxySocket.close()
                     client.close()
                     break
@@ -253,6 +291,7 @@ class Socks5Server {
             }
         })
     }
+    
 }
 
 extension Socks5Server: Equatable {

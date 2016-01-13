@@ -132,19 +132,29 @@ int tcpsocket_close(int socketfd) {
 }
 
 int tcpsocket_pull(int socketfd, char* data, int len, int timeout) {
+//    if (timeout > 0) {
+//        fd_set fdset;
+//        FD_ZERO(&fdset);
+//        FD_SET(socketfd, &fdset);
+//        
+//        struct timeval tv;
+//        tv.tv_usec = 0;
+//        tv.tv_sec = timeout;
+//        
+//        int ret = select(socketfd + 1, &fdset, NULL, NULL, &tv);
+//        if (ret <= 0) {
+//            fprintf(stderr, "select: %d \n", ret);
+//            return ret;
+//        }
+//    }
+    
     if (timeout > 0) {
-        fd_set fdset;
-        FD_ZERO(&fdset);
-        FD_SET(socketfd, &fdset);
-        
         struct timeval tv;
-        tv.tv_usec = 0;
-        tv.tv_sec = timeout;
         
-        int ret = select(socketfd + 1, &fdset, NULL, NULL, &tv);
-        if (ret <= 0) {
-            return ret;
-        }
+        tv.tv_sec = timeout;
+        tv.tv_usec = 0;
+        
+        setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
     }
     
     return (int)read(socketfd, data, len);

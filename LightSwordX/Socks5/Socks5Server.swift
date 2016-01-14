@@ -164,12 +164,19 @@ class Socks5Server {
         var bytes: UInt64 = 0
         var retry = 0
         var readSize = self.bufferSize
+        var accidentalFailure = 0
         
         while true {
             let (data, errno) = readSocket.read(readSize)
             
             guard data != nil else {
                 if errno == 0 {
+                    
+                    if accidentalFailure < 2 {
+                        accidentalFailure++
+                        continue
+                    }
+                    
                     readSocket.close()
                     writeSocket.close()
                     break

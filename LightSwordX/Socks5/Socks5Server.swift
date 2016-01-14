@@ -177,6 +177,7 @@ class Socks5Server {
                         continue
                     }
                     
+                    print("closed successful")
                     readSocket.close()
                     writeSocket.close()
                     break

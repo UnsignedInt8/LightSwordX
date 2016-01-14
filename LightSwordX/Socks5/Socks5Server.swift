@@ -38,7 +38,7 @@ class Socks5Server {
     private var queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
     private let localAreas = ["10.", "192.168.", "localhost", "127.0.0.1", "172.16.", "::1", "169.254.0.0"]
     private let localServers = ["127.0.0.1", "localhost", "::1"]
-    private let bufferSize = 1520
+    private let bufferSize = 4096
     
     func startAsync(callback: (success: Bool) -> Void) {
         dispatch_async(queue) {
@@ -172,7 +172,7 @@ class Socks5Server {
             guard data != nil else {
                 if errno == 0 {
                     
-                    if accidentalFailure < 10 {
+                    if accidentalFailure < 12 {
                         accidentalFailure++
                         continue
                     }
@@ -184,6 +184,7 @@ class Socks5Server {
                 
                 switch errno {
                 case -1:
+                    print("closed failure:", accidentalFailure)
                     readSocket.close()
                     writeSocket.close()
                     return bytes
@@ -227,7 +228,8 @@ class Socks5Server {
             }
             
             if accidentalFailure > 0 {
-                print("recovery from failure -", accidentalFailure)
+                print("recovered from failure -", accidentalFailure)
+                accidentalFailure--
             }
             
             writeSocket.send(data: secret != nil ? data!.map{ n in n ^ secret! } : data!)

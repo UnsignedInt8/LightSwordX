@@ -27,7 +27,7 @@ class TCPClient6: Socket {
         } else {
             switch r {
             case -1:
-                return (false, "query server fail")
+                return (false, "failed to query server")
             case -2:
                 return (false,"connection closed")
             case -3:

@@ -172,7 +172,7 @@ class Socks5Server {
             guard data != nil else {
                 if errno == 0 {
                     
-                    if accidentalFailure < 2 {
+                    if accidentalFailure < 10 {
                         accidentalFailure++
                         continue
                     }
@@ -226,8 +226,8 @@ class Socks5Server {
                 break
             }
             
-            if retry > 0 {
-                print("recovery from failure -", retry)
+            if accidentalFailure > 0 {
+                print("recovery from failure -", accidentalFailure)
             }
             
             writeSocket.send(data: secret != nil ? data!.map{ n in n ^ secret! } : data!)

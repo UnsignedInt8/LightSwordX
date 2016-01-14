@@ -64,12 +64,13 @@ class Socks5Server {
                 dispatch_async(queue, { () -> Void in
                     client.timeout = self.timeout
                     
-                    guard let hello = client.read(768) else {
+                    let (data: hello, _) = client.read(768)
+                    guard hello != nil else {
                         client.close()
                         return
                     }
                     
-                    let (success, reply) = self.handleHandshake(hello)
+                    let (success, reply) = self.handleHandshake(hello!)
                     client.send(data: reply)
                     
                     if !success {
@@ -77,12 +78,13 @@ class Socks5Server {
                         return
                     }
                     
-                    guard let data = client.read(self.bufferSize) else {
+                    let (data, _) = client.read(self.bufferSize)
+                    guard data != nil else {
                         client.close()
                         return
                     }
                     
-                    let request: (cmd: REQUEST_CMD, addr: String, port: Int, headerSize: Int)! = Socks5Helper.refineDestination(data)
+                    let request: (cmd: REQUEST_CMD, addr: String, port: Int, headerSize: Int)! = Socks5Helper.refineDestination(data!)
                     if request == nil {
                         client.close()
                         return
@@ -95,9 +97,9 @@ class Socks5Server {
                         break
                     case .CONNECT:
                         if (connectLocal) {
-                            self.connectToTarget(request.addr, destPort: request.port, requestBuf: data, client: client)
+                            self.connectToTarget(request.addr, destPort: request.port, requestBuf: data!, client: client)
                         } else {
-                            self.connectToServer(request.addr, destPort: request.port, requestBuf: data, client: client)
+                            self.connectToServer(request.addr, destPort: request.port, requestBuf: data!, client: client)
                         }
                         
                         break
@@ -150,48 +152,84 @@ class Socks5Server {
         client.send(data: reply)
         
         dispatch_async(queue, { () -> Void in
-            var retry = 0
-            
-            while true {
-                if let data = client.read(self.bufferSize) {
-                    transitSocket.send(data: data)
-                    
-                    self.sentBytes += UInt64(data.count)
-                    retry = 0
-                } else {
-                    if retry <= 10 {
-                        retry++
-                        continue
-                    }
-                    
-                    client.close()
-                    transitSocket.close()
-                    break
-                }
-            }
+            self.sentBytes += self.exchangeSocket(client, writeSocket: transitSocket)
         })
         
         dispatch_async(queue, { () -> Void in
-            var retry = 0
+            self.receivedBytes += self.exchangeSocket(transitSocket, writeSocket: client)
+        })
+    }
+    
+    private func exchangeSocket(readSocket: TCPClient6, writeSocket: TCPClient6, secret: UInt8? = nil) -> UInt64 {
+        var bytes: UInt64 = 0
+        var retry = 0
+        var readSize = self.bufferSize
+        
+        while true {
+            let (data, errno) = readSocket.read(readSize)
             
-            while true {
-                if let data = transitSocket.read(self.bufferSize) {
-                    client.send(data: data)
-                    
-                    self.receivedBytes += UInt64(data.count)
-                    retry = 0
-                } else {
-                    if retry <= 10 {
-                        retry++
-                        continue
-                    }
-                    
-                    client.close()
-                    transitSocket.close()
+            guard data != nil else {
+                if errno == 0 {
+                    print("closed successful")
+                    readSocket.close()
+                    writeSocket.close()
                     break
                 }
+                
+                switch errno {
+                case -1:
+                    readSocket.close()
+                    writeSocket.close()
+                    return bytes
+                    
+                case EAGAIN:
+                    print("try again")
+                    continue
+                    
+                case EINVAL:
+                    print("EINVAL")
+                    fallthrough
+                case EFAULT:
+                    print("EFAULT")
+                    readSize += readSize
+                    break
+                    
+                case EBADF:
+                    print("EBADF")
+                    break
+                case EIO:
+                    print("EIO")
+                    break
+                case EINTR:
+                    print("EINTR")
+                    break
+                default:
+                    break
+                }
+                
+                print("error:", errno)
+                
+                if retry < 7 {
+                    retry++
+                    print("retry", retry)
+                    continue
+                }
+                
+                readSocket.close()
+                writeSocket.close()
+                break
             }
-        })
+            
+            if retry > 0 {
+                print("recovery from failure -", retry)
+            }
+            
+            writeSocket.send(data: secret != nil ? data!.map{ n in n ^ secret! } : data!)
+            bytes += UInt64(data!.count)
+            retry = 0
+        }
+        
+        return bytes
     }
     
     private func connectToServer(destAddr: String, destPort: Int, requestBuf: [UInt8], client: TCPClient6) {
@@ -229,16 +267,16 @@ class Socks5Server {
         
         proxySocket.send(data: sinq(iv).concat(et).toArray())
         
-        let data: [UInt8]! = proxySocket.read(1024)
+        let (data, _) = proxySocket.read(1024)
         if data == nil {
             client.close()
             proxySocket.close()
             return
         }
         
-        let riv = sinq(data).take(iv.count).toArray()
+        let riv = sinq(data!).take(iv.count).toArray()
         let (cipher: decipher, _) = Crypto.createCipher(cipherAlgorithm, password: password, iv: riv)
-        let rlBuf = sinq(data).skip(iv.count).toArray()
+        let rlBuf = sinq(data!).skip(iv.count).toArray()
         var reBuf = try! decipher.decrypt(rlBuf, padding: nil)
         let paddingSize = reBuf[0]
         
@@ -248,53 +286,11 @@ class Socks5Server {
         print("connected:", destAddr)
         
         dispatch_async(queue, { () -> Void in
-            var retry = 0
-            
-            while true {
-                if let data = client.read(self.bufferSize) {
-                    proxySocket.send(data: data.map{ n in n ^ pl })
-                    
-                    self.sentBytes += UInt64(data.count)
-                    retry = 0
-                } else {
-                    if retry < 10 {
-                        retry++
-                        print("retry", retry)
-                        continue
-                    }
-                    
-                    proxySocket.close()
-                    client.close()
-                    break
-                }
-            }
+            self.sentBytes += self.exchangeSocket(client, writeSocket: proxySocket, secret: pl)
         })
         
         dispatch_async(queue, { () -> Void in
-            var retry = 0
-            
-            while true {
-                if let data = proxySocket.read(self.bufferSize) {
-                    client.send(data: data.map{ n in n ^ paddingSize })
-
-                    if retry > 0 {
-                        print("retry 0 - ", retry)
-                    }
-                    
-                    self.receivedBytes += UInt64(data.count)
-                    retry = 0
-                } else {
-                    if retry < 10 {
-                        retry++
-                        print("retry", retry)
-                        continue
-                    }
-                    
-                    proxySocket.close()
-                    client.close()
-                    break
-                }
-            }
+            self.receivedBytes += self.exchangeSocket(proxySocket, writeSocket: client, secret: paddingSize)
         })
     }
     

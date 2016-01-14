@@ -90,18 +90,18 @@ class TCPClient6: Socket {
         return (false, "error")
     }
     
-    func read(exceptLength: Int) -> [UInt8]? {
+    func read(exceptLength: Int) -> (data: [UInt8]?, errno: Int32) {
         guard let fd = self.fd else {
-            return nil
+            return (data: nil, errno: -1)
         }
         
         var buf = [UInt8](count: exceptLength, repeatedValue: 0)
         let read = c_tcpsocket_read(fd, buff: buf, len: Int32(exceptLength))
         if read <= 0 {
-            return nil
+            return (data: nil, errno: 0)
         }
         
-        return Array(buf[0...Int(read - 1)])
+        return (data: Array(buf[0...Int(read - 1)]), errno: read)
     }
     
     var timeout: Int {

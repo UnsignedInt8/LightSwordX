@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B3C-Ed-y2d">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -378,13 +376,11 @@
                                                         <constraint firstAttribute="trailing" secondItem="UxA-ft-xlb" secondAttribute="trailing" constant="68" id="1R6-iW-XHg"/>
                                                         <constraint firstAttribute="trailing" secondItem="HXS-f0-CGf" secondAttribute="trailing" id="1Tm-ew-Fwk"/>
                                                         <constraint firstItem="DBr-bu-mt3" firstAttribute="top" secondItem="tLz-gS-MnF" secondAttribute="bottom" constant="8" id="3su-Pw-hJi"/>
-                                                        <constraint firstItem="vqH-lE-KBL" firstAttribute="firstBaseline" secondItem="5cC-eW-HrN" secondAttribute="baseline" id="4Ci-ll-Ivn"/>
                                                         <constraint firstItem="8EA-lm-t0S" firstAttribute="top" secondItem="UxA-ft-xlb" secondAttribute="bottom" constant="8" id="8Gl-zw-bNJ"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="296" id="9ZF-82-baF"/>
                                                         <constraint firstItem="1t8-Km-Wwo" firstAttribute="width" secondItem="mIT-kx-D6r" secondAttribute="width" id="F5p-be-yIb"/>
                                                         <constraint firstItem="i14-i0-AsW" firstAttribute="top" secondItem="1xq-7E-ppc" secondAttribute="top" id="FAo-Js-22o"/>
                                                         <constraint firstItem="vqH-lE-KBL" firstAttribute="top" secondItem="iMa-xv-wmL" secondAttribute="bottom" constant="8" id="FGD-Tx-FM3"/>
-                                                        <constraint firstItem="vqH-lE-KBL" firstAttribute="baseline" secondItem="1t8-Km-Wwo" secondAttribute="firstBaseline" id="Fhx-Qs-69c"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="332" id="GOi-6i-8jr"/>
                                                         <constraint firstAttribute="trailing" secondItem="mIT-kx-D6r" secondAttribute="trailing" id="Gyp-zF-nqX"/>
                                                         <constraint firstItem="tw4-3U-vVZ" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="Hcp-I3-83A"/>
@@ -401,22 +397,20 @@
                                                         <constraint firstItem="1t8-Km-Wwo" firstAttribute="leading" secondItem="5cC-eW-HrN" secondAttribute="trailing" constant="8" id="Tka-Qz-Qyi"/>
                                                         <constraint firstItem="tLz-gS-MnF" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="Vh4-1e-9pT"/>
                                                         <constraint firstItem="vqH-lE-KBL" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="VyC-OB-XCl"/>
+                                                        <constraint firstItem="jca-Pf-MFZ" firstAttribute="top" secondItem="vqH-lE-KBL" secondAttribute="bottom" constant="8" id="X0y-mV-mlR"/>
                                                         <constraint firstItem="Jc0-77-5DV" firstAttribute="top" secondItem="1xq-7E-ppc" secondAttribute="top" constant="25" id="Xcu-Kt-Vta"/>
                                                         <constraint firstAttribute="trailing" secondItem="1t8-Km-Wwo" secondAttribute="trailing" id="YUp-Wl-7hM"/>
                                                         <constraint firstItem="2XJ-S9-V5S" firstAttribute="top" secondItem="8XI-zV-QyV" secondAttribute="bottom" constant="15" id="b09-gD-lMd"/>
                                                         <constraint firstItem="iMa-xv-wmL" firstAttribute="top" secondItem="tw4-3U-vVZ" secondAttribute="bottom" constant="8" id="d9p-NK-blC"/>
                                                         <constraint firstItem="8EA-lm-t0S" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="dHd-oO-gIR"/>
-                                                        <constraint firstAttribute="bottom" secondItem="jca-Pf-MFZ" secondAttribute="bottom" constant="61" id="edF-pc-7z9"/>
-                                                        <constraint firstItem="jca-Pf-MFZ" firstAttribute="top" secondItem="vqH-lE-KBL" secondAttribute="bottom" constant="8" id="f2H-Wk-0Mp"/>
                                                         <constraint firstItem="UxA-ft-xlb" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="fR4-0A-IoB"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2XJ-S9-V5S" secondAttribute="bottom" constant="4" id="fiL-qQ-67Y"/>
                                                         <constraint firstItem="DBr-bu-mt3" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="gKG-LM-ZQv"/>
                                                         <constraint firstItem="UxA-ft-xlb" firstAttribute="top" secondItem="DBr-bu-mt3" secondAttribute="bottom" constant="8" id="gk5-Pg-iRW"/>
                                                         <constraint firstItem="HXS-f0-CGf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2XJ-S9-V5S" secondAttribute="trailing" constant="34" id="j2g-6s-C6J"/>
                                                         <constraint firstItem="5cC-eW-HrN" firstAttribute="top" secondItem="Jc0-77-5DV" secondAttribute="bottom" constant="148" id="jcK-Ks-mRk"/>
                                                         <constraint firstItem="iMa-xv-wmL" firstAttribute="leading" secondItem="1xq-7E-ppc" secondAttribute="leading" id="mTb-eB-GXb"/>
-                                                        <constraint firstItem="vqH-lE-KBL" firstAttribute="baseline" secondItem="5cC-eW-HrN" secondAttribute="firstBaseline" id="nIz-Yg-gkh"/>
                                                         <constraint firstItem="8XI-zV-QyV" firstAttribute="top" secondItem="jca-Pf-MFZ" secondAttribute="bottom" constant="8" id="oS6-xz-m0Q"/>
-                                                        <constraint firstItem="vqH-lE-KBL" firstAttribute="baseline" secondItem="1t8-Km-Wwo" secondAttribute="baseline" id="omY-Zd-xH6"/>
                                                         <constraint firstItem="5cC-eW-HrN" firstAttribute="leading" secondItem="vqH-lE-KBL" secondAttribute="trailing" constant="8" id="pO3-eb-CqZ"/>
                                                         <constraint firstItem="tLz-gS-MnF" firstAttribute="top" secondItem="i14-i0-AsW" secondAttribute="bottom" constant="8" id="sJT-yZ-GBt"/>
                                                         <constraint firstItem="tw4-3U-vVZ" firstAttribute="top" secondItem="8EA-lm-t0S" secondAttribute="bottom" constant="8" symbolic="YES" id="zPZ-rv-sDD"/>
@@ -747,7 +741,7 @@
                 </viewController>
                 <customObject id="s1g-JA-Cfe" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="782"/>
+            <point key="canvasLocation" x="64" y="781.5"/>
         </scene>
     </scenes>
     <resources>

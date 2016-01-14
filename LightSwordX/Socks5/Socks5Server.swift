@@ -170,7 +170,6 @@ class Socks5Server {
             
             guard data != nil else {
                 if errno == 0 {
-                    print("closed successful")
                     readSocket.close()
                     writeSocket.close()
                     break
@@ -268,7 +267,7 @@ class Socks5Server {
         proxySocket.send(data: sinq(iv).concat(et).toArray())
         
         let (data, _) = proxySocket.read(1024)
-        if data == nil {
+        if data == nil || data?.count < iv.count {
             client.close()
             proxySocket.close()
             return

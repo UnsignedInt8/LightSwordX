@@ -12,6 +12,7 @@ class Socket {
     var addr: String
     var port: Int
     var fd: Int32?
+    internal var _timeout = -1
     
     init() {
         self.addr = ""

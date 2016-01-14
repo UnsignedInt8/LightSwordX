@@ -11,10 +11,11 @@ import Foundation
 @asmname("tcpsocket_connect") func c_tcpsocket_connect(host:UnsafePointer<Int8>, port:Int32, timeout:Int32) -> Int32
 @asmname("tcpsocket_close") func c_tcpsocket_close(fd:Int32) -> Int32
 @asmname("tcpsocket_send") func c_tcpsocket_send(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32) -> Int32
-@asmname("tcpsocket_pull") func c_tcpsocket_pull(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32, timeout:Int32) -> Int32
+@asmname("tcpsocket_read") func c_tcpsocket_read(fd:Int32, buff:UnsafePointer<UInt8>, len:Int32) -> Int32
 @asmname("tcpsocket_listen") func c_tcpsocket_listen(addr:UnsafePointer<Int8>, port:Int32) -> Int32
 @asmname("tcpsocket_accept") func c_tcpsocket_accept(socketfd:Int32, ip:UnsafePointer<Int8>, port:UnsafePointer<Int32>) -> Int32
 @asmname("tcpsocket6_listen") func c_tcpsocket6_listen(addr: UnsafePointer<Int8>, port: Int32) -> Int32
+@asmname("set_socket_timeout") func c_set_socket_timeout(socketfd: Int32, timeout: Int) -> Void
 
 class TCPClient6: Socket {
     func connect(timeout t: Int) -> (Bool, String) {
@@ -89,18 +90,32 @@ class TCPClient6: Socket {
         return (false, "error")
     }
     
-    func read(exceptLength: Int, timeout: Int = -1) -> [UInt8]? {
+    func read(exceptLength: Int) -> [UInt8]? {
         guard let fd = self.fd else {
             return nil
         }
         
         var buf = [UInt8](count: exceptLength, repeatedValue: 0)
-        let read = c_tcpsocket_pull(fd, buff: buf, len: Int32(exceptLength), timeout: Int32(timeout))
+        let read = c_tcpsocket_read(fd, buff: buf, len: Int32(exceptLength))
         if read <= 0 {
             return nil
         }
         
         return Array(buf[0...Int(read - 1)])
+    }
+    
+    var timeout: Int {
+        get {
+            return _timeout
+        }
+        set {
+            guard let fd = self.fd else {
+                return
+            }
+            
+            c_set_socket_timeout(fd, timeout: newValue)
+            _timeout = newValue
+        }
     }
 }
 

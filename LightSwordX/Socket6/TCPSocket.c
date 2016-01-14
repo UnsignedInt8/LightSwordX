@@ -131,32 +131,7 @@ int tcpsocket_close(int socketfd) {
     return close(socketfd);
 }
 
-int tcpsocket_pull(int socketfd, char* data, int len, int timeout) {
-//    if (timeout > 0) {
-//        fd_set fdset;
-//        FD_ZERO(&fdset);
-//        FD_SET(socketfd, &fdset);
-//        
-//        struct timeval tv;
-//        tv.tv_usec = 0;
-//        tv.tv_sec = timeout;
-//        
-//        int ret = select(socketfd + 1, &fdset, NULL, NULL, &tv);
-//        if (ret <= 0) {
-//            fprintf(stderr, "select: %d \n", ret);
-//            return ret;
-//        }
-//    }
-    
-    if (timeout > 0) {
-        struct timeval tv;
-        
-        tv.tv_sec = timeout;
-        tv.tv_usec = 0;
-        
-        setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
-    }
-    
+int tcpsocket_read(int socketfd, char* data, int len) {
     return (int)read(socketfd, data, len);
 }
 
@@ -261,3 +236,14 @@ int tcpsocket6_listen(const char* addr, int port) {
     return socketfd;
 }
 
+void set_socket_timeout(int socketfd, int timeout) {
+    
+    if (timeout < 0) return;
+    
+    struct timeval tv;
+    
+    tv.tv_sec = timeout > 0 ? timeout : 0;
+    tv.tv_usec = 0;
+    
+    setsockopt(socketfd, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
+}

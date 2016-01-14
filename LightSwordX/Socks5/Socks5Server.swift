@@ -62,6 +62,8 @@ class Socks5Server {
         while running {
             if let client = server.accept() {
                 dispatch_async(queue, { () -> Void in
+                    client.timeout = self.timeout
+                    
                     guard let hello = client.read(768) else {
                         client.close()
                         return
@@ -151,7 +153,7 @@ class Socks5Server {
             var retry = 0
             
             while true {
-                if let data = client.read(self.bufferSize, timeout: self.timeout) {
+                if let data = client.read(self.bufferSize) {
                     transitSocket.send(data: data)
                     
                     self.sentBytes += UInt64(data.count)
@@ -173,7 +175,7 @@ class Socks5Server {
             var retry = 0
             
             while true {
-                if let data = transitSocket.read(self.bufferSize, timeout: self.timeout) {
+                if let data = transitSocket.read(self.bufferSize) {
                     client.send(data: data)
                     
                     self.receivedBytes += UInt64(data.count)
@@ -227,7 +229,7 @@ class Socks5Server {
         
         proxySocket.send(data: sinq(iv).concat(et).toArray())
         
-        let data: [UInt8]! = proxySocket.read(1024, timeout: timeout)
+        let data: [UInt8]! = proxySocket.read(1024)
         if data == nil {
             client.close()
             proxySocket.close()
@@ -249,7 +251,7 @@ class Socks5Server {
             var retry = 0
             
             while true {
-                if let data = client.read(self.bufferSize, timeout: self.timeout) {
+                if let data = client.read(self.bufferSize) {
                     proxySocket.send(data: data.map{ n in n ^ pl })
                     
                     self.sentBytes += UInt64(data.count)
@@ -272,7 +274,7 @@ class Socks5Server {
             var retry = 0
             
             while true {
-                if let data = proxySocket.read(self.bufferSize, timeout: self.timeout) {
+                if let data = proxySocket.read(self.bufferSize) {
                     client.send(data: data.map{ n in n ^ paddingSize })
 
                     if retry > 0 {

@@ -76,6 +76,7 @@ nuomi.com
 .ifeng.com
 .ifengimg.com
 suning.com
+.gtimg.com
 .ipinyou.com
 .zhiziyun.com
 .yhd.com

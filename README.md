@@ -22,7 +22,7 @@ LightSwordX has a built-in remote proxy server that is free for everyone. Of cou
 
 You can buy it from Mac App Store:
 
-[<img src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/mac/images/badge-download-on-the-mac-app-store.svg">](https://apple.com)
+[<img src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/mac/images/badge-download-on-the-mac-app-store.svg">](https://itunes.apple.com/us/app/lightswordx/id1071607364?ls=1&mt=12)
 
 Price: $0.99
 

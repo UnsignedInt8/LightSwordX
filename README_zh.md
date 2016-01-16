@@ -26,7 +26,7 @@ LightSwordX 内置一台由网友免费提供的公用代理服务器，当然�
 
 从 Mac App Store 购买:
 
-[<img src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/mac/images/badge-download-on-the-mac-app-store.svg">](https://apple.com)
+[<img src="https://devimages.apple.com.edgekey.net/app-store/marketing/guidelines/mac/images/badge-download-on-the-mac-app-store.svg">](https://itunes.apple.com/us/app/lightswordx/id1071607364?ls=1&mt=12)
 
 价格: $0.99
 

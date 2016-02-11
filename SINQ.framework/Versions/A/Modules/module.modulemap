@@ -1,0 +1,10 @@
+framework module SINQ {
+  umbrella header "SINQ.h"
+
+  export *
+  module * { export * }
+}
+
+module SINQ.Swift {
+    header "SINQ-Swift.h"
+}
